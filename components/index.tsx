@@ -51,7 +51,7 @@ export default function Conf({
             <>
               <Hero />
               <Form />
-              <LearnMore />
+              {/*<LearnMore />*/}
             </>
           ) : (
             <Ticket
