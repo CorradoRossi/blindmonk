@@ -1,7 +1,7 @@
 {
-  "name": "Virtual Event Starter Kit",
-  "short_name": "Virtual Event Starter Kit",
-  "description": "Virtual Event Starter Kit -> https://demo.vercel.events",
+  "name": "Blind Monk",
+  "short_name": "Blind Monk",
+  "description": "What do you see",
   "display": "standalone",
   "start_url": "/",
   "theme_color": "#fff",
@@ -9,12 +9,12 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/icon-192x192.png",
+      "src": "/tri-circle-purple.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/icon-512x512.png",
+      "src": "/tri-circle-purple.png",
       "type": "image/png",
       "sizes": "512x512"
     }
