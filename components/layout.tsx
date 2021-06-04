@@ -28,9 +28,7 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
               <MobileMenu key={router.asPath} />
               <Link href="/">
                 {/* eslint-disable-next-line */}
-                <a className={styles.logo}>
-                  <Logo />
-                </a>
+                <a className={styles.logo}>{/*<Logo />*/}</a>
               </Link>
             </div>
             <div className={styles.tabs}>
