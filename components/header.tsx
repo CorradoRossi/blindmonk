@@ -1,4 +1,4 @@
-import styles from './header.module.css';
+import styles from 'styles/header.module.css';
 
 type Props = {
   hero: React.ReactNode;

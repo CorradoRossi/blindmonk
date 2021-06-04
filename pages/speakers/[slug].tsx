@@ -12,7 +12,7 @@ type Props = {
   speaker: Speaker;
 };
 
-export default function SpeakerPage({ speaker }: Props) {
+export default function ProfilePage({ speaker }: Props) {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION

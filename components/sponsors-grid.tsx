@@ -2,11 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
 import { Sponsor } from '@lib/types';
-import styles from './sponsors-grid.module.css';
+import styles from 'styles/sponsors-grid.module.css';
 
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   return (
-    <Link key={sponsor.name} href={`/expo/${sponsor.slug}`}>
+    <Link key={sponsor.name} href={`/wallet/${sponsor.slug}`}>
       <a
         role="button"
         tabIndex={0}

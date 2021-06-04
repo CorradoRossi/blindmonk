@@ -3,7 +3,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/icon-github';
 import { Speaker } from '@lib/types';
-import styles from './speaker-section.module.css';
+import styles from 'styles/speaker-section.module.css';
 
 const TwitterIcon = () => (
   <svg width={24} viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@ type Props = {
 export default function SpeakerSection({ speaker }: Props) {
   return (
     <>
-      <Link href="/speakers">
+      <Link href="/collection">
         <a className={styles.backlink}>
           <svg
             viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ export default function SpeakerSection({ speaker }: Props) {
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          Back to speakers
+          Back to collection
         </a>
       </Link>
       <div key={speaker.name} className={styles.container}>

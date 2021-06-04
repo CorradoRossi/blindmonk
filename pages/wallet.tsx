@@ -22,7 +22,7 @@ export default function SchedulePage({ allStages }: Props) {
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Schedule" description={meta.description} />
+        <Header hero="Wallet" description={meta.description} />
         <Schedule allStages={allStages} />
       </Layout>
     </Page>

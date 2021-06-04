@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Speaker } from '@lib/types';
-import styles from './speakers-grid.module.css';
+import styles from 'styles/speakers-grid.module.css';
 
 type Props = {
   speakers: Speaker[];

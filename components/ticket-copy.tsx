@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import cn from 'classnames';
 import { SITE_URL } from '@lib/constants';
-import styleUtils from './utils.module.css';
+import styleUtils from 'styles/utils.module.css';
 import IconCopy from './icons/icon-copy';
-import styles from './ticket-copy.module.css';
+import styles from 'styles/ticket-copy.module.css';
 
 type Props = {
   username: string;

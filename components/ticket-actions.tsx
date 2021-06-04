@@ -5,8 +5,8 @@ import IconTwitter from './icons/icon-twitter';
 import IconLinkedin from './icons/icon-linkedin';
 import IconDownload from './icons/icon-download';
 import LoadingDots from './loading-dots';
-import styleUtils from './utils.module.css';
-import styles from './ticket-actions.module.css';
+import styleUtils from 'styles/utils.module.css';
+import styles from 'styles/ticket-actions.module.css';
 
 type Props = {
   username: string;

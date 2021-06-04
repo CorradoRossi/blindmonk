@@ -1,6 +1,6 @@
 import px from '@lib/to-pixels';
 import cn from 'classnames';
-import styles from './loading-dots.module.css';
+import styles from 'styles/loading-dots.module.css';
 
 interface Props {
   size?: number;

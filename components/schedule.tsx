@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { Stage, Talk } from '@lib/types';
-import styles from './schedule.module.css';
+import styles from 'styles/schedule.module.css';
 import TalkCard from './talk-card';
 
 function StageRow({ stage }: { stage: Stage }) {

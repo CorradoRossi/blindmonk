@@ -4,8 +4,8 @@ import useConfData from '@lib/hooks/use-conf-data';
 import { useRouter } from 'next/router';
 import FormError from '@lib/form-error';
 import LoadingDots from './loading-dots';
-import styleUtils from './utils.module.css';
-import styles from './form.module.css';
+import styleUtils from 'styles/utils.module.css';
+import styles from 'styles/form.module.css';
 import useEmailQueryParam from '@lib/hooks/use-email-query-param';
 import { register } from '@lib/user-api';
 

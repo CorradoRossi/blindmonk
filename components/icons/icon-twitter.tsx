@@ -1,4 +1,4 @@
-import styles from './icon-transition.module.css';
+import styles from 'styles/icon-transition.module.css';
 
 type Props = { width: number | string };
 

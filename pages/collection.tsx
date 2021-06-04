@@ -13,7 +13,7 @@ type Props = {
   speakers: Speaker[];
 };
 
-export default function Speakers({ speakers }: Props) {
+export default function Collection({ speakers }: Props) {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -21,7 +21,7 @@ export default function Speakers({ speakers }: Props) {
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Speakers" description={meta.description} />
+        <Header hero="Collection" description={meta.description} />
         <SpeakersGrid speakers={speakers} />
       </Layout>
     </Page>

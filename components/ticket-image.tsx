@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import TicketVisual from './ticket-visual';
-import styles from './ticket-image.module.css';
+import styles from 'styles/ticket-image.module.css';
 
 export default function TicketImage() {
   const { query } = useRouter();

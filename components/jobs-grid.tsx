@@ -1,5 +1,5 @@
 import { Job } from '@lib/types';
-import styles from './jobs-grid.module.css';
+import styles from 'styles/jobs-grid.module.css';
 
 type Props = {
   jobs: Job[];

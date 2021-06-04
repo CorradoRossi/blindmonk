@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { parseISO, format, isBefore, isAfter } from 'date-fns';
 import { Talk } from '@lib/types';
-import styles from './talk-card.module.css';
+import styles from 'styles/talk-card.module.css';
 
 type Props = {
   key: string;

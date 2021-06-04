@@ -1,7 +1,7 @@
 import { TicketGenerationState } from '@lib/constants';
 import TicketColoredMobile from './ticket-colored-mobile';
 import TicketColored from './ticket-colored';
-import styles from './ticket-visual.module.css';
+import styles from 'styles/ticket-visual.module.css';
 import TicketProfile from './ticket-profile';
 import TicketNumber from './ticket-number';
 import TicketMono from './ticket-mono';

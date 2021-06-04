@@ -1,5 +1,5 @@
-import styles from './ticket-info.module.css';
-import styleUtils from './utils.module.css';
+import styles from 'styles/ticket-info.module.css';
+import styleUtils from 'styles/utils.module.css';
 import Logo from './logo';
 import { DATE, SITE_URL } from '@lib/constants';
 import VercelLogo from '@components/icons/icon-platform';

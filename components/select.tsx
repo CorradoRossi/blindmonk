@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import styles from './select.module.css';
+import styles from 'styles/select.module.css';
 
 export default function Select({ className, ...props }: JSX.IntrinsicElements['select']) {
   return (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from './logo.module.css';
+import styles from 'styles/logo.module.css';
 import { SITE_NAME_MULTILINE } from '@lib/constants';
 import { getLogoImg } from '@lib/cms-providers/dato';
 

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 import { NAVIGATION } from '@lib/constants';
-import styles from './layout.module.css';
+import styles from 'styles/layout.module.css';
 import Logo from './icons/icon-logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';

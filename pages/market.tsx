@@ -13,7 +13,7 @@ type Props = {
   sponsors: Sponsor[];
 };
 
-export default function ExpoPage({ sponsors }: Props) {
+export default function MarketPage({ sponsors }: Props) {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -22,7 +22,7 @@ export default function ExpoPage({ sponsors }: Props) {
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Expo" description={meta.description} />
+        <Header hero="Market" description={meta.description} />
         <SponsorsGrid sponsors={sponsors} />
       </Layout>
     </Page>

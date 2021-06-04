@@ -2,8 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
 import { Sponsor } from '@lib/types';
-import styles from './sponsor-section.module.css';
-import styleUtils from './utils.module.css';
+import styles from 'styles/sponsor-section.module.css';
+import styleUtils from 'styles/utils.module.css';
 
 type Props = {
   sponsor: Sponsor;
@@ -12,7 +12,7 @@ type Props = {
 export default function SponsorSection({ sponsor }: Props) {
   return (
     <>
-      <Link href="/expo">
+      <Link href="/collection">
         <a className={styles.backlink}>
           <svg
             viewBox="0 0 24 24"
@@ -27,7 +27,7 @@ export default function SponsorSection({ sponsor }: Props) {
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          Back to expo
+          Back to collection
         </a>
       </Link>
       <div className={styles.layout}>
