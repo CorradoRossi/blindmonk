@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Logo } from 'public/RM-logo-lg.svg';
-
 export default function IconLogo({
   backgroundColor = 'transparent',
   foregroundColor = 'var(--accents-1)',
