@@ -1,9 +1,9 @@
 export const SITE_URL = 'https://demo.vercel.events';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'metastash';
-export const BRAND_NAME = 'Blind Monk';
+export const BRAND_NAME = 'Blindmonk';
 export const SITE_NAME_MULTILINE = ['Blind', 'Monk'];
-export const SITE_NAME = 'Blind Monk';
+export const SITE_NAME = 'Blindmonk';
 export const META_DESCRIPTION = 'This is an NFT experiment';
 export const SITE_DESCRIPTION = 'This is an experiment';
 export const DATE = 'August, 2021';

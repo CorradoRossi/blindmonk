@@ -1,4 +1,4 @@
-# Blind Monk
+# Blindmonk
 
 ### Another crypto/NFT experiment underway
 

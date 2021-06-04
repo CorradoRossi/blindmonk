@@ -1,6 +1,6 @@
 {
-  "name": "Blind Monk",
-  "short_name": "Blind Monk",
+  "name": "Blindmonk",
+  "short_name": "Blindmonk",
   "description": "What do you see",
   "display": "standalone",
   "start_url": "/",
