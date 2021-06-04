@@ -6,7 +6,7 @@ import styles from 'styles/sponsors-grid.module.css';
 
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   return (
-    <Link key={sponsor.name} href={`/wallet/${sponsor.slug}`}>
+    <Link key={sponsor.name} href={`/expo/${sponsor.slug}`}>
       <a
         role="button"
         tabIndex={0}
