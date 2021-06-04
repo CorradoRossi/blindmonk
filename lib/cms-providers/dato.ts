@@ -81,6 +81,31 @@ export async function getAllStages(): Promise<Stage[]> {
   return data.allStages;
 }
 
+export async function getLogoImg(): Promise<any> {
+  const data = await fetchCmsAPI(`
+    {
+      allCompanys(first: 100, sortBy: tier_rank_ASC) {
+        edges {
+          node {
+            card_image
+            logo
+          }
+        }
+      }
+    }
+  `);
+
+  const logoImage = data.allCompanys.edges.map((edge: any) => {
+    return {
+      logo: {
+        url: edge.node.logo?.url.replace('compress,format', 'format') || 'https://images.prismic.io'
+      }
+    };
+  });
+
+  return logoImage;
+}
+
 export async function getAllSponsors(): Promise<Sponsor[]> {
   const data = await fetchCmsAPI(`
     {
