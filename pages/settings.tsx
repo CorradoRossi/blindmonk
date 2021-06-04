@@ -15,7 +15,7 @@ type Props = {
 
 export default function Jobs({ jobs }: Props) {
   const meta = {
-    title: 'Career Fair - Virtual Event Starter Kit',
+    title: 'Blindmonk',
     description: META_DESCRIPTION
   };
 
