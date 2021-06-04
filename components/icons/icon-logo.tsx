@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Logo } from 'public/RM-logo-lg.svg';
 
 export default function IconLogo({
   backgroundColor = 'transparent',
@@ -23,18 +24,26 @@ export default function IconLogo({
     <svg
       width="100%"
       height="100%"
-      viewBox="0 0 32 32"
-      fill="none"
+      viewBox="0 0 900 900"
+      version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      style={{
+        fillRule: 'evenodd',
+        clipRule: 'evenodd',
+        strokeLinejoin: 'round',
+        strokeMiterlimit: 1.41421
+      }}
     >
-      <rect width="100%" height="100%" rx="16" fill={backgroundColor} />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-        fill={foregroundColor}
-      />
+      <rect id="Artboard1" x="0" y="0" width="900" height="900" style={{ fill: 'none' }} />
+      <clipPath id="_clip1">
+        <rect x="0" y="0" width="900" height="900" />
+      </clipPath>
+      <g clip-path="url(#_clip1)">
+        <rect x="0" y="0" width="900" height="900" style={{ fill: backgroundColor }} />
+        <path d="M787.5,337.5l-450,450l450,0l0,-450Z" style={{ fill: '#fdd831' }} />
+        <circle cx="337.5" cy="337.5" r="225" style={{ fill: '#157efb' }} />
+        <path d="M112.5,337.5l450,450l-450,0l0,-450Z" style={{ fill: '#fd5ce7' }} />
+      </g>
     </svg>
   );
 }
