@@ -23,7 +23,7 @@ export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
   {
     name: 'Profile',
-    route: '/profile'
+    route: '/profile/a'
   },
   {
     name: 'Collection',
