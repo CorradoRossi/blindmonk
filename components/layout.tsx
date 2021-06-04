@@ -6,7 +6,7 @@ import { NAVIGATION } from '@lib/constants';
 import styles from './layout.module.css';
 import Logo from './icons/icon-logo';
 import MobileMenu from './mobile-menu';
-import Footer, { HostedByVercel } from './footer';
+import Footer from './footer';
 
 type Props = {
   children: React.ReactNode;
