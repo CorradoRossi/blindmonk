@@ -15,7 +15,7 @@ type Props = {
 
 export default function ExpoPage({ sponsors }: Props) {
   const meta = {
-    title: 'Expo - Virtual Event Starter Kit',
+    title: 'Blindmonk',
     description: META_DESCRIPTION
   };
 
