@@ -1,10 +1,10 @@
 {
   "name": "Blindmonk",
   "description": "What do you see?",
-  "previewImage": "https://demo.vercel.events/twitter-card.png",
+  "previewImage": "https://www.datocms-assets.com/49202/1622811228-tri-circle-purple.png",
   "datocmsProjectId": "37685",
   "deploymentType": "vercel",
   "buildCommand": "npm run build",
   "datocmsApiTokenEnvName": "DATOCMS_READ_ONLY_API_TOKEN",
-  "livePreviewUrl": "https://demo.vercel.events/"
+  "livePreviewUrl": "https://blindmonk.club"
 }
