@@ -19,7 +19,7 @@ type Props = {
 
 export default function Page({ meta, children, fullViewport = false }: Props) {
   const router = useRouter();
-  const image = meta.image || '/twitter-card.png';
+  const image = meta.image || '/tri-circle-purple.png';
   const title = meta.title || SITE_NAME;
   const url = meta.url || `${SITE_URL}${router.asPath}`;
   const description = meta.description || SITE_NAME;
@@ -38,7 +38,7 @@ export default function Page({ meta, children, fullViewport = false }: Props) {
         <link rel="icon" type="image/png" sizes="32x32" href="/tri-circle-purple.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/tri-circle-purple.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/tri-circle-purple.png" />
         <link
           rel="preload"
           href="https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2"
