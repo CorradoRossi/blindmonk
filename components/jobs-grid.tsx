@@ -66,7 +66,7 @@ export default function JobsGrid({ jobs }: Props) {
               rel="noopener noreferrer"
               className={styles.button}
             >
-              <span>Join the Metastash Discord</span>
+              <span>Metastash Discord</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
