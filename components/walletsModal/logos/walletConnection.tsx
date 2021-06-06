@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-const WalletConnectIcon = (props) => {
+const WalletConnectIcon = (props: any) => {
   return (
     <svg
       width={24}
@@ -13,16 +13,8 @@ const WalletConnectIcon = (props) => {
     >
       <path fill="url(#prefix__pattern0)" d="M0 0h24v15.087H0z" />
       <defs>
-        <pattern
-          id="prefix__pattern0"
-          patternContentUnits="objectBoundingBox"
-          width={1}
-          height={1}
-        >
-          <use
-            xlinkHref="#prefix__image0"
-            transform="matrix(.0034 0 0 .0054 -.01 0)"
-          />
+        <pattern id="prefix__pattern0" patternContentUnits="objectBoundingBox" width={1} height={1}>
+          <use xlinkHref="#prefix__image0" transform="matrix(.0034 0 0 .0054 -.01 0)" />
         </pattern>
         <image
           id="prefix__image0"

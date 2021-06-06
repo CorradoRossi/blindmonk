@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-function MetamaskIcon(props) {
+function MetamaskIcon(props: any) {
   return (
     <svg
       id="prefix__Layer_1"
@@ -15,7 +15,7 @@ function MetamaskIcon(props) {
     >
       <style>
         {
-          ".prefix__st1,.prefix__st6{fill:#e4761b;stroke:#e4761b;stroke-linecap:round;stroke-linejoin:round}.prefix__st6{fill:#f6851b;stroke:#f6851b}"
+          '.prefix__st1,.prefix__st6{fill:#e4761b;stroke:#e4761b;stroke-linecap:round;stroke-linejoin:round}.prefix__st6{fill:#f6851b;stroke:#f6851b}'
         }
       </style>
       <path

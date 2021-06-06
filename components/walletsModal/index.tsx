@@ -1,35 +1,34 @@
-import { AbstractConnector } from "@web3-react/abstract-connector";
-import { UnsupportedChainIdError, useWeb3React } from "@web3-react/core";
-import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
-import React, { useEffect, useState } from "react";
+import { AbstractConnector } from '@web3-react/abstract-connector';
+import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core';
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
+import React, { useEffect, useState } from 'react';
 
-import { injected } from "./connectors";
-import { SUPPORTED_WALLETS } from "./wallets";
+import { injected } from './connectors';
+import { SUPPORTED_WALLETS } from './wallets';
 
-import { isMobile } from "react-device-detect";
-import usePrevious from "../../hooks/usePrevious";
+import { isMobile } from 'react-device-detect';
+import usePrevious from '@lib/hooks/usePrevious';
 
-import Option from "./Option";
-import PendingView from "./PendingView";
-import { QrcodeOutline, X } from "heroicons-react";
-import Image from "@/app/core/components/Image";
-import { StageSpinner } from "react-spinners-kit";
-import { logError } from "../../utils/sentry";
-import { event } from "../../utils/gtag";
+import Option from './Option';
+import PendingView from './pendingView';
+import { QrcodeOutline, X } from 'heroicons-react';
+import Image from 'components/image';
+import { StageSpinner } from 'react-spinners-kit';
+import { logError } from '@lib/utils/sentry';
+import { event } from '@lib/utils/gtag';
 
 const WALLET_VIEWS = {
-  OPTIONS: "options",
-  OPTIONS_SECONDARY: "options_secondary",
-  ACCOUNT: "account",
-  PENDING: "pending",
+  OPTIONS: 'options',
+  OPTIONS_SECONDARY: 'options_secondary',
+  ACCOUNT: 'account',
+  PENDING: 'pending'
 };
 
-export default function WalletModal({ close }) {
+export default function WalletModal({ close }: any) {
   const { active, account, connector, activate, error } = useWeb3React();
 
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT);
-  const [pendingWallet, setPendingWallet] =
-    useState<AbstractConnector | undefined>();
+  const [pendingWallet, setPendingWallet] = useState<AbstractConnector | undefined>();
   const [pendingError, setPendingError] = useState<boolean>();
   const previousAccount = usePrevious(account);
 
@@ -43,27 +42,14 @@ export default function WalletModal({ close }) {
   const connectorPrevious = usePrevious(connector);
 
   useEffect(() => {
-    if (
-      (active && !activePrevious) ||
-      (connector && connector !== connectorPrevious && !error)
-    ) {
+    if ((active && !activePrevious) || (connector && connector !== connectorPrevious && !error)) {
       setWalletView(WALLET_VIEWS.ACCOUNT);
     }
-  }, [
-    setWalletView,
-    active,
-    error,
-    connector,
-    activePrevious,
-    connectorPrevious,
-  ]);
+  }, [setWalletView, active, error, connector, activePrevious, connectorPrevious]);
 
-  const tryActivation = async (
-    connector: AbstractConnector | undefined,
-    connectorName: string
-  ) => {
-    let name = "";
-    Object.keys(SUPPORTED_WALLETS).map((key) => {
+  const tryActivation = async (connector: AbstractConnector | undefined, connectorName: string) => {
+    let name = '';
+    Object.keys(SUPPORTED_WALLETS).map(key => {
       if (connector === SUPPORTED_WALLETS[key].connector) {
         return (name = SUPPORTED_WALLETS[key].name);
       }
@@ -73,19 +59,16 @@ export default function WalletModal({ close }) {
     setWalletView(WALLET_VIEWS.PENDING);
 
     // if the connector is walletconnect and the user has already tried to connect, manually reset the connector
-    if (
-      connector instanceof WalletConnectConnector &&
-      connector.walletConnectProvider?.wc?.uri
-    ) {
+    if (connector instanceof WalletConnectConnector && connector.walletConnectProvider?.wc?.uri) {
       connector.walletConnectProvider = undefined;
     }
 
     connector &&
       activate(connector, undefined, true)
         .then(() => {
-          event({ action: "wallet_connect", category: connectorName });
+          event({ action: 'wallet_connect', category: connectorName });
         })
-        .catch((error) => {
+        .catch(error => {
           if (error instanceof UnsupportedChainIdError) {
             activate(connector); // a little janky...can't use setError because the connector isn't set
           } else {
@@ -97,12 +80,14 @@ export default function WalletModal({ close }) {
 
   // get wallets user can switch too, depending on device/browser
   function getOptions() {
-    const isMetamask = window["ethereum"] && window["ethereum"].isMetaMask;
-    return Object.keys(SUPPORTED_WALLETS).map((key) => {
+    // @ts-ignore
+    const isMetamask = window['ethereum'] && window['ethereum'].isMetaMask;
+    return Object.keys(SUPPORTED_WALLETS).map(key => {
       const option = SUPPORTED_WALLETS[key];
       // check for mobile options
       if (isMobile) {
-        if (!window["web3"] && !window["ethereum"] && option.mobile) {
+        // @ts-ignore
+        if (!window['web3'] && !window['ethereum'] && option.mobile) {
           return (
             <Option
               onClick={() => {
@@ -124,15 +109,16 @@ export default function WalletModal({ close }) {
       // overwrite injected when needed
       if (option.connector === injected) {
         // don't show injected if there's no injected provider
-        if (!(window["web3"] || window["ethereum"])) {
-          if (option.name === "MetaMask") {
+        // @ts-ignore
+        if (!(window['web3'] || window['ethereum'])) {
+          if (option.name === 'MetaMask') {
             return (
               <Option
                 id={`connect-${key}`}
                 key={key}
-                header={"Install Metamask"}
-                link={"https://metamask.io/"}
-                icon={"metamask"}
+                header={'Install Metamask'}
+                link={'https://metamask.io/'}
+                icon={'metamask'}
               />
             );
           } else {
@@ -140,11 +126,11 @@ export default function WalletModal({ close }) {
           }
         }
         // don't return metamask if injected provider isn't metamask
-        else if (option.name === "MetaMask" && !isMetamask) {
+        else if (option.name === 'MetaMask' && !isMetamask) {
           return null;
         }
         // likewise for generic
-        else if (option.name === "Injected" && isMetamask) {
+        else if (option.name === 'Injected' && isMetamask) {
           return null;
         }
       }
@@ -196,8 +182,8 @@ export default function WalletModal({ close }) {
           <div className="p-6">
             <div className="mb-2 font-black uppercase">
               {error instanceof UnsupportedChainIdError
-                ? "Incompatible network "
-                : "Error connecting"}
+                ? 'Incompatible network '
+                : 'Error connecting'}
             </div>
             <div>
               {error instanceof UnsupportedChainIdError ? (

@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-function CoinbaseWalletIcon(props) {
+function CoinbaseWalletIcon(props: any) {
   return (
     <svg
       width={24}

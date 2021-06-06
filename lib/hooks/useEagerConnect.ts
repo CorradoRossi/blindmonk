@@ -14,6 +14,7 @@ const useEagerConnect = () => {
           setTried(true);
         });
       } else {
+        // @ts-ignore
         if (isMobile && window.ethereum) {
           activate(injected, undefined, true).catch(() => {
             setTried(true);

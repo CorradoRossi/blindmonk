@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import CoinbaseWalletIcon from "./logos/CoinbaseWalletIcon";
-import MetamaskIcon from "./logos/MetamaskIcon";
-import WalletConnectIcon from "./logos/WalletConnectIcon";
+import CoinbaseWalletIcon from './logos/coinbaseWalletIcon';
+import MetamaskIcon from './logos/metamaskIcon';
+import WalletConnectIcon from './logos/walletConnection';
 
-const getIcon = (icon) => {
+const getIcon = (icon: any) => {
   switch (icon) {
-    case "metamask":
+    case 'metamask':
       return <MetamaskIcon />;
-    case "walletConnect":
+    case 'walletConnect':
       return <WalletConnectIcon />;
-    case "coinbase":
+    case 'coinbase':
       return <CoinbaseWalletIcon />;
   }
 };
@@ -20,7 +20,7 @@ export default function Option({
   onClick = null,
   header,
   icon,
-  id,
+  id
 }: {
   link?: string | null;
   onClick?: null | (() => void);
