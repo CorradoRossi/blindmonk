@@ -11,7 +11,7 @@ import usePrevious from '@lib/hooks/usePrevious';
 
 import Option from './Option';
 import PendingView from './pendingView';
-import { QrcodeOutline, X } from 'heroicons-react';
+import { QrcodeIcon, XIcon } from '@heroicons/react/solid';
 import Image from 'components/image';
 import { StageSpinner } from 'react-spinners-kit';
 import { logError } from '@lib/utils/sentry';
@@ -168,7 +168,7 @@ export default function WalletModal({ close }: any) {
               onKeyDown={() => close()}
               onClick={() => close()}
             >
-              <X />
+              <XIcon />
             </div>
             <Image src="/default.png" alt="background" />
             <div className="mx-auto flex items-start justify-center absolute top-0 w-full h-full">
@@ -207,13 +207,13 @@ export default function WalletModal({ close }: any) {
             onKeyDown={() => close()}
             onClick={() => close()}
           >
-            <X />
+            <XIcon />
           </div>
           <Image src="/default.png" alt="background" />
           <div className="flex items-center justify-center absolute w-full h-full">
             {walletView === WALLET_VIEWS.ACCOUNT ? (
               <div className="font-inter font-black uppercase mt-2 flex flex-col items-center">
-                <QrcodeOutline className="mb-2" />
+                <QrcodeIcon className="mb-2" />
                 <p>Connect Wallet</p>
               </div>
             ) : null}
