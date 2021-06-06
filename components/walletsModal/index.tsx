@@ -14,8 +14,8 @@ import PendingView from './pendingView';
 import { QrcodeIcon, XIcon } from '@heroicons/react/solid';
 import Image from 'components/image';
 import { StageSpinner } from 'react-spinners-kit';
-import { logError } from '@lib/utils/sentry';
 import { event } from '@lib/utils/gtag';
+//import { logError } from '@lib/utils/sentry';
 
 const WALLET_VIEWS = {
   OPTIONS: 'options',
@@ -73,7 +73,7 @@ export default function WalletModal({ close }: any) {
             activate(connector); // a little janky...can't use setError because the connector isn't set
           } else {
             setPendingError(true);
-            logError(error);
+            //logError(error);
           }
         });
   };
