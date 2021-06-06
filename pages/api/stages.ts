@@ -1,12 +1,11 @@
 import ms from 'ms';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getAllStages } from '@lib/cms-api';
-import { withSentry } from '@sentry/nextjs';
 
 // Number of seconds to cache the API response for
 const EXPIRES_SECONDS = 5;
 
-const StagesRoute = async function getStages(_: NextApiRequest, res: NextApiResponse) {
+export default async function getStages(_: NextApiRequest, res: NextApiResponse) {
   try {
     const allStages = await getAllStages();
 
@@ -30,6 +29,4 @@ const StagesRoute = async function getStages(_: NextApiRequest, res: NextApiResp
       }
     });
   }
-};
-
-export default withSentry(StagesRoute);
+}

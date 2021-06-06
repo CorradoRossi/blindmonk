@@ -1,9 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { COOKIE } from '@lib/constants';
 import redis from '@lib/redis';
-import { withSentry } from '@sentry/nextjs';
 
-const AuthRoute = async function auth(req: NextApiRequest, res: NextApiResponse) {
+export default async function auth(req: NextApiRequest, res: NextApiResponse) {
   const id = req.cookies[COOKIE];
   if (!id) {
     return res.status(401).json({
@@ -28,6 +27,4 @@ const AuthRoute = async function auth(req: NextApiRequest, res: NextApiResponse)
   }
 
   return res.status(200).json({ loggedIn: true });
-};
-
-export default withSentry(AuthRoute);
+}

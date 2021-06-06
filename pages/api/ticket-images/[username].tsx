@@ -2,9 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import screenshot from '@lib/screenshot';
 import { SITE_URL, SAMPLE_TICKET_NUMBER } from '@lib/constants';
 import redis from '@lib/redis';
-import { withSentry } from '@sentry/nextjs';
 
-const TicketImagesRoute = async function ticketImages(req: NextApiRequest, res: NextApiResponse) {
+export default async function ticketImages(req: NextApiRequest, res: NextApiResponse) {
   let url: string;
   const { username } = req.query || {};
   if (username) {
@@ -39,6 +38,4 @@ const TicketImagesRoute = async function ticketImages(req: NextApiRequest, res: 
   } else {
     res.status(404).send('Not Found');
   }
-};
-
-export default withSentry(TicketImagesRoute);
+}

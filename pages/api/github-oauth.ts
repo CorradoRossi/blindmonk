@@ -3,12 +3,11 @@ import { nanoid } from 'nanoid';
 import * as qs from 'querystring';
 import redis from '@lib/redis';
 import { renderSuccess, renderError } from '@lib/render-github-popup';
-import { withSentry } from '@sentry/nextjs';
 
 /**
  * This API route must be triggered as a callback of your GitHub OAuth app.
  */
-const githubOAuthRoute = async function githubOAuth(req: NextApiRequest, res: NextApiResponse) {
+export default async function githubOAuth(req: NextApiRequest, res: NextApiResponse) {
   if (!req.query.code) {
     // This happens when user cancelled the authentication.
     // In this case, we send an empty message which indicates no data available.
@@ -69,6 +68,4 @@ const githubOAuthRoute = async function githubOAuth(req: NextApiRequest, res: Ne
   } else {
     res.end(renderSuccess({ type: 'user', login: user.login, name: user.name }));
   }
-};
-
-export default withSentry(githubOAuthRoute);
+}
