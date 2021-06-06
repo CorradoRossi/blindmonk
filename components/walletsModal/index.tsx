@@ -11,7 +11,7 @@ import usePrevious from '@lib/hooks/usePrevious';
 
 import Option from './Option';
 import PendingView from './pendingView';
-import { QrcodeOutline, X } from 'heroicons-react';
+import { QrcodeOutline, X } from '@heroicons-react';
 import Image from 'components/image';
 import { StageSpinner } from 'react-spinners-kit';
 import { logError } from '@lib/utils/sentry';
