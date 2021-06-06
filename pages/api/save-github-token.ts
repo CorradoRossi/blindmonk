@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import redis from '@lib/redis';
+import { withSentry } from '@sentry/nextjs';
 
-export default async function saveGithubToken(req: NextApiRequest, res: NextApiResponse) {
+const GithubTokenRoute = async function saveGithubToken(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(501).json({
       error: {
@@ -49,4 +50,6 @@ export default async function saveGithubToken(req: NextApiRequest, res: NextApiR
     .exec();
 
   res.json({ username, name });
-}
+};
+
+export default withSentry(GithubTokenRoute);

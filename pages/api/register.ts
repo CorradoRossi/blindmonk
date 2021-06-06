@@ -6,6 +6,7 @@ import { SAMPLE_TICKET_NUMBER, COOKIE } from '@lib/constants';
 import cookie from 'cookie';
 import ms from 'ms';
 import redis, { emailToId } from '@lib/redis';
+import { withSentry } from '@sentry/nextjs';
 
 type ErrorResponse = {
   error: {
@@ -14,7 +15,7 @@ type ErrorResponse = {
   };
 };
 
-export default async function register(
+const RegisterRoute = async function register(
   req: NextApiRequest,
   res: NextApiResponse<ConfUser | ErrorResponse>
 ) {
@@ -95,4 +96,6 @@ export default async function register(
     name,
     username
   });
-}
+};
+
+export default withSentry(RegisterRoute);
