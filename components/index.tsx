@@ -5,7 +5,7 @@ import Layout from './layout';
 import ConfContainer from './conf-container';
 import Hero from './hero';
 import Form from './form';
-import LearnMore from './learn-more';
+//import LearnMore from './learn-more';
 import { useWeb3React } from '@web3-react/core';
 import useETHBalance from '@lib/hooks/useEthBalance';
 
@@ -20,14 +20,12 @@ export default function Conf({
   sharePage,
   defaultPageState = 'registration'
 }: Props) {
-  const [userData, setUserData] = useState<UserData>(defaultUserData);
-  const [pageState, setPageState] = useState<PageState>(defaultPageState);
-
   const { account } = useWeb3React();
   const { data } = useETHBalance(account);
 
-  console.log(account);
-  console.log(data);
+  const [userData, setUserData] = useState<UserData>(defaultUserData);
+  const [pageState, setPageState] = useState<PageState>(defaultPageState);
+
   return (
     <ConfDataContext.Provider
       value={{
@@ -43,7 +41,7 @@ export default function Conf({
               <Hero />
               <Form />
               <div>
-                <h1>{data ? data : 'no data'}</h1>
+                <h1>{data?.length > 0 ? data : ''}</h1>
               </div>
             </>
           ) : (

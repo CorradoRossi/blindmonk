@@ -17,9 +17,7 @@ export default function useETHBalance(address: any, suspense = false) {
   const result = useSWR(
     shouldFetch ? [address, chainId, 'ETHBalance'] : null,
     getETHBalance(library),
-    {
-      suspense
-    }
+    { suspense }
   );
 
   useKeepSWRDataLiveAsBlocksArrive(result.mutate);
