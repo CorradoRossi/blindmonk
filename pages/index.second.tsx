@@ -5,7 +5,6 @@ import {
   UserRejectedRequestError as UserRejectedRequestErrorInjected
 } from '@web3-react/injected-connector';
 import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect } from '@web3-react/walletconnect-connector';
-import { UserRejectedRequestError as UserRejectedRequestErrorFrame } from '@web3-react/frame-connector';
 import { Web3Provider } from '@ethersproject/providers';
 import { formatEther } from '@ethersproject/units';
 
@@ -14,12 +13,7 @@ import {
   injected,
   network,
   walletconnect,
-  walletlink,
-  ledger,
-  trezor,
-  lattice,
-  frame,
-  authereum
+  walletlink
 } from 'components/walletsModal/extraConnectors';
 import { Spinner } from 'components/spinner';
 
@@ -27,24 +21,14 @@ enum ConnectorNames {
   Injected = 'Injected',
   Network = 'Network',
   WalletConnect = 'WalletConnect',
-  WalletLink = 'WalletLink',
-  Ledger = 'Ledger',
-  Trezor = 'Trezor',
-  Lattice = 'Lattice',
-  Frame = 'Frame',
-  Authereum = 'Authereum'
+  WalletLink = 'WalletLink'
 }
 
 const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   [ConnectorNames.Injected]: injected,
   [ConnectorNames.Network]: network,
   [ConnectorNames.WalletConnect]: walletconnect,
-  [ConnectorNames.WalletLink]: walletlink,
-  [ConnectorNames.Ledger]: ledger,
-  [ConnectorNames.Trezor]: trezor,
-  [ConnectorNames.Lattice]: lattice,
-  [ConnectorNames.Frame]: frame,
-  [ConnectorNames.Authereum]: authereum
+  [ConnectorNames.WalletLink]: walletlink
 };
 
 function getErrorMessage(error: Error) {
@@ -54,8 +38,7 @@ function getErrorMessage(error: Error) {
     return "You're connected to an unsupported network.";
   } else if (
     error instanceof UserRejectedRequestErrorInjected ||
-    error instanceof UserRejectedRequestErrorWalletConnect ||
-    error instanceof UserRejectedRequestErrorFrame
+    error instanceof UserRejectedRequestErrorWalletConnect
   ) {
     return 'Please authorize this website to access your Ethereum account.';
   } else {
