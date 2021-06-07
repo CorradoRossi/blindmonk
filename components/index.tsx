@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { PageState, ConfDataContext, UserData } from '@lib/hooks/use-conf-data';
-import Ticket from './ticket';
+import Ticket from './ticket/ticket';
 import Layout from './layout';
 import ConfContainer from './conf-container';
 import Hero from './hero';
 import Form from './form';
-import LearnMore from './learn-more';
+//import LearnMore from './learn-more';
+import { useWeb3React } from '@web3-react/core';
+import useETHBalance from '@lib/hooks/useEthBalance';
 
 type Props = {
   defaultUserData: UserData;
@@ -18,6 +20,9 @@ export default function Conf({
   sharePage,
   defaultPageState = 'registration'
 }: Props) {
+  const { account } = useWeb3React();
+  const { data } = useETHBalance(account);
+
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
 
@@ -35,7 +40,9 @@ export default function Conf({
             <>
               <Hero />
               <Form />
-              {/*<LearnMore />*/}
+              <div>
+                <h1>{data?.length > 0 ? data : ''}</h1>
+              </div>
             </>
           ) : (
             <Ticket
