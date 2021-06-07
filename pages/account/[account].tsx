@@ -6,7 +6,7 @@ import AccountInfo from '@/app/accounts/components/AccountInfo';
 import DonationBlock from '@/app/accounts/components/DonationBlock';
 import getFullAccount from '@/app/accounts/queries/getFullAccount';
 import GhostLayout from 'components/ghostLayout';
-import Image from '@/app/core/components/Image';
+import Image from 'components/image';
 
 import UserLists from '@/app/accounts/components/profile/UserLists';
 import ProfileTabs from '@/app/accounts/components/profile/tabs/ProfileTabs';

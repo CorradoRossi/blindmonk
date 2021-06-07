@@ -6,6 +6,8 @@ import ConfContainer from './conf-container';
 import Hero from './hero';
 import Form from './form';
 import LearnMore from './learn-more';
+import { useWeb3React } from '@web3-react/core';
+import useETHBalance from '@lib/hooks/useEthBalance';
 
 type Props = {
   defaultUserData: UserData;
@@ -21,6 +23,11 @@ export default function Conf({
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
 
+  const { account } = useWeb3React();
+  const { data } = useETHBalance(account);
+
+  console.log(account);
+  console.log(data);
   return (
     <ConfDataContext.Provider
       value={{
@@ -35,7 +42,9 @@ export default function Conf({
             <>
               <Hero />
               <Form />
-              {/*<LearnMore />*/}
+              <div>
+                <h1>{data ? data : 'no data'}</h1>
+              </div>
             </>
           ) : (
             <Ticket
