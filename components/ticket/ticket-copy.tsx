@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import cn from 'classnames';
 import { SITE_URL } from '@lib/constants';
 import styleUtils from 'styles/utils.module.css';
-import IconCopy from './icons/icon-copy';
+import IconCopy from '../icons/icon-copy';
 import styles from 'styles/ticket-copy.module.css';
 
 type Props = {
@@ -18,6 +18,7 @@ export default function TicketCopy({ username }: Props) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const url = `${SITE_URL}/tickets/${username}`;
   useEffect(() => {
+    // @ts-ignore
     if (navigator.clipboard && navigator.clipboard.writeText) {
       setCopyEnabled(true);
     }

@@ -6,7 +6,7 @@ import CheckIcon from '@components/icons/icon-check';
 import { REPO, SITE_ORIGIN, TicketGenerationState } from '@lib/constants';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import useConfData from '@lib/hooks/use-conf-data';
-import LoadingDots from './loading-dots';
+import LoadingDots from '../loading-dots';
 import formStyles from 'styles/form.module.css';
 import ticketFormStyles from 'styles/ticket-form.module.css';
 import { saveGithubToken } from '@lib/user-api';
