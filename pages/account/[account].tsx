@@ -5,22 +5,21 @@ import axios from 'axios';
 import AccountInfo from '@/app/accounts/components/AccountInfo';
 import DonationBlock from '@/app/accounts/components/DonationBlock';
 import getFullAccount from '@/app/accounts/queries/getFullAccount';
-import GhostLayout from '@/app/accounts/components/GhostLayout';
+import GhostLayout from 'components/ghostLayout';
 import Image from '@/app/core/components/Image';
-import { NextSeo } from 'next-seo';
 
 import UserLists from '@/app/accounts/components/profile/UserLists';
 import ProfileTabs from '@/app/accounts/components/profile/tabs/ProfileTabs';
 import MobileSupport from '@/app/accounts/components/profile/mobile/MobileSupport';
 import useStore from '@/app/store';
 
-export const Account = ({ ssrAccount }) => {
+export const Account = ({ ssrAccount }: any) => {
   const [clientSide, setClientSide] = useState(false);
   const accountId = useParam('accountId', 'string');
   const [acc] = useQuery(getFullAccount, { username: accountId }, { initialData: ssrAccount });
 
-  const setEthereumPrice = useStore(state => state.setEthereumPrice);
-  const setGasPrice = useStore(state => state.setGasPrice);
+  const setEthereumPrice = useStore((state: any) => state.setEthereumPrice);
+  const setGasPrice = useStore((state: any) => state.setGasPrice);
 
   useEffect(() => {
     setClientSide(true);
@@ -87,16 +86,9 @@ export const Account = ({ ssrAccount }) => {
   );
 };
 
-const AccountPage = ({ acc, tags }) => {
+const AccountPage = ({ acc, tags }: any) => {
   return (
     <>
-      <NextSeo
-        title={tags.title}
-        openGraph={{
-          url: tags.url,
-          title: tags.title
-        }}
-      />
       <Suspense fallback={<GhostLayout />}>
         <Account ssrAccount={acc} />
       </Suspense>
@@ -104,9 +96,9 @@ const AccountPage = ({ acc, tags }) => {
   );
 };
 
-export const getServerSideProps = async ({ req, res, params }) => {
+export const getServerSideProps = async ({ req, res, params }: any) => {
   return invokeWithMiddleware(getFullAccount, { username: params.accountId }, { req, res })
-    .then(account => {
+    .then((account: any) => {
       const tags = {
         title: `${account.username} | gasmoney`,
         description: account.bio,
@@ -120,7 +112,7 @@ export const getServerSideProps = async ({ req, res, params }) => {
         props: { acc: account, tags }
       };
     })
-    .catch(err => {
+    .catch((err: any) => {
       return {
         redirect: {
           destination: '/',
