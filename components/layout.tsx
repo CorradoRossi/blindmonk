@@ -17,8 +17,10 @@ type Props = {
   layoutStyles?: any;
 };
 
+type FormState = 'default' | 'loading' | 'error';
+
 export default function Layout({ children, className, hideNav, layoutStyles }: Props) {
-  const [formState, setFormState] = useState('default');
+  const [formState, setFormState] = useState<FormState>('default');
   const router = useRouter();
   const activeRoute = router.asPath;
 
@@ -49,7 +51,6 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
             </div>
             <div className={cn(styles['header-right'])}>
               <button
-                type="submit"
                 className={cn(styles.submit, styles.register, styles[formState])}
                 disabled={formState === 'loading'}
                 onClick={() => setFormState('loading')}
