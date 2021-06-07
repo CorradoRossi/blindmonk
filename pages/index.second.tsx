@@ -19,11 +19,7 @@ import {
   trezor,
   lattice,
   frame,
-  authereum,
-  fortmatic,
-  magic,
-  portis,
-  torus
+  authereum
 } from 'components/walletsModal/extraConnectors';
 import { Spinner } from 'components/spinner';
 
@@ -36,11 +32,7 @@ enum ConnectorNames {
   Trezor = 'Trezor',
   Lattice = 'Lattice',
   Frame = 'Frame',
-  Authereum = 'Authereum',
-  Fortmatic = 'Fortmatic',
-  Magic = 'Magic',
-  Portis = 'Portis',
-  Torus = 'Torus'
+  Authereum = 'Authereum'
 }
 
 const connectorsByName: { [connectorName in ConnectorNames]: any } = {
@@ -52,11 +44,7 @@ const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   [ConnectorNames.Trezor]: trezor,
   [ConnectorNames.Lattice]: lattice,
   [ConnectorNames.Frame]: frame,
-  [ConnectorNames.Authereum]: authereum,
-  [ConnectorNames.Fortmatic]: fortmatic,
-  [ConnectorNames.Magic]: magic,
-  [ConnectorNames.Portis]: portis,
-  [ConnectorNames.Torus]: torus
+  [ConnectorNames.Authereum]: authereum
 };
 
 function getErrorMessage(error: Error) {
@@ -121,6 +109,7 @@ function BlockNumber() {
         })
         .catch(() => {
           if (!stale) {
+            // @ts-ignore
             setBlockNumber(null);
           }
         });
@@ -186,6 +175,7 @@ function Balance() {
         })
         .catch(() => {
           if (!stale) {
+            // @ts-ignore
             setBalance(null);
           }
         });
@@ -203,7 +193,14 @@ function Balance() {
       <span role="img" aria-label="gold">
         💰
       </span>
-      <span>{balance === null ? 'Error' : balance ? `Ξ${formatEther(balance)}` : ''}</span>
+      <span>
+        {balance === null
+          ? 'Error'
+          : balance
+          ? // @ts-ignore
+            `Ξ${formatEther(balance)}`
+          : ''}
+      </span>
     </>
   );
 }
@@ -265,6 +262,7 @@ function App() {
         }}
       >
         {Object.keys(connectorsByName).map(name => {
+          // @ts-ignore
           const currentConnector = connectorsByName[name];
           const activating = currentConnector === activatingConnector;
           const connected = currentConnector === connector;
@@ -283,6 +281,7 @@ function App() {
               key={name}
               onClick={() => {
                 setActivatingConnector(currentConnector);
+                // @ts-ignore
                 activate(connectorsByName[name]);
               }}
             >
@@ -408,78 +407,6 @@ function App() {
             }}
           >
             Kill WalletLink Session
-          </button>
-        )}
-        {connector === connectorsByName[ConnectorNames.Fortmatic] && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              (connector as any).close();
-            }}
-          >
-            Kill Fortmatic Session
-          </button>
-        )}
-        {connector === connectorsByName[ConnectorNames.Magic] && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              (connector as any).close();
-            }}
-          >
-            Kill Magic Session
-          </button>
-        )}
-        {connector === connectorsByName[ConnectorNames.Portis] && (
-          <>
-            {chainId !== undefined && (
-              <button
-                style={{
-                  height: '3rem',
-                  borderRadius: '1rem',
-                  cursor: 'pointer'
-                }}
-                onClick={() => {
-                  (connector as any).changeNetwork(chainId === 1 ? 100 : 1);
-                }}
-              >
-                Switch Networks
-              </button>
-            )}
-            <button
-              style={{
-                height: '3rem',
-                borderRadius: '1rem',
-                cursor: 'pointer'
-              }}
-              onClick={() => {
-                (connector as any).close();
-              }}
-            >
-              Kill Portis Session
-            </button>
-          </>
-        )}
-        {connector === connectorsByName[ConnectorNames.Torus] && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              (connector as any).close();
-            }}
-          >
-            Kill Torus Session
           </button>
         )}
       </div>
