@@ -1,9 +1,8 @@
-
 .background {
   background: #000;
   color: #fff;
   min-height: 100vh;
-  min-height: var(--100vh);
+  /*min-height: var(--100vh);*/
   display: flex;
   flex-direction: column;
 }
@@ -37,14 +36,15 @@
 }
 
 .header-logos {
+  width: 176px;
   max-width: 200px;
   display: flex;
   align-items: center;
-  margin: var(--space-2x) var(--space-4x);
+  margin: var(--space-2x) 0 var(--space-2x) var(--space-4x);
 }
 
 .header-right {
-  margin: var(--space-2x) var(--space-16x);
+  margin: var(--space-2x) var(--space-6x);
   display: none;
 }
 
@@ -64,9 +64,9 @@
     display: initial;
   }
 
-  .tabs > a:nth-child(2),
-  .tabs > a:nth-child(3),
-  .tabs > a:nth-child(4) {
+  .tabs>a:nth-child(2),
+  .tabs>a:nth-child(3),
+  .tabs>a:nth-child(4) {
     display: inline-flex;
   }
 }
@@ -99,4 +99,65 @@
 .logo {
   display: flex;
   width: 40px;
+}
+
+.submit {
+  width: 100%;
+  height: 56px;
+  margin-top: var(--space-4x);
+  border-radius: var(--space-2x);
+  border: 1px solid var(--brand);
+  background: var(--brand);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--text-md);
+  letter-spacing: -0.02em;
+  outline: none;
+  font-weight: 500;
+  color: white;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .submit.register {
+    width: 160px;
+    height: 40px;
+    margin-top: 0;
+    border-radius: 5px;
+  }
+}
+
+.submit.loading {
+  cursor: default;
+}
+
+.submit.default:hover,
+.submit.default:focus {
+  background: black;
+  color: var(--brand);
+}
+
+.submit.default.generate-with-github:hover path,
+.submit.default.generate-with-github:focus path {
+  fill: var(--brand);
+}
+
+.submit.error:hover,
+.submit.error:focus {
+  background: #000;
+  color: #fff;
+}
+
+.submit.default:disabled,
+.submit.default:disabled:hover,
+.submit.default:disabled:focus {
+  cursor: default;
+  background: var(--gray);
+  border-color: var(--gray);
+  color: #fff;
+  justify-content: flex-start;
+  overflow: hidden;
 }

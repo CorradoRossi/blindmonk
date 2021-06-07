@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 import { NAVIGATION } from '@lib/constants';
 import styles from 'styles/layout.module.css';
+import formStyles from 'styles/form.module.css';
 import Logo from './icons/icon-logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
+import LoadingDots from './loading-dots';
 
 type Props = {
   children: React.ReactNode;
@@ -16,6 +19,7 @@ type Props = {
 };
 
 export default function Layout({ children, className, hideNav, layoutStyles }: Props) {
+  const [formState, setFormState] = useState('default');
   const router = useRouter();
   const activeRoute = router.asPath;
 
@@ -28,7 +32,7 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
               <MobileMenu key={router.asPath} />
               <Link href="/">
                 {/* eslint-disable-next-line */}
-                <a className={styles.logo}>{/*<Logo />*/}</a>
+                <a className={styles.logo}>{<Logo />}</a>
               </Link>
             </div>
             <div className={styles.tabs}>
@@ -44,7 +48,16 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
                 </Link>
               ))}
             </div>
-            <div className={cn(styles['header-right'])}>{/*<HostedByVercel />*/}</div>
+            <div className={cn(styles['header-right'])}>
+              <button
+                type="submit"
+                className={cn(styles.submit, styles.register, styles[formState])}
+                disabled={formState === 'loading'}
+                onClick={() => setFormState('loading')}
+              >
+                {formState === 'loading' ? <LoadingDots size={4} /> : <>Connect Wallet</>}
+              </button>
+            </div>
           </header>
         )}
         <div className={styles.page}>
