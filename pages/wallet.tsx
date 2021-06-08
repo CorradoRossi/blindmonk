@@ -6,14 +6,10 @@ import Layout from '@components/layout';
 import Header from '@components/header';
 
 import { getAllStages } from '@lib/cms-api';
-import { Stage } from '@lib/types';
+import { ScheduleProps } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
-type Props = {
-  allStages: Stage[];
-};
-
-export default function SchedulePage({ allStages }: Props) {
+export default function SchedulePage({ allStages }: ScheduleProps) {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -29,7 +25,7 @@ export default function SchedulePage({ allStages }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<ScheduleProps> = async () => {
   const allStages = await getAllStages();
 
   return {

@@ -6,14 +6,10 @@ import Layout from '@components/layout';
 import Header from '@components/header';
 
 import { getAllSpeakers } from '@lib/cms-api';
-import { Speaker } from '@lib/types';
+import { Speakers } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
-type Props = {
-  speakers: Speaker[];
-};
-
-export default function Collection({ speakers }: Props) {
+export default function Collection({ speakers }: Speakers) {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -28,7 +24,7 @@ export default function Collection({ speakers }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Speakers> = async () => {
   const speakers = await getAllSpeakers();
 
   return {

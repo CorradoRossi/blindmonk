@@ -10,16 +10,17 @@ import { Web3Provider } from '@ethersproject/providers';
 import { Web3ReactProvider } from '@web3-react/core';
 import Web3Manager from 'components/web3manager';
 
-function getLibrary(provider: any): Web3Provider {
+const getLibrary = (provider: any): Web3Provider => {
   const library = new Web3Provider(provider, 'any');
   library.pollingInterval = 15000;
   return library;
-}
+};
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     document.body.classList?.remove('loading');
   }, []);
+
   return (
     <SSRProvider>
       <OverlayProvider>
@@ -33,4 +34,6 @@ export default function App({ Component, pageProps }: AppProps) {
       </OverlayProvider>
     </SSRProvider>
   );
-}
+};
+
+export default App;

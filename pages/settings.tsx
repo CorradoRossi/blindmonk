@@ -6,14 +6,10 @@ import Layout from '@components/layout';
 import Header from '@components/header';
 
 import { getAllJobs } from '@lib/cms-api';
-import { Job } from '@lib/types';
+import { JobsProps } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
-type Props = {
-  jobs: Job[];
-};
-
-export default function Jobs({ jobs }: Props) {
+const Jobs = ({ jobs }: JobsProps) => {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -27,9 +23,9 @@ export default function Jobs({ jobs }: Props) {
       </Layout>
     </Page>
   );
-}
+};
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<JobsProps> = async () => {
   const jobs = await getAllJobs();
 
   return {
@@ -39,3 +35,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     revalidate: 60
   };
 };
+
+export default Jobs;

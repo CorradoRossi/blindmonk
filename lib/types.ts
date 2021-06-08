@@ -1,3 +1,5 @@
+import { PageState, UserData } from '@lib/hooks/use-conf-data';
+
 export type Image = {
   url: string;
 };
@@ -13,6 +15,10 @@ export type Speaker = {
   talk: Talk;
   image: Image;
   imageSquare: Image;
+};
+
+export type Speakers = {
+  speakers: Speaker[];
 };
 
 export type Stage = {
@@ -84,3 +90,28 @@ export type GitHubOAuthData =
       name: string;
       login: string;
     };
+
+export type ConfProps = {
+  defaultUserData: UserData;
+  sharePage?: boolean;
+  defaultPageState?: PageState;
+};
+
+export type TicketProps = {
+  username: UserData['username'];
+  ticketNumber: UserData['ticketNumber'];
+  name: UserData['name'];
+  sharePage?: boolean;
+};
+
+export type ScheduleProps = {
+  allStages: Stage[];
+};
+
+export type JobsProps = {
+  jobs: Job[];
+};
+
+export type MarketPageProps = {
+  sponsors: Sponsor[];
+};

@@ -1,5 +1,7 @@
 import TicketImage from 'components/ticket/ticket-image';
 
-export default function TicketOnlyPage() {
+const TicketOnlyPage = () => {
   return <TicketImage />;
-}
+};
+
+export default TicketOnlyPage;

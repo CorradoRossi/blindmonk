@@ -6,14 +6,10 @@ import Header from '@components/header';
 import Layout from '@components/layout';
 
 import { getAllSponsors } from '@lib/cms-api';
-import { Sponsor } from '@lib/types';
+import { MarketPageProps } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
-type Props = {
-  sponsors: Sponsor[];
-};
-
-export default function MarketPage({ sponsors }: Props) {
+const MarketPage = ({ sponsors }: MarketPageProps) => {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -27,9 +23,9 @@ export default function MarketPage({ sponsors }: Props) {
       </Layout>
     </Page>
   );
-}
+};
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<MarketPageProps> = async () => {
   const sponsors = await getAllSponsors();
 
   return {
@@ -39,3 +35,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     revalidate: 60
   };
 };
+
+export default MarketPage;
