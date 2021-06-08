@@ -115,3 +115,23 @@ export type JobsProps = {
 export type MarketPageProps = {
   sponsors: Sponsor[];
 };
+
+export type TicketShareProps = {
+  username: string | null;
+  usernameFromParams: string | null;
+  name: string | null;
+  ticketNumber: number | null;
+};
+
+export type StagePageProps = {
+  stage: Stage;
+  allStages: Stage[];
+};
+
+export type ProfilePageProps = {
+  speaker: Speaker;
+};
+
+export type SponsorPageProps = {
+  sponsor: Sponsor;
+};

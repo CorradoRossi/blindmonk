@@ -4,18 +4,12 @@ import Head from 'next/head';
 import { SkipNavContent } from '@reach/skip-nav';
 import redis from '@lib/redis';
 
+import { TicketShareProps } from '@lib/types';
 import Page from '@components/page';
 import ConfContent from '@components/index';
 import { SITE_URL, SITE_NAME, META_DESCRIPTION, SAMPLE_TICKET_NUMBER } from '@lib/constants';
 
-type Props = {
-  username: string | null;
-  usernameFromParams: string | null;
-  name: string | null;
-  ticketNumber: number | null;
-};
-
-export default function TicketShare({ username, ticketNumber, name, usernameFromParams }: Props) {
+const TicketShare = ({ username, ticketNumber, name, usernameFromParams }: TicketShareProps) => {
   if (!ticketNumber) {
     return <Error statusCode={404} />;
   }
@@ -50,9 +44,9 @@ export default function TicketShare({ username, ticketNumber, name, usernameFrom
       />
     </Page>
   );
-}
+};
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+const getStaticProps: GetStaticProps<TicketShareProps> = async ({ params }) => {
   const username = params?.username?.toString() || null;
 
   if (redis) {
@@ -93,9 +87,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+const getStaticPaths: GetStaticPaths = async () => {
   return Promise.resolve({
     paths: [],
     fallback: 'blocking'
   });
 };
+
+export default TicketShare;
+export { getStaticProps, getStaticPaths };

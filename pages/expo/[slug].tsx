@@ -5,14 +5,10 @@ import SponsorSection from '@components/sponsor-section';
 import Layout from '@components/layout';
 
 import { getAllSponsors } from '@lib/cms-api';
-import { Sponsor } from '@lib/types';
+import { Sponsor, SponsorPageProps } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
-type Props = {
-  sponsor: Sponsor;
-};
-
-export default function SponsorPage({ sponsor }: Props) {
+const SponsorPage = ({ sponsor }: SponsorPageProps) => {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -25,9 +21,9 @@ export default function SponsorPage({ sponsor }: Props) {
       </Layout>
     </Page>
   );
-}
+};
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+const getStaticProps: GetStaticProps<SponsorPageProps> = async ({ params }) => {
   const slug = params?.slug;
   const sponsors = await getAllSponsors();
   const sponsor = sponsors.find((s: Sponsor) => s.slug === slug) || null;
@@ -46,7 +42,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+const getStaticPaths: GetStaticPaths = async () => {
   const sponsors = await getAllSponsors();
   const slugs = sponsors.map((s: Sponsor) => ({ params: { slug: s.slug } }));
 
@@ -55,3 +51,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: 'blocking'
   };
 };
+
+export default SponsorPage;
+export { getStaticProps, getStaticPaths };

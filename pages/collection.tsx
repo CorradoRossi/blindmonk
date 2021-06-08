@@ -9,7 +9,7 @@ import { getAllSpeakers } from '@lib/cms-api';
 import { Speakers } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
-export default function Collection({ speakers }: Speakers) {
+const Collection = ({ speakers }: Speakers) => {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -22,7 +22,7 @@ export default function Collection({ speakers }: Speakers) {
       </Layout>
     </Page>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps<Speakers> = async () => {
   const speakers = await getAllSpeakers();
@@ -34,3 +34,5 @@ export const getStaticProps: GetStaticProps<Speakers> = async () => {
     revalidate: 60
   };
 };
+
+export default Collection;
