@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { HomeDataContext } from '@lib/hooks/use-conf-data';
+import { HomeDataContext } from '@lib/hooks/use-home-data';
 import { PageState, HomeProps, UserData } from '@lib/types';
 //import Ticket from './ticket/ticket';
 //import LearnMore from './learn-more';

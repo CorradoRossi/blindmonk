@@ -5,7 +5,7 @@ import GithubIcon from '@components/icons/icon-github';
 import CheckIcon from '@components/icons/icon-check';
 import { REPO, SITE_ORIGIN } from '@lib/constants';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
-import useHomeData from '@lib/hooks/use-conf-data';
+import useHomeData from '@lib/hooks/use-home-data';
 import LoadingDots from '../loading-dots';
 import formStyles from 'styles/form.module.css';
 import ticketFormStyles from 'styles/ticket-form.module.css';

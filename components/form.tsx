@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cn from 'classnames';
-import useHomeData from '@lib/hooks/use-conf-data';
+import useHomeData from '@lib/hooks/use-home-data';
 import { useRouter } from 'next/router';
 import FormError from '@lib/form-error';
 import LoadingDots from './loading-dots';
