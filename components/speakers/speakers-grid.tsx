@@ -1,51 +1,54 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { SpeakersGridProps } from '@lib/types';
 import styles from 'styles/speakers-grid.module.css';
+import { useWeb3React } from '@web3-react/core';
+import { RSSI_WALLET } from '@lib/constants';
 
-const AssetGrid = ({ speakers, assets, account }: SpeakersGridProps) => {
-  const [localAssets, setLocalAssets] = useState([]);
+const AssetGrid = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [data, setData] = useState<any>([]);
+  const { account } = useWeb3React();
 
   useEffect(() => {
-    if (typeof assets === 'object') {
-      console.log(assets, 'inside');
-      setLocalAssets(assets);
+    async function fetchData() {
+      const url = `https://api.opensea.io/api/v1/assets?owner=${RSSI_WALLET}&order_direction=desc&offset=0&limit=100`;
+      const options = { method: 'GET' };
+      setIsLoading(true);
+      const fetcher = await window.fetch(url, options);
+      const response = await fetcher.json();
+      setData(response);
+      console.log(response);
+      setIsLoading(false);
     }
-    console.log(assets, 'outside');
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    if (typeof assets === 'object') {
-      console.log(assets, 'inside');
-      setLocalAssets(assets);
-    }
-    console.log(assets, 'outside');
-  }, [assets]);
-
-  return (
+  return isLoading ? (
+    <div></div>
+  ) : (
     <div className={styles.grid}>
-      {localAssets.map((asset: any) => (
-        <Link key={asset.name} href={`/speakers/${asset.permalink}`}>
+      {data?.assets?.map((asset: any) => (
+        <Link key={asset?.permalink} href={`/speakers/${asset?.id}`}>
           <a role="button" tabIndex={0} className={styles.card}>
             <div className={styles.imageWrapper}>
               <Image
-                alt={asset.name}
-                src={asset.image_preview_url}
+                alt={asset?.name}
+                src={asset?.image_preview_url}
                 className={styles.image}
                 loading="lazy"
                 quality="50"
-                title={asset.name}
+                title={asset?.name}
                 width={300}
                 height={300}
               />
             </div>
             <div className={styles.cardBody}>
               <div>
-                <h2 className={styles.name}>{asset.name}</h2>
+                <h2 className={styles.name}>{asset?.name}</h2>
                 <p className={styles.title}>
-                  {`${asset.creator.user.username} @ `}
-                  <span className={styles.company}>{asset.last_sale.payment_token.eth_price}</span>
+                  {`@${asset?.creator?.user?.username}`}
+                  <span className={styles.company}>{''}</span>
                 </p>
               </div>
             </div>
