@@ -3,7 +3,7 @@ import cn from 'classnames';
 import useHomeData from '@lib/hooks/use-home-data';
 import { useRouter } from 'next/router';
 import FormError from '@lib/form-error';
-import LoadingDots from './loading-dots';
+import LoadingDots from '../utils/loading-dots';
 import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/form.module.css';
 import useEmailQueryParam from '@lib/hooks/use-email-query-param';

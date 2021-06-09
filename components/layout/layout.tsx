@@ -9,7 +9,7 @@ import Logo from '../icons/icon-logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
 import { LayoutProps, FormState } from '@lib/types';
-import Wallets from '../account/wallets';
+import Wallets from '../web3/wallets';
 import useWeb3Modal from '@lib/hooks/useWeb3Modal';
 
 const Layout = ({ children, className, hideNav, layoutStyles }: LayoutProps) => {

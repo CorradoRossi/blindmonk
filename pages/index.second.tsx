@@ -15,7 +15,7 @@ import {
   walletconnect,
   walletlink
 } from 'components/walletsModal/extraConnectors';
-import { Spinner } from 'components/spinner';
+import { Spinner } from '@components/utils/spinner';
 
 enum ConnectorNames {
   Injected = 'Injected',

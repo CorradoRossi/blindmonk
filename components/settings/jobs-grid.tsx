@@ -1,7 +1,7 @@
 import { CompanyJobsProps } from '@lib/types';
 import styles from 'styles/jobs-grid.module.css';
 
-const CompanyJobs = ({ jobs }: CompanyJobsProps) => {
+const Settings = ({ jobs }: CompanyJobsProps) => {
   return (
     <div className={styles.grid}>
       {jobs.map(job => (
@@ -75,7 +75,7 @@ const JobsGrid = ({ jobs }: CompanyJobsProps) => {
               </svg>
             </a>
           </div>
-          <CompanyJobs jobs={companies[companyName]} />
+          <Settings jobs={companies[companyName]} />
         </div>
       ))}
     </>

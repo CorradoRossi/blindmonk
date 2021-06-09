@@ -11,7 +11,7 @@ import TicketVisual from './ticket-visual';
 import TicketActions from './ticket-actions';
 import TicketCopy from './ticket-copy';
 import { DATE, SITE_NAME } from '@lib/constants';
-import Form from '../form';
+import Form from '../form/form';
 import { TicketProps } from '@lib/types';
 
 const Ticket = ({ username, name, ticketNumber, sharePage }: TicketProps) => {

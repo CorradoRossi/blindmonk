@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import Page from '@components/layout/page';
-import SponsorSection from '@components/sponsor-section';
+import SponsorSection from '@components/sponsors/sponsor-section';
 import Layout from '@components/layout/layout';
 
 import { getAllSponsors } from '@lib/cms-api';

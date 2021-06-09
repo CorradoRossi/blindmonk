@@ -5,7 +5,7 @@ import useLoginStatus from '@lib/hooks/use-login-status';
 import styles from 'styles/stage-container.module.css';
 import styleUtils from 'styles/utils.module.css';
 import ScheduleSidebar from './schedule-sidebar';
-import HomeEntry from './home-entry';
+import HomeEntry from '../home/home-entry';
 
 const StageContainer = ({ stage, allStages }: StageContainerProps) => {
   const response = useSWR('/api/stages', {

@@ -1,4 +1,4 @@
-import IconLogo from './icons/icon-logo';
+import IconLogo from '../icons/icon-logo';
 import styles from 'styles/logo.module.css';
 import { SITE_NAME_MULTILINE } from '@lib/constants';
 

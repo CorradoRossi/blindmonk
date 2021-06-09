@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 
 import Page from '@components/layout/page';
-import Schedule from '@components/schedule';
+import Schedule from '@components/schedule/schedule';
 import Layout from '@components/layout/layout';
 import Header from '@components/layout/header';
 

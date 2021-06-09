@@ -4,9 +4,9 @@ import { PageState, HomeProps, UserData } from '@lib/types';
 //import Ticket from './ticket/ticket';
 //import LearnMore from './learn-more';
 import Layout from './layout/layout';
-import HomeContainer from './home-container';
-import Hero from './hero';
-import Form from './form';
+import HomeContainer from './home/home-container';
+import Hero from './home/hero';
+import Form from './form/form';
 import { useWeb3React } from '@web3-react/core';
 import useETHBalance from '@lib/hooks/useEthBalance';
 

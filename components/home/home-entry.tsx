@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { useCallback, useState } from 'react';
 import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/home-entry.module.css';
-import LoadingDots from './loading-dots';
+import LoadingDots from '../utils/loading-dots';
 import { register } from '@lib/user-api';
 import { SITE_DESCRIPTION, DEFAULT_ERROR_MSG } from '@lib/constants';
 import useEmailQueryParam from '@lib/hooks/use-email-query-param';

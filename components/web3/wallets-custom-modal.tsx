@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import WalletModal from 'components/walletsModal';
-import LoadingDots from 'components/loading-dots';
+import LoadingDots from '@components/utils/loading-dots';
 import { createPortal } from 'react-dom';
 import { QrcodeIcon } from '@heroicons/react/solid';
 import { WalletProps } from '@lib/types';

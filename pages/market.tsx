@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 
 import Page from '@components/layout/page';
-import SponsorsGrid from '@components/sponsors-grid';
+import SponsorsGrid from '@components/sponsors/sponsors-grid';
 import Header from '@components/layout/header';
 import Layout from '@components/layout/layout';
 

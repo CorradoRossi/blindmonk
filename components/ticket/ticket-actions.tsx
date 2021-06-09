@@ -4,7 +4,7 @@ import { SITE_URL, TWEET_TEXT } from '@lib/constants';
 import IconTwitter from '../icons/icon-twitter';
 import IconLinkedin from '../icons/icon-linkedin';
 import IconDownload from '../icons/icon-download';
-import LoadingDots from '../loading-dots';
+import LoadingDots from '../utils/loading-dots';
 import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/ticket-actions.module.css';
 import { TicketActionsProps } from '@lib/types';
