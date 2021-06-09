@@ -36,6 +36,8 @@ module.exports = {
   images: {
     domains: [
       'www.datocms-assets.com',
+      'api.opensea.io',
+      'lh3.googleusercontent.com',
       'localhost' // For Strapi
     ],
     imageSizes: [24, 64, 300]

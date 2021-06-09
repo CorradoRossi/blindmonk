@@ -1,9 +1,9 @@
 import { GetStaticProps } from 'next';
 
-import Page from '@components/page';
-import Schedule from '@components/schedule';
-import Layout from '@components/layout';
-import Header from '@components/header';
+import Page from '@components/layout/page';
+import Schedule from '@components/schedule/schedule';
+import Layout from '@components/layout/layout';
+import Header from '@components/layout/header';
 
 import { getAllStages } from '@lib/cms-api';
 import { ScheduleProps } from '@lib/types';

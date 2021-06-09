@@ -5,8 +5,8 @@ import GithubIcon from '@components/icons/icon-github';
 import CheckIcon from '@components/icons/icon-check';
 import { REPO, SITE_ORIGIN } from '@lib/constants';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
-import useConfData from '@lib/hooks/use-conf-data';
-import LoadingDots from '../loading-dots';
+import useHomeData from '@lib/hooks/use-home-data';
+import LoadingDots from '../utils/loading-dots';
 import formStyles from 'styles/form.module.css';
 import ticketFormStyles from 'styles/ticket-form.module.css';
 import { saveGithubToken } from '@lib/user-api';
@@ -18,7 +18,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
   const [username, setUsername] = useState(defaultUsername);
   const [formState, setFormState] = useState<FormState>('default');
   const [errorMsg, setErrorMsg] = useState('');
-  const { userData, setUserData } = useConfData();
+  const { userData, setUserData } = useHomeData();
   const formRef = useRef<HTMLFormElement>(null);
 
   return formState === 'error' ? (

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { nanoid } from 'nanoid';
-import { ConfUser, ErrorResponse } from '@lib/types';
+import { HomeUser, ErrorResponse } from '@lib/types';
 import validator from 'validator';
 import { SAMPLE_TICKET_NUMBER, COOKIE } from '@lib/constants';
 import cookie from 'cookie';
@@ -9,7 +9,7 @@ import redis, { emailToId } from '@lib/redis';
 
 export default async function register(
   req: NextApiRequest,
-  res: NextApiResponse<ConfUser | ErrorResponse>
+  res: NextApiResponse<HomeUser | ErrorResponse>
 ) {
   if (req.method !== 'POST') {
     return res.status(501).json({

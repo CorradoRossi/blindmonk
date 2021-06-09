@@ -123,7 +123,8 @@
 
 @media (min-width: 768px) {
   .submit.register {
-    width: 160px;
+    min-width: 160px;
+    max-width: 210px;
     height: 40px;
     margin-top: 0;
     border-radius: 5px;

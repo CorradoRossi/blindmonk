@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
-import Page from '@components/page';
-import StageContainer from '@components/stage-container';
-import Layout from '@components/layout';
+import Page from '@components/layout/page';
+import StageContainer from '@components/schedule/stage-container';
+import Layout from '@components/layout/layout';
 
 import { getAllStages } from '@lib/cms-api';
 import { Stage, StagePageProps } from '@lib/types';

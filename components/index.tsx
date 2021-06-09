@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
-import { ConfDataContext } from '@lib/hooks/use-conf-data';
-import { PageState, ConfProps, UserData } from '@lib/types';
+import { HomeDataContext } from '@lib/hooks/use-home-data';
+import { PageState, HomeProps, UserData } from '@lib/types';
 //import Ticket from './ticket/ticket';
 //import LearnMore from './learn-more';
-import Layout from './layout';
-import ConfContainer from './conf-container';
-import Hero from './hero';
-import Form from './form';
+import Layout from './layout/layout';
+import HomeContainer from './home/home-container';
+import Hero from './home/hero';
+import Form from './form/form';
 import { useWeb3React } from '@web3-react/core';
+import { InjectedConnector } from '@web3-react/injected-connector';
 import useETHBalance from '@lib/hooks/useEthBalance';
 
-const Conf = ({ defaultUserData, sharePage, defaultPageState = 'registration' }: ConfProps) => {
-  const { account, library, chainId } = useWeb3React<Object>();
+const HomeContent = ({
+  defaultUserData,
+  sharePage,
+  defaultPageState = 'registration'
+}: HomeProps) => {
+  const { account, library, chainId, deactivate, connector }: any = useWeb3React<Object>();
   const { data } = useETHBalance(account);
 
   const [userData, setUserData] = useState<UserData>(defaultUserData);
@@ -19,15 +24,18 @@ const Conf = ({ defaultUserData, sharePage, defaultPageState = 'registration' }:
   const [ethAccount, setEthAccount] = useState(account || '');
   const [ethData, setEthData] = useState(data || 0);
 
+  const disconnect = () => {
+    deactivate();
+    // @ts-ignore
+    if (!connector instanceof InjectedConnector) {
+      connector.close();
+    }
+  };
+
   useEffect(() => {
     // @ts-ignore
     setEthAccount(account);
     setEthData(data);
-
-    console.log(account);
-    console.log(library);
-    console.log(chainId);
-    console.log(data);
   }, [account, data]);
 
   useEffect(() => {
@@ -37,7 +45,7 @@ const Conf = ({ defaultUserData, sharePage, defaultPageState = 'registration' }:
   }, []);
 
   return (
-    <ConfDataContext.Provider
+    <HomeDataContext.Provider
       value={{
         userData,
         setUserData,
@@ -45,27 +53,30 @@ const Conf = ({ defaultUserData, sharePage, defaultPageState = 'registration' }:
       }}
     >
       <Layout>
-        <ConfContainer>
-          {!ethAccount || !ethData ? (
-            <>
-              <Hero />
-              <Form />
-            </>
-          ) : (
+        <HomeContainer>
+          {ethAccount ? (
             <>
               <div>
                 <h1>{ethAccount ? ethAccount : ''}</h1>
                 <h1>{ethData ? ethData : ''}</h1>
+                <button onKeyDown={disconnect} onClick={disconnect}>
+                  Disconnect
+                </button>
               </div>
             </>
+          ) : (
+            <>
+              <Hero />
+              <Form />
+            </>
           )}
-        </ConfContainer>
+        </HomeContainer>
       </Layout>
-    </ConfDataContext.Provider>
+    </HomeDataContext.Provider>
   );
 };
 
-export default Conf;
+export default HomeContent;
 
 //<Ticket
 //  username={userData.username}

@@ -4,8 +4,8 @@ import Head from 'next/head';
 import { SkipNavContent } from '@reach/skip-nav';
 import redis from '@lib/redis';
 
-import Page from '@components/page';
-import ConfContent from '@components/index';
+import Page from '@components/layout/page';
+import HomeContent from '@components/index';
 import { TicketShareProps } from '@lib/types';
 import { SITE_URL, SITE_NAME, META_DESCRIPTION, SAMPLE_TICKET_NUMBER, TITLE } from '@lib/constants';
 
@@ -34,7 +34,7 @@ const TicketShare = ({ username, ticketNumber, name, usernameFromParams }: Ticke
         <meta name="robots" content="noindex" />
       </Head>
       <SkipNavContent />
-      <ConfContent
+      <HomeContent
         defaultUserData={{
           username: username || undefined,
           name: name || '',

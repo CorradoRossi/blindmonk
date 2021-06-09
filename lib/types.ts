@@ -69,7 +69,7 @@ export type Job = {
   rank: number;
 };
 
-export type ConfUser = {
+export type HomeUser = {
   id?: string;
   email: string;
   ticketNumber: number;
@@ -89,7 +89,7 @@ export type GitHubOAuthData =
       login: string;
     };
 
-export type ConfProps = {
+export type HomeProps = {
   defaultUserData: UserData;
   sharePage?: boolean;
   defaultPageState?: PageState;
@@ -134,6 +134,14 @@ export type SponsorPageProps = {
   sponsor: Sponsor;
 };
 
+export type SponsorsGridProps = {
+  sponsors: Sponsor[];
+};
+
+export type ScheduleStageProps = {
+  allStages: Stage[];
+};
+
 export type ErrorResponse = {
   error: {
     code: string;
@@ -164,7 +172,7 @@ export type UserData = {
   name?: string;
 };
 
-export type ConfDataContextType = {
+export type HomeDataContextType = {
   userData: UserData;
   setUserData: React.Dispatch<React.SetStateAction<UserData>>;
   setPageState: React.Dispatch<React.SetStateAction<PageState>>;
@@ -187,6 +195,8 @@ export type SponsorSectionProps = {
 
 export type SpeakersGridProps = {
   speakers: Speaker[];
+  assets: any;
+  account: any;
 };
 
 export type SpeakerSectionProps = {

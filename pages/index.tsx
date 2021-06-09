@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 
-import Page from '@components/page';
-import ConfContent from '@components/index';
+import Page from '@components/layout/page';
+import HomeContent from '@components/index';
 import { META } from '@lib/constants';
 
-const Conf = () => {
+const Home = () => {
   const { query } = useRouter();
   const ticketNumber = query.ticketNumber?.toString();
   const defaultUserData = {
@@ -18,7 +18,7 @@ const Conf = () => {
   return (
     <Page meta={META} fullViewport>
       <SkipNavContent />
-      <ConfContent
+      <HomeContent
         defaultUserData={defaultUserData}
         defaultPageState={query.ticketNumber ? 'ticket' : 'registration'}
       />
@@ -26,4 +26,4 @@ const Conf = () => {
   );
 };
 
-export default Conf;
+export default Home;

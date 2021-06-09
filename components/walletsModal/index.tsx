@@ -12,7 +12,7 @@ import usePrevious from '@lib/hooks/usePrevious';
 import Option from './Option';
 import PendingView from './pendingView';
 import { QrcodeIcon, XIcon } from '@heroicons/react/solid';
-import Image from 'components/image';
+import Image from '@components/utils/image';
 import { StageSpinner } from 'react-spinners-kit';
 import { event } from '@lib/utils/gtag';
 //import { logError } from '@lib/utils/sentry';
