@@ -14,6 +14,11 @@ export const FULL_DATE = 'June 4 9am Pacific Time (GMT-7)';
 export const COOKIE = 'user-id';
 export const DEFAULT_ERROR_MSG = 'Error! Please try again.';
 
+// Enter a valid infura key here to avoid being rate limited
+// You can get a key for free at https://infura.io/register
+export const INFURA_ID = 'INVALID_INFURA_KEY';
+export const NETWORK_NAME = 'mainnet';
+
 export const META = {
   title: TITLE,
   description: META_DESCRIPTION
