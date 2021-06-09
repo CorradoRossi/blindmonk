@@ -1,8 +1,8 @@
-import { INFURA_ID, NETWORK_NAME } from './../constants';
+import { INFURA_ID, NETWORK_NAME } from '@lib/constants';
 import { useCallback, useEffect, useState } from 'react';
 import { Web3Provider } from '@ethersproject/providers';
-import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
+import Web3Modal from 'web3modal';
 
 function useWeb3Modal(config = {}) {
   const [provider, setProvider] = useState<any>();
