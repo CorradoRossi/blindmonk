@@ -47,7 +47,6 @@ const Layout = ({ children, className, hideNav, layoutStyles }: LayoutProps) => 
               <Wallets
                 className={cn(styles.submit, styles.register, styles[formState])}
                 disabled={formState === 'loading'}
-                text={'Connect Wallet'}
                 modalOpen={false}
                 provider={provider}
                 loadWeb3Modal={loadWeb3Modal}

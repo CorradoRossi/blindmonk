@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cn from 'classnames';
-import useConfData from '@lib/hooks/use-conf-data';
+import useHomeData from '@lib/hooks/use-conf-data';
 import { useRouter } from 'next/router';
 import FormError from '@lib/form-error';
 import LoadingDots from './loading-dots';
@@ -16,7 +16,7 @@ const Form = ({ sharePage }: FormProps) => {
   const [errorTryAgain, setErrorTryAgain] = useState(false);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
-  const { setPageState, setUserData } = useConfData();
+  const { setPageState, setUserData } = useHomeData();
   const router = useRouter();
   useEmailQueryParam('email', setEmail);
 

@@ -7,7 +7,6 @@ import { WalletProps } from '@lib/types';
 
 const Wallets = ({
   className,
-  text,
   disabled,
   modalOpen,
   provider,
@@ -40,7 +39,7 @@ const Wallets = ({
         onClick={!provider ? () => loadWeb3Modal() : () => logoutOfWeb3Modal()}
       >
         <QrcodeIcon height="20" width="20" className="mr-2" />
-        <span>{text}</span>
+        <span>{!provider ? 'Connect Wallet' : 'Disconnect Wallet'}</span>
       </button>
       {open && <WalletPortal />}
     </>

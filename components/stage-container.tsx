@@ -5,7 +5,7 @@ import useLoginStatus from '@lib/hooks/use-login-status';
 import styles from 'styles/stage-container.module.css';
 import styleUtils from 'styles/utils.module.css';
 import ScheduleSidebar from './schedule-sidebar';
-import ConfEntry from './conf-entry';
+import HomeEntry from './home-entry';
 
 export default function StageContainer({ stage, allStages }: StageContainerProps) {
   const response = useSWR('/api/stages', {
@@ -60,7 +60,7 @@ export default function StageContainer({ stage, allStages }: StageContainerProps
             </div>
           </div>
         ) : loginStatus === 'loading' ? null : (
-          <ConfEntry onRegister={() => mutate()} />
+          <HomeEntry onRegister={() => mutate()} />
         )}
       </div>
       <ScheduleSidebar allStages={updatedStages} />

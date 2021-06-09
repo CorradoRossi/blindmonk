@@ -17,7 +17,7 @@ function getErrorMsg(code: string) {
   }
 }
 
-export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
+const HomeEntry = ({ onRegister }: { onRegister: () => void }) => {
   const [emailInput, setEmailInput] = useState('');
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
@@ -103,4 +103,6 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
       </form>
     </div>
   );
-}
+};
+
+export default HomeEntry;

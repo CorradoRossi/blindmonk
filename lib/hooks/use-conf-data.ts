@@ -1,10 +1,10 @@
 import { createContext, useContext } from 'react';
-import { ConfDataContextType } from '@lib/types';
+import { HomeDataContextType } from '@lib/types';
 
-export const ConfDataContext = createContext<ConfDataContextType | null>(null);
+export const HomeDataContext = createContext<HomeDataContextType | null>(null);
 
-export default function useConfData() {
-  const result = useContext(ConfDataContext);
+export default function useHomeData() {
+  const result = useContext(HomeDataContext);
   if (!result) {
     throw new Error();
   }
