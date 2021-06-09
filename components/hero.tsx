@@ -3,7 +3,7 @@ import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/hero.module.css';
 import { BRAND_NAME, DATE, SITE_DESCRIPTION } from '@lib/constants';
 
-export default function Hero() {
+const Hero = () => {
   return (
     <div className={styles.wrapper}>
       <h2
@@ -41,4 +41,6 @@ export default function Hero() {
       </div>
     </div>
   );
-}
+};
+
+export default Hero;

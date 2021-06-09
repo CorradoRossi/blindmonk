@@ -1,7 +1,7 @@
 import { CompanyJobsProps } from '@lib/types';
 import styles from 'styles/jobs-grid.module.css';
 
-function CompanyJobs({ jobs }: CompanyJobsProps) {
+const CompanyJobs = ({ jobs }: CompanyJobsProps) => {
   return (
     <div className={styles.grid}>
       {jobs.map(job => (
@@ -42,9 +42,9 @@ function CompanyJobs({ jobs }: CompanyJobsProps) {
       ))}
     </div>
   );
-}
+};
 
-export default function JobsGrid({ jobs }: CompanyJobsProps) {
+const JobsGrid = ({ jobs }: CompanyJobsProps) => {
   const companies = jobs.reduce((allCompanies: any, job) => {
     allCompanies[job.companyName] = [...(allCompanies[job.companyName] || []), job];
     return allCompanies;
@@ -80,4 +80,6 @@ export default function JobsGrid({ jobs }: CompanyJobsProps) {
       ))}
     </>
   );
-}
+};
+
+export default JobsGrid;

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import styles from 'styles/loading-dots.module.css';
 import { LoadingDotsProps } from '@lib/types';
 
-export default function LoadingDots({ size = 2, height, children, reverse }: LoadingDotsProps) {
+const LoadingDots = ({ size = 2, height, children, reverse }: LoadingDotsProps) => {
   return (
     <span
       className={cn(styles.loading, { [styles.reverse]: reverse })}
@@ -18,4 +18,6 @@ export default function LoadingDots({ size = 2, height, children, reverse }: Loa
       <span />
     </span>
   );
-}
+};
+
+export default LoadingDots;

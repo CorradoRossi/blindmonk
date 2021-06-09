@@ -3,7 +3,7 @@ import MetastashLogo from '@components/icons/icon-platform';
 import styles from 'styles/footer.module.css';
 import { COPYRIGHT_HOLDER, SITE_NAME, CODE_OF_CONDUCT, LEGAL_URL, REPO } from '@lib/constants';
 
-export function HostedByVercel() {
+export const HostedByVercel = () => {
   return (
     <a
       href="https://metastash.xyz"
@@ -15,9 +15,9 @@ export function HostedByVercel() {
       <MetastashLogo color="white" />
     </a>
   );
-}
+};
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className={cn(styles.footer)}>
       <div className={styles['footer-legal']}>
@@ -41,4 +41,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

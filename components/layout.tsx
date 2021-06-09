@@ -12,7 +12,7 @@ import { LayoutProps, FormState } from '@lib/types';
 import Wallets from './account/wallets';
 import useWeb3Modal from '@lib/hooks/useWeb3Modal';
 
-export default function Layout({ children, className, hideNav, layoutStyles }: LayoutProps) {
+const Layout = ({ children, className, hideNav, layoutStyles }: LayoutProps) => {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
   const [formState, setFormState] = useState<FormState>('default');
   const router = useRouter();
@@ -66,4 +66,6 @@ export default function Layout({ children, className, hideNav, layoutStyles }: L
       </div>
     </>
   );
-}
+};
+
+export default Layout;

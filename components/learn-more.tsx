@@ -3,7 +3,7 @@ import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/contact.module.css';
 import { REPO } from '@lib/constants';
 
-export default function LearnMore() {
+const LearnMore = () => {
   return (
     <div className={cn(styleUtils.appear, styleUtils['appear-fifth'], styles.contact)}>
       Learn more on{' '}
@@ -13,4 +13,6 @@ export default function LearnMore() {
       .
     </div>
   );
-}
+};
+
+export default LearnMore;

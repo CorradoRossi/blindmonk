@@ -10,7 +10,7 @@ import useEmailQueryParam from '@lib/hooks/use-email-query-param';
 import { register } from '@lib/user-api';
 import { FormState, FormProps } from '@lib/types';
 
-export default function Form({ sharePage }: FormProps) {
+const Form = ({ sharePage }: FormProps) => {
   const [email, setEmail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [errorTryAgain, setErrorTryAgain] = useState(false);
@@ -136,4 +136,6 @@ export default function Form({ sharePage }: FormProps) {
       </div>
     </form>
   );
-}
+};
+
+export default Form;

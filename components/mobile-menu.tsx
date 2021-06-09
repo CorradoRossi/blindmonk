@@ -42,7 +42,7 @@ function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
   );
 }
 
-export default function Overlay() {
+const Overlay = () => {
   const state = useOverlayTriggerState({});
   const ref = useRef<HTMLButtonElement | null>(null);
   const { buttonProps } = useButton(
@@ -103,4 +103,6 @@ export default function Overlay() {
       )}
     </>
   );
-}
+};
+
+export default Overlay;

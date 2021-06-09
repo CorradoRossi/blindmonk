@@ -2,7 +2,7 @@ import NProgress from 'nprogress';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-export default function Progress() {
+const Progress = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -27,4 +27,6 @@ export default function Progress() {
     };
   }, []);
   return <></>;
-}
+};
+
+export default Progress;

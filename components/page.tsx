@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { SITE_NAME, SITE_URL, TWITTER_USER_NAME } from '@lib/constants';
 import { PageProps } from '@lib/types';
 
-export default function Page({ meta, children, fullViewport = false }: PageProps) {
+const Page = ({ meta, children, fullViewport = false }: PageProps) => {
   const router = useRouter();
   const image = meta.image || '/tri-circle-purple.png';
   const title = meta.title || SITE_NAME;
@@ -44,4 +44,6 @@ export default function Page({ meta, children, fullViewport = false }: PageProps
       {children}
     </div>
   );
-}
+};
+
+export default Page;

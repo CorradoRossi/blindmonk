@@ -2,7 +2,7 @@ import IconLogo from './icons/icon-logo';
 import styles from 'styles/logo.module.css';
 import { SITE_NAME_MULTILINE } from '@lib/constants';
 
-export default function Logo({ textSecondaryColor = 'var(--accents-5)' }) {
+const Logo = ({ textSecondaryColor = 'var(--accents-5)' }) => {
   return (
     <div className={styles.logo}>
       <div className={styles.icon}>
@@ -19,4 +19,6 @@ export default function Logo({ textSecondaryColor = 'var(--accents-5)' }) {
       </div>
     </div>
   );
-}
+};
+
+export default Logo;
