@@ -279,3 +279,13 @@ export type TicketCopyProps = {
 export type TicketActionsProps = {
   username: string;
 };
+
+export type WalletProps = {
+  className: string;
+  disabled: boolean;
+  text?: string;
+  modalOpen?: boolean;
+  provider: any;
+  loadWeb3Modal: any;
+  logoutOfWeb3Modal: any;
+};

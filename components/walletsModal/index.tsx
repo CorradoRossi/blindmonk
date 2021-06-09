@@ -168,9 +168,9 @@ export default function WalletModal({ close }: any) {
               onKeyDown={() => close()}
               onClick={() => close()}
             >
-              <XIcon />
+              <XIcon height="20" width="20" />
             </div>
-            <Image src="/default.png" alt="background" />
+            {/*<Image src="/default.png" alt="background" />*/}
             <div className="mx-auto flex items-start justify-center absolute top-0 w-full h-full">
               <img
                 className="w-48"
@@ -207,13 +207,13 @@ export default function WalletModal({ close }: any) {
             onKeyDown={() => close()}
             onClick={() => close()}
           >
-            <XIcon />
+            <XIcon height="20" width="20" />
           </div>
-          <Image src="/default.png" alt="background" />
+          {/*<Image src="/default.png" alt="background" />*/}
           <div className="flex items-center justify-center absolute w-full h-full">
             {walletView === WALLET_VIEWS.ACCOUNT ? (
               <div className="font-inter font-black uppercase mt-2 flex flex-col items-center">
-                <QrcodeIcon className="mb-2" />
+                <QrcodeIcon height="20" width="20" className="mb-2" />
                 <p>Connect Wallet</p>
               </div>
             ) : null}
