@@ -1,16 +1,4 @@
-type GTagEvent = {
-  action: string;
-  category: string;
-  label?: string;
-  value?: number;
-};
-
-type MonitizeEvent = {
-  id: string;
-  username: string;
-  value: number;
-  transactionHash: string;
-};
+import { GTagEvent, MonitizeEvent } from '@lib/types';
 
 export const pageview = (url: URL) => {
   // @ts-ignore

@@ -1,7 +1,5 @@
 import { Job, Sponsor, Stage, Speaker } from '@lib/types';
-
-const API_URL = 'https://graphql.datocms.com/';
-const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
+import { API_URL, API_TOKEN } from '@lib/constants';
 
 async function fetchCmsAPI(query: string, { variables }: { variables?: Record<string, any> } = {}) {
   const res = await fetch(API_URL, {

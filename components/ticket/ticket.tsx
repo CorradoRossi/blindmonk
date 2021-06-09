@@ -1,8 +1,7 @@
 import cn from 'classnames';
 import Tilt from 'vanilla-tilt';
 import { useRef, useEffect, useState } from 'react';
-import { UserData } from '@lib/hooks/use-conf-data';
-import { TicketGenerationState } from '@lib/constants';
+import { TicketGenerationState } from '@lib/types';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import { scrollTo } from '@lib/smooth-scroll';
 import styles from 'styles/ticket.module.css';
@@ -13,20 +12,14 @@ import TicketActions from './ticket-actions';
 import TicketCopy from './ticket-copy';
 import { DATE, SITE_NAME } from '@lib/constants';
 import Form from '../form';
+import { TicketProps } from '@lib/types';
 
-type Props = {
-  username: UserData['username'];
-  ticketNumber: UserData['ticketNumber'];
-  name: UserData['name'];
-  sharePage?: boolean;
-};
-
-export default function Ticket({ username, name, ticketNumber, sharePage }: Props) {
+const Ticket = ({ username, name, ticketNumber, sharePage }: TicketProps) => {
   const ticketRef = useRef<HTMLDivElement>(null);
+  const divRef = useRef<HTMLDivElement>(null);
   const [ticketGenerationState, setTicketGenerationState] = useState<TicketGenerationState>(
     'default'
   );
-  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (ticketRef.current && !window.matchMedia('(pointer: coarse)').matches) {
@@ -121,4 +114,6 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
       </div>
     </div>
   );
-}
+};
+
+export default Ticket;

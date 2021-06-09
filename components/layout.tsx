@@ -8,18 +8,12 @@ import styles from 'styles/layout.module.css';
 import Logo from './icons/icon-logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
-import LoadingDots from './loading-dots';
+import { LayoutProps, FormState } from '@lib/types';
+import Wallets from './account/wallets';
+import useWeb3Modal from '@lib/hooks/useWeb3Modal';
 
-type Props = {
-  children: React.ReactNode;
-  className?: string;
-  hideNav?: boolean;
-  layoutStyles?: any;
-};
-
-type FormState = 'default' | 'loading' | 'error';
-
-export default function Layout({ children, className, hideNav, layoutStyles }: Props) {
+export default function Layout({ children, className, hideNav, layoutStyles }: LayoutProps) {
+  const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
   const [formState, setFormState] = useState<FormState>('default');
   const router = useRouter();
   const activeRoute = router.asPath;
@@ -50,13 +44,15 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
               ))}
             </div>
             <div className={cn(styles['header-right'])}>
-              <button
+              <Wallets
                 className={cn(styles.submit, styles.register, styles[formState])}
                 disabled={formState === 'loading'}
-                onClick={() => setFormState('loading')}
-              >
-                {formState === 'loading' ? <LoadingDots size={4} /> : <>Connect Wallet</>}
-              </button>
+                text={'Connect Wallet'}
+                modalOpen={false}
+                provider={provider}
+                loadWeb3Modal={loadWeb3Modal}
+                logoutOfWeb3Modal={logoutOfWeb3Modal}
+              />
             </div>
           </header>
         )}

@@ -1,12 +1,11 @@
 import { Job, Sponsor, Stage, Speaker } from '@lib/types';
 import { richTextAsText, getLinkUrl } from './utils';
-
-const API_REF_URL = `https://${process.env.PRISMIC_REPO_ID}.prismic.io/api/v2`;
-const API_URL = `https://${process.env.PRISMIC_REPO_ID}.prismic.io/graphql`;
-const API_TOKEN = process.env.PRISMIC_ACCESS_TOKEN || '';
+import { API_PRISMIC_REF_URL, API_PRISMIC_URL, API_PRISMIC_TOKEN } from '@lib/constants';
 
 async function fetchCmsMasterRef() {
-  const res = await fetch(`${API_REF_URL}${API_TOKEN ? `?access_token=${API_TOKEN}` : ''}`);
+  const res = await fetch(
+    `${API_PRISMIC_REF_URL}${API_PRISMIC_TOKEN ? `?access_token=${API_PRISMIC_TOKEN}` : ''}`
+  );
 
   const json = await res.json();
   if (json.errors) {
@@ -24,10 +23,10 @@ async function fetchCmsMasterRef() {
 async function fetchCmsAPI(query: string, { variables }: { variables?: Record<string, any> } = {}) {
   const masterRef = await fetchCmsMasterRef();
 
-  const res = await fetch(`${API_URL}?query=${encodeURIComponent(query)}`, {
+  const res = await fetch(`${API_PRISMIC_URL}?query=${encodeURIComponent(query)}`, {
     headers: {
       'Prismic-Ref': `${masterRef}`,
-      Authorization: `Token ${API_TOKEN}`
+      Authorization: `Token ${API_PRISMIC_TOKEN}`
     }
   });
 

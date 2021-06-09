@@ -6,30 +6,21 @@ import Layout from '@components/layout';
 import Header from '@components/header';
 
 import { getAllStages } from '@lib/cms-api';
-import { Stage } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { ScheduleProps } from '@lib/types';
+import { META } from '@lib/constants';
 
-type Props = {
-  allStages: Stage[];
-};
-
-export default function SchedulePage({ allStages }: Props) {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
-
+const SchedulePage = ({ allStages }: ScheduleProps) => {
   return (
-    <Page meta={meta}>
+    <Page meta={META}>
       <Layout>
-        <Header hero="Wallet" description={meta.description} />
+        <Header hero="Wallet" description={META.description} />
         <Schedule allStages={allStages} />
       </Layout>
     </Page>
   );
-}
+};
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<ScheduleProps> = async () => {
   const allStages = await getAllStages();
 
   return {
@@ -39,3 +30,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     revalidate: 60
   };
 };
+
+export default SchedulePage;

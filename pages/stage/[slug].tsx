@@ -5,30 +5,20 @@ import StageContainer from '@components/stage-container';
 import Layout from '@components/layout';
 
 import { getAllStages } from '@lib/cms-api';
-import { Stage } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { Stage, StagePageProps } from '@lib/types';
+import { META } from '@lib/constants';
 
-type Props = {
-  stage: Stage;
-  allStages: Stage[];
-};
-
-export default function StagePage({ stage, allStages }: Props) {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
-
+const StagePage = ({ stage, allStages }: StagePageProps) => {
   return (
-    <Page meta={meta} fullViewport>
+    <Page meta={META} fullViewport>
       <Layout>
         <StageContainer stage={stage} allStages={allStages} />
       </Layout>
     </Page>
   );
-}
+};
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+const getStaticProps: GetStaticProps<StagePageProps> = async ({ params }) => {
   const slug = params?.slug;
   const stages = await getAllStages();
   const stage = stages.find((s: Stage) => s.slug === slug) || null;
@@ -48,7 +38,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+const getStaticPaths: GetStaticPaths = async () => {
   const stages = await getAllStages();
   const slugs = stages.map((s: Stage) => ({ params: { slug: s.slug } }));
 
@@ -57,3 +47,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false
   };
 };
+
+export default StagePage;
+export { getStaticProps, getStaticPaths };

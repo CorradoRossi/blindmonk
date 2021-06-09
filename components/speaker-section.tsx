@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/icon-github';
-import { Speaker } from '@lib/types';
+import { SpeakerSectionProps } from '@lib/types';
 import styles from 'styles/speaker-section.module.css';
 
 const TwitterIcon = () => (
@@ -14,11 +14,7 @@ const TwitterIcon = () => (
   </svg>
 );
 
-type Props = {
-  speaker: Speaker;
-};
-
-export default function SpeakerSection({ speaker }: Props) {
+export default function SpeakerSection({ speaker }: SpeakerSectionProps) {
   return (
     <>
       <Link href="/collection">

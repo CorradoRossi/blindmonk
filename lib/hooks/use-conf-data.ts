@@ -1,19 +1,5 @@
 import { createContext, useContext } from 'react';
-
-export type PageState = 'registration' | 'ticket';
-
-export type UserData = {
-  id?: string;
-  ticketNumber?: number;
-  username?: string;
-  name?: string;
-};
-
-type ConfDataContextType = {
-  userData: UserData;
-  setUserData: React.Dispatch<React.SetStateAction<UserData>>;
-  setPageState: React.Dispatch<React.SetStateAction<PageState>>;
-};
+import { ConfDataContextType } from '@lib/types';
 
 export const ConfDataContext = createContext<ConfDataContextType | null>(null);
 

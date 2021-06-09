@@ -1,15 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
-import { Sponsor } from '@lib/types';
+import { SponsorSectionProps } from '@lib/types';
 import styles from 'styles/sponsor-section.module.css';
 import styleUtils from 'styles/utils.module.css';
 
-type Props = {
-  sponsor: Sponsor;
-};
-
-export default function SponsorSection({ sponsor }: Props) {
+export default function SponsorSection({ sponsor }: SponsorSectionProps) {
   return (
     <>
       <Link href="/collection">

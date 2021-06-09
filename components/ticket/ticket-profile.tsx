@@ -1,17 +1,15 @@
-import { TicketGenerationState } from '@lib/constants';
+import { TicketProfileProps } from '@lib/types';
 import GithubIcon from '@components/icons/icon-github';
 import cn from 'classnames';
 import IconAvatar from '../icons/icon-avatar';
 import styles from 'styles/ticket-profile.module.css';
 
-type Props = {
-  name?: string;
-  username?: string;
-  size?: number;
-  ticketGenerationState: TicketGenerationState;
-};
-
-export default function TicketProfile({ name, username, size = 1, ticketGenerationState }: Props) {
+export default function TicketProfile({
+  name,
+  username,
+  size = 1,
+  ticketGenerationState
+}: TicketProfileProps) {
   return (
     <div className={styles.profile}>
       <span

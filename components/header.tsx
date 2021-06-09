@@ -1,11 +1,7 @@
 import styles from 'styles/header.module.css';
+import { HeaderProps } from '@lib/types';
 
-type Props = {
-  hero: React.ReactNode;
-  description: React.ReactNode;
-};
-
-export default function Header({ hero, description }: Props) {
+export default function Header({ hero, description }: HeaderProps) {
   return (
     <>
       <p className={styles.description}>{description}</p>

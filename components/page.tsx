@@ -3,21 +3,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { SITE_NAME, SITE_URL, TWITTER_USER_NAME } from '@lib/constants';
+import { PageProps } from '@lib/types';
 
-type Meta = {
-  title: string | null;
-  description: string | null;
-  image?: string | null;
-  url?: string | null;
-};
-
-type Props = {
-  meta: Meta;
-  children: React.ReactNode;
-  fullViewport?: boolean;
-};
-
-export default function Page({ meta, children, fullViewport = false }: Props) {
+export default function Page({ meta, children, fullViewport = false }: PageProps) {
   const router = useRouter();
   const image = meta.image || '/tri-circle-purple.png';
   const title = meta.title || SITE_NAME;

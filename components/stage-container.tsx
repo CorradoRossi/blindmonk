@@ -1,18 +1,13 @@
 import useSWR from 'swr';
 import cn from 'classnames';
-import { Stage } from '@lib/types';
+import { Stage, StageContainerProps } from '@lib/types';
 import useLoginStatus from '@lib/hooks/use-login-status';
 import styles from 'styles/stage-container.module.css';
 import styleUtils from 'styles/utils.module.css';
 import ScheduleSidebar from './schedule-sidebar';
 import ConfEntry from './conf-entry';
 
-type Props = {
-  stage: Stage;
-  allStages: Stage[];
-};
-
-export default function StageContainer({ stage, allStages }: Props) {
+export default function StageContainer({ stage, allStages }: StageContainerProps) {
   const response = useSWR('/api/stages', {
     initialData: allStages,
     refreshInterval: 5000

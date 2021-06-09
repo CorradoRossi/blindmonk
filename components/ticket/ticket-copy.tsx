@@ -4,12 +4,9 @@ import { SITE_URL } from '@lib/constants';
 import styleUtils from 'styles/utils.module.css';
 import IconCopy from '../icons/icon-copy';
 import styles from 'styles/ticket-copy.module.css';
+import { TicketCopyProps } from '@lib/types';
 
-type Props = {
-  username: string;
-};
-
-export default function TicketCopy({ username }: Props) {
+export default function TicketCopy({ username }: TicketCopyProps) {
   const [fadeOpacity, setFadeOpacity] = useState(1);
   const [scrolling, setScrolling] = useState(false);
   const [copyEnabled, setCopyEnabled] = useState(false);

@@ -3,14 +3,10 @@ import { SkipNavContent } from '@reach/skip-nav';
 
 import Page from '@components/page';
 import ConfContent from '@components/index';
-import { META_DESCRIPTION } from '@lib/constants';
+import { META } from '@lib/constants';
 
-export default function Conf() {
+const Conf = () => {
   const { query } = useRouter();
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
   const ticketNumber = query.ticketNumber?.toString();
   const defaultUserData = {
     id: query.id?.toString(),
@@ -20,7 +16,7 @@ export default function Conf() {
   };
 
   return (
-    <Page meta={meta} fullViewport>
+    <Page meta={META} fullViewport>
       <SkipNavContent />
       <ConfContent
         defaultUserData={defaultUserData}
@@ -28,4 +24,6 @@ export default function Conf() {
       />
     </Page>
   );
-}
+};
+
+export default Conf;
