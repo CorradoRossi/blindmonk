@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
-import Page from '@components/page';
+import Page from '@components/layout/page';
 import SpeakerSection from '@components/speaker-section';
-import Layout from '@components/layout';
+import Layout from '@components/layout/layout';
 
 import { getAllSpeakers } from '@lib/cms-api';
 import { Speaker, ProfilePageProps } from '@lib/types';

@@ -1,9 +1,9 @@
 import { GetStaticProps } from 'next';
 
-import Page from '@components/page';
+import Page from '@components/layout/page';
 import SponsorsGrid from '@components/sponsors-grid';
-import Header from '@components/header';
-import Layout from '@components/layout';
+import Header from '@components/layout/header';
+import Layout from '@components/layout/layout';
 
 import { getAllSponsors } from '@lib/cms-api';
 import { MarketPageProps } from '@lib/types';

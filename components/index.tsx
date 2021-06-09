@@ -3,7 +3,7 @@ import { HomeDataContext } from '@lib/hooks/use-home-data';
 import { PageState, HomeProps, UserData } from '@lib/types';
 //import Ticket from './ticket/ticket';
 //import LearnMore from './learn-more';
-import Layout from './layout';
+import Layout from './layout/layout';
 import HomeContainer from './home-container';
 import Hero from './hero';
 import Form from './form';
