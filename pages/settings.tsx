@@ -7,18 +7,13 @@ import Header from '@components/header';
 
 import { getAllJobs } from '@lib/cms-api';
 import { JobsProps } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { META } from '@lib/constants';
 
 const Jobs = ({ jobs }: JobsProps) => {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
-
   return (
-    <Page meta={meta}>
+    <Page meta={META}>
       <Layout>
-        <Header hero="Settings" description={meta.description} />
+        <Header hero="Settings" description={META.description} />
         <JobsGrid jobs={jobs} />
       </Layout>
     </Page>

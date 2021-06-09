@@ -7,18 +7,13 @@ import Header from '@components/header';
 
 import { getAllStages } from '@lib/cms-api';
 import { ScheduleProps } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { META } from '@lib/constants';
 
 const SchedulePage = ({ allStages }: ScheduleProps) => {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
-
   return (
-    <Page meta={meta}>
+    <Page meta={META}>
       <Layout>
-        <Header hero="Wallet" description={meta.description} />
+        <Header hero="Wallet" description={META.description} />
         <Schedule allStages={allStages} />
       </Layout>
     </Page>

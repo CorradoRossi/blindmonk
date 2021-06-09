@@ -7,17 +7,13 @@ import Header from '@components/header';
 
 import { getAllSpeakers } from '@lib/cms-api';
 import { Speakers } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { META } from '@lib/constants';
 
 const Collection = ({ speakers }: Speakers) => {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
   return (
-    <Page meta={meta}>
+    <Page meta={META}>
       <Layout>
-        <Header hero="Collection" description={meta.description} />
+        <Header hero="Collection" description={META.description} />
         <SpeakersGrid speakers={speakers} />
       </Layout>
     </Page>

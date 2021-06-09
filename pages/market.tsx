@@ -7,18 +7,13 @@ import Layout from '@components/layout';
 
 import { getAllSponsors } from '@lib/cms-api';
 import { MarketPageProps } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { META } from '@lib/constants';
 
 const MarketPage = ({ sponsors }: MarketPageProps) => {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
-
   return (
-    <Page meta={meta}>
+    <Page meta={META}>
       <Layout>
-        <Header hero="Market" description={meta.description} />
+        <Header hero="Market" description={META.description} />
         <SponsorsGrid sponsors={sponsors} />
       </Layout>
     </Page>

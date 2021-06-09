@@ -4,10 +4,10 @@ import Head from 'next/head';
 import { SkipNavContent } from '@reach/skip-nav';
 import redis from '@lib/redis';
 
-import { TicketShareProps } from '@lib/types';
 import Page from '@components/page';
 import ConfContent from '@components/index';
-import { SITE_URL, SITE_NAME, META_DESCRIPTION, SAMPLE_TICKET_NUMBER } from '@lib/constants';
+import { TicketShareProps } from '@lib/types';
+import { SITE_URL, SITE_NAME, META_DESCRIPTION, SAMPLE_TICKET_NUMBER, TITLE } from '@lib/constants';
 
 const TicketShare = ({ username, ticketNumber, name, usernameFromParams }: TicketShareProps) => {
   if (!ticketNumber) {
@@ -22,7 +22,7 @@ const TicketShare = ({ username, ticketNumber, name, usernameFromParams }: Ticke
         url: `${SITE_URL}/tickets/${username}`
       }
     : {
-        title: 'Blindmonk',
+        title: TITLE,
         description: META_DESCRIPTION,
         image: `/api/ticket-images/${usernameFromParams}`,
         url: `${SITE_URL}/tickets/${usernameFromParams}`

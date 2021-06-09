@@ -6,16 +6,11 @@ import Layout from '@components/layout';
 
 import { getAllStages } from '@lib/cms-api';
 import { Stage, StagePageProps } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { META } from '@lib/constants';
 
 const StagePage = ({ stage, allStages }: StagePageProps) => {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
-
   return (
-    <Page meta={meta} fullViewport>
+    <Page meta={META} fullViewport>
       <Layout>
         <StageContainer stage={stage} allStages={allStages} />
       </Layout>

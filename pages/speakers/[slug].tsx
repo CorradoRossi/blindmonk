@@ -6,16 +6,11 @@ import Layout from '@components/layout';
 
 import { getAllSpeakers } from '@lib/cms-api';
 import { Speaker, ProfilePageProps } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { META } from '@lib/constants';
 
 const ProfilePage = ({ speaker }: ProfilePageProps) => {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
-
   return (
-    <Page meta={meta}>
+    <Page meta={META}>
       <Layout>
         <SpeakerSection speaker={speaker} />
       </Layout>

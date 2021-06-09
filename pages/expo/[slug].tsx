@@ -6,16 +6,11 @@ import Layout from '@components/layout';
 
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor, SponsorPageProps } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { META } from '@lib/constants';
 
 const SponsorPage = ({ sponsor }: SponsorPageProps) => {
-  const meta = {
-    title: 'Blindmonk',
-    description: META_DESCRIPTION
-  };
-
   return (
-    <Page meta={meta}>
+    <Page meta={META}>
       <Layout>
         <SponsorSection sponsor={sponsor} />
       </Layout>
