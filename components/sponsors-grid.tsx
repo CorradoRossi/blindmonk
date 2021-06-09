@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
-import { Sponsor } from '@lib/types';
+import { Sponsor, SponsorsGridProps } from '@lib/types';
 import styles from 'styles/sponsors-grid.module.css';
 
-function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
+const SponsorCard = ({ sponsor }: { sponsor: Sponsor }) => {
   return (
     <Link key={sponsor.name} href={`/expo/${sponsor.slug}`}>
       <a
@@ -39,13 +39,9 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
       </a>
     </Link>
   );
-}
-
-type Props = {
-  sponsors: Sponsor[];
 };
 
-export default function SponsorsGrid({ sponsors }: Props) {
+const SponsorsGrid = ({ sponsors }: SponsorsGridProps) => {
   const silverSponsors = sponsors.filter(s => s.tier === 'silver');
   const otherSponsors = sponsors.filter(s => s.tier !== 'silver');
 
@@ -63,4 +59,6 @@ export default function SponsorsGrid({ sponsors }: Props) {
       </div>
     </>
   );
-}
+};
+
+export default SponsorsGrid;

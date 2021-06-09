@@ -134,6 +134,14 @@ export type SponsorPageProps = {
   sponsor: Sponsor;
 };
 
+export type SponsorsGridProps = {
+  sponsors: Sponsor[];
+};
+
+export type ScheduleStageProps = {
+  allStages: Stage[];
+};
+
 export type ErrorResponse = {
   error: {
     code: string;

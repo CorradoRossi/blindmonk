@@ -7,7 +7,7 @@ import styleUtils from 'styles/utils.module.css';
 import ScheduleSidebar from './schedule-sidebar';
 import HomeEntry from './home-entry';
 
-export default function StageContainer({ stage, allStages }: StageContainerProps) {
+const StageContainer = ({ stage, allStages }: StageContainerProps) => {
   const response = useSWR('/api/stages', {
     initialData: allStages,
     refreshInterval: 5000
@@ -66,4 +66,6 @@ export default function StageContainer({ stage, allStages }: StageContainerProps
       <ScheduleSidebar allStages={updatedStages} />
     </div>
   );
-}
+};
+
+export default StageContainer;

@@ -10,7 +10,7 @@ import { FocusScope } from '@react-aria/focus';
 import { useButton } from '@react-aria/button';
 import styles from 'styles/mobile-menu.module.css';
 
-function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0]) {
+const ModalDialog = (props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0]) => {
   const router = useRouter();
   const activeRoute = router.asPath;
 
@@ -40,7 +40,7 @@ function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
       </FocusScope>
     </div>
   );
-}
+};
 
 const Overlay = () => {
   const state = useOverlayTriggerState({});

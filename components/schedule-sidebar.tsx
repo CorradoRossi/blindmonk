@@ -6,7 +6,7 @@ import Select from './select';
 import TalkCard from './talk-card';
 import { SHORT_DATE } from '@lib/constants';
 
-export default function ScheduleSidebar({ allStages }: ScheduleSidebarProps) {
+const ScheduleSidebar = ({ allStages }: ScheduleSidebarProps) => {
   const router = useRouter();
   const [currentStageSlug, setCurrentStageSlug] = useState(router.query.slug);
   const currentStage = allStages.find((s: Stage) => s.slug === currentStageSlug);
@@ -41,4 +41,6 @@ export default function ScheduleSidebar({ allStages }: ScheduleSidebarProps) {
       </div>
     </div>
   );
-}
+};
+
+export default ScheduleSidebar;

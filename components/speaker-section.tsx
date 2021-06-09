@@ -14,7 +14,7 @@ const TwitterIcon = () => (
   </svg>
 );
 
-export default function SpeakerSection({ speaker }: SpeakerSectionProps) {
+const SpeakerSection = ({ speaker }: SpeakerSectionProps) => {
   return (
     <>
       <Link href="/collection">
@@ -97,4 +97,6 @@ export default function SpeakerSection({ speaker }: SpeakerSectionProps) {
       )}
     </>
   );
-}
+};
+
+export default SpeakerSection;

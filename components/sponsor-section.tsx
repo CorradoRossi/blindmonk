@@ -5,7 +5,7 @@ import { SponsorSectionProps } from '@lib/types';
 import styles from 'styles/sponsor-section.module.css';
 import styleUtils from 'styles/utils.module.css';
 
-export default function SponsorSection({ sponsor }: SponsorSectionProps) {
+const SponsorSection = ({ sponsor }: SponsorSectionProps) => {
   return (
     <>
       <Link href="/collection">
@@ -104,4 +104,6 @@ export default function SponsorSection({ sponsor }: SponsorSectionProps) {
       </div>
     </>
   );
-}
+};
+
+export default SponsorSection;

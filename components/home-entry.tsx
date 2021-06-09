@@ -8,14 +8,14 @@ import { SITE_DESCRIPTION, DEFAULT_ERROR_MSG } from '@lib/constants';
 import useEmailQueryParam from '@lib/hooks/use-email-query-param';
 import { FormState } from '@lib/types';
 
-function getErrorMsg(code: string) {
+const getErrorMsg = (code: string) => {
   switch (code) {
     case 'bad_email':
       return 'Please enter a valid email';
     default:
       return DEFAULT_ERROR_MSG;
   }
-}
+};
 
 const HomeEntry = ({ onRegister }: { onRegister: () => void }) => {
   const [emailInput, setEmailInput] = useState('');

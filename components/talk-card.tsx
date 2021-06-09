@@ -11,10 +11,7 @@ const formatDate = (date: string) => {
   return format(parseISO(date), "h:mmaaaaa'm'");
 };
 
-export default function TalkCard({
-  talk: { title, speaker, start, end },
-  showTime
-}: FormatDateProps) {
+const TalkCard = ({ talk: { title, speaker, start, end }, showTime }: FormatDateProps) => {
   const [isTalkLive, setIsTalkLive] = useState(false);
   const [startAndEndTime, setStartAndEndTime] = useState('');
 
@@ -64,4 +61,6 @@ export default function TalkCard({
       </Link>
     </div>
   );
-}
+};
+
+export default TalkCard;

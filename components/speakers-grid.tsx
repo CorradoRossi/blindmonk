@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { SpeakersGridProps } from '@lib/types';
 import styles from 'styles/speakers-grid.module.css';
 
-export default function SpeakersGrid({ speakers }: SpeakersGridProps) {
+const SpeakersGrid = ({ speakers }: SpeakersGridProps) => {
   return (
     <div className={styles.grid}>
       {speakers.map(speaker => (
@@ -35,4 +35,6 @@ export default function SpeakersGrid({ speakers }: SpeakersGridProps) {
       ))}
     </div>
   );
-}
+};
+
+export default SpeakersGrid;

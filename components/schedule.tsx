@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Stage, Talk } from '@lib/types';
+import { Stage, Talk, ScheduleStageProps } from '@lib/types';
 import styles from 'styles/schedule.module.css';
 import TalkCard from './talk-card';
 
@@ -28,11 +28,7 @@ function StageRow({ stage }: { stage: Stage }) {
   );
 }
 
-type Props = {
-  allStages: Stage[];
-};
-
-export default function Schedule({ allStages }: Props) {
+const Schedule = ({ allStages }: ScheduleStageProps) => {
   return (
     <div className={styles.container}>
       <div className={styles['row-wrapper']}>
@@ -42,4 +38,6 @@ export default function Schedule({ allStages }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export default Schedule;
