@@ -58,7 +58,7 @@ const HomeEntry = ({ onRegister }: { onRegister: () => void }) => {
 
   return (
     <div className={cn(styles.container, styleUtils.appear, styleUtils['appear-first'])}>
-      <h1 className={cn(styles.hero)}>Join the conference.</h1>
+      <h1 className={cn(styles.hero)}>Join the Blindmonk beta.</h1>
       <h2 className={cn(styles.description)}>{SITE_DESCRIPTION}</h2>
       <form onSubmit={onSubmit} className={styles.form}>
         <div className={styles['form-row']}>
@@ -81,7 +81,7 @@ const HomeEntry = ({ onRegister }: { onRegister: () => void }) => {
                 onChange={e => setEmailInput(e.target.value)}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
-                placeholder="Enter email to join the event"
+                placeholder="Enter email to join"
                 aria-label="Your email address"
                 required
               />

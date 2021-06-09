@@ -17,7 +17,7 @@ const ScheduleSidebar = ({ allStages }: ScheduleSidebarProps) => {
 
   return (
     <div className={styles.schedule}>
-      <h3 className={styles.header}>Schedule</h3>
+      <h3 className={styles.header}>Upcoming drops</h3>
       <p>{SHORT_DATE}</p>
       <Select
         aria-label="Select a stage"
