@@ -1,18 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { nanoid } from 'nanoid';
-import { ConfUser } from '@lib/types';
+import { ConfUser, ErrorResponse } from '@lib/types';
 import validator from 'validator';
 import { SAMPLE_TICKET_NUMBER, COOKIE } from '@lib/constants';
 import cookie from 'cookie';
 import ms from 'ms';
 import redis, { emailToId } from '@lib/redis';
-
-type ErrorResponse = {
-  error: {
-    code: string;
-    message: string;
-  };
-};
 
 export default async function register(
   req: NextApiRequest,

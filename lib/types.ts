@@ -1,5 +1,3 @@
-import { PageState, UserData } from '@lib/hooks/use-conf-data';
-
 export type Image = {
   url: string;
 };
@@ -134,4 +132,150 @@ export type ProfilePageProps = {
 
 export type SponsorPageProps = {
   sponsor: Sponsor;
+};
+
+export type ErrorResponse = {
+  error: {
+    code: string;
+    message: string;
+  };
+};
+
+export type GTagEvent = {
+  action: string;
+  category: string;
+  label?: string;
+  value?: number;
+};
+
+export type MonitizeEvent = {
+  id: string;
+  username: string;
+  value: number;
+  transactionHash: string;
+};
+
+export type PageState = 'registration' | 'ticket';
+
+export type UserData = {
+  id?: string;
+  ticketNumber?: number;
+  username?: string;
+  name?: string;
+};
+
+export type ConfDataContextType = {
+  userData: UserData;
+  setUserData: React.Dispatch<React.SetStateAction<UserData>>;
+  setPageState: React.Dispatch<React.SetStateAction<PageState>>;
+};
+
+export type FormatDateProps = {
+  key: string;
+  talk: Talk;
+  showTime: boolean;
+};
+
+export type StageContainerProps = {
+  stage: Stage;
+  allStages: Stage[];
+};
+
+export type SponsorSectionProps = {
+  sponsor: Sponsor;
+};
+
+export type SpeakersGridProps = {
+  speakers: Speaker[];
+};
+
+export type SpeakerSectionProps = {
+  speaker: Speaker;
+};
+
+export type ScheduleSidebarProps = {
+  allStages: Stage[];
+};
+
+export type PageProps = {
+  meta: Meta;
+  children: React.ReactNode;
+  fullViewport?: boolean;
+};
+
+export type Meta = {
+  title: string | null;
+  description: string | null;
+  image?: string | null;
+  url?: string | null;
+};
+
+export interface LoadingDotsProps {
+  size?: number;
+  height?: number | string;
+  reverse?: boolean;
+  children?: React.ReactNode;
+}
+
+export type LayoutProps = {
+  children: React.ReactNode;
+  className?: string;
+  hideNav?: boolean;
+  layoutStyles?: any;
+};
+
+export type FormState = 'default' | 'loading' | 'error';
+
+export type CompanyJobsProps = {
+  jobs: Job[];
+};
+
+export interface ImageProps {
+  src: string;
+  alt: string;
+  priority?: boolean;
+  className?: string;
+}
+
+export type HeaderProps = {
+  hero: React.ReactNode;
+  description: React.ReactNode;
+};
+
+export type FormProps = {
+  sharePage?: boolean;
+};
+
+export type TicketGenerationState = 'default' | 'loading';
+
+export type TicketVisualProps = {
+  size?: number;
+  name?: string;
+  ticketNumber?: number;
+  username?: string;
+  ticketGenerationState?: TicketGenerationState;
+};
+
+export type TicketProfileProps = {
+  name?: string;
+  username?: string;
+  size?: number;
+  ticketGenerationState: TicketGenerationState;
+};
+
+export type TicketNumberProps = {
+  number: number;
+};
+
+export type TicketFormProps = {
+  defaultUsername?: string;
+  setTicketGenerationState: React.Dispatch<React.SetStateAction<TicketGenerationState>>;
+};
+
+export type TicketCopyProps = {
+  username: string;
+};
+
+export type TicketActionsProps = {
+  username: string;
 };

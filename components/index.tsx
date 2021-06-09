@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { PageState, ConfDataContext, UserData } from '@lib/hooks/use-conf-data';
-import { ConfProps } from '@lib/types';
+import { ConfDataContext } from '@lib/hooks/use-conf-data';
+import { PageState, ConfProps, UserData } from '@lib/types';
 //import Ticket from './ticket/ticket';
 //import LearnMore from './learn-more';
 import Layout from './layout';

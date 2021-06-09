@@ -1,15 +1,9 @@
 import px from '@lib/to-pixels';
 import cn from 'classnames';
 import styles from 'styles/loading-dots.module.css';
+import { LoadingDotsProps } from '@lib/types';
 
-interface Props {
-  size?: number;
-  height?: number | string;
-  reverse?: boolean;
-  children?: React.ReactNode;
-}
-
-export default function LoadingDots({ size = 2, height, children, reverse }: Props) {
+export default function LoadingDots({ size = 2, height, children, reverse }: LoadingDotsProps) {
   return (
     <span
       className={cn(styles.loading, { [styles.reverse]: reverse })}

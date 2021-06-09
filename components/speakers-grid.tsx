@@ -1,13 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Speaker } from '@lib/types';
+import { SpeakersGridProps } from '@lib/types';
 import styles from 'styles/speakers-grid.module.css';
 
-type Props = {
-  speakers: Speaker[];
-};
-
-export default function SpeakersGrid({ speakers }: Props) {
+export default function SpeakersGrid({ speakers }: SpeakersGridProps) {
   return (
     <div className={styles.grid}>
       {speakers.map(speaker => (

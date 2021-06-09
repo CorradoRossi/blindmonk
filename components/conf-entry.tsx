@@ -4,12 +4,9 @@ import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/conf-entry.module.css';
 import LoadingDots from './loading-dots';
 import { register } from '@lib/user-api';
-import { SITE_DESCRIPTION } from '@lib/constants';
+import { SITE_DESCRIPTION, DEFAULT_ERROR_MSG } from '@lib/constants';
 import useEmailQueryParam from '@lib/hooks/use-email-query-param';
-
-type FormState = 'default' | 'loading' | 'error';
-
-const DEFAULT_ERROR_MSG = 'Error! Please try again.';
+import { FormState } from '@lib/types';
 
 function getErrorMsg(code: string) {
   switch (code) {

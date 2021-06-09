@@ -1,4 +1,4 @@
-import { TicketGenerationState } from '@lib/constants';
+import { TicketVisualProps } from '@lib/types';
 import TicketColoredMobile from './ticket-colored-mobile';
 import TicketColored from './ticket-colored';
 import styles from 'styles/ticket-visual.module.css';
@@ -8,21 +8,13 @@ import TicketMono from './ticket-mono';
 import TicketInfo from './ticket-info';
 import TicketMonoMobile from './ticket-mono-mobile';
 
-type Props = {
-  size?: number;
-  name?: string;
-  ticketNumber?: number;
-  username?: string;
-  ticketGenerationState?: TicketGenerationState;
-};
-
 export default function TicketVisual({
   size = 1,
   name,
   username,
   ticketNumber,
   ticketGenerationState = 'default'
-}: Props) {
+}: TicketVisualProps) {
   return (
     <>
       <div className={styles.visual} style={{ ['--size' as string]: size }}>

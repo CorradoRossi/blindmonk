@@ -9,17 +9,9 @@ import Logo from './icons/icon-logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
 import LoadingDots from './loading-dots';
+import { LayoutProps, FormState } from '@lib/types';
 
-type Props = {
-  children: React.ReactNode;
-  className?: string;
-  hideNav?: boolean;
-  layoutStyles?: any;
-};
-
-type FormState = 'default' | 'loading' | 'error';
-
-export default function Layout({ children, className, hideNav, layoutStyles }: Props) {
+export default function Layout({ children, className, hideNav, layoutStyles }: LayoutProps) {
   const [formState, setFormState] = useState<FormState>('default');
   const router = useRouter();
   const activeRoute = router.asPath;

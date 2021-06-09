@@ -1,9 +1,4 @@
-interface ImageProps {
-  src: string;
-  alt: string;
-  priority?: boolean;
-  className?: string;
-}
+import { ImageProps } from '@lib/types';
 
 const Image = ({ src, alt, priority = false, className }: ImageProps) => {
   return (

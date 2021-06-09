@@ -3,25 +3,18 @@ import { scrollTo } from '@lib/smooth-scroll';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/icon-github';
 import CheckIcon from '@components/icons/icon-check';
-import { REPO, SITE_ORIGIN, TicketGenerationState } from '@lib/constants';
+import { REPO, SITE_ORIGIN } from '@lib/constants';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import useConfData from '@lib/hooks/use-conf-data';
 import LoadingDots from '../loading-dots';
 import formStyles from 'styles/form.module.css';
 import ticketFormStyles from 'styles/ticket-form.module.css';
 import { saveGithubToken } from '@lib/user-api';
-import { GitHubOAuthData } from '@lib/types';
-
-type FormState = 'default' | 'loading' | 'error';
-
-type Props = {
-  defaultUsername?: string;
-  setTicketGenerationState: React.Dispatch<React.SetStateAction<TicketGenerationState>>;
-};
+import { FormState, GitHubOAuthData, TicketFormProps } from '@lib/types';
 
 const githubEnabled = Boolean(process.env.NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID);
 
-export default function Form({ defaultUsername = '', setTicketGenerationState }: Props) {
+export default function Form({ defaultUsername = '', setTicketGenerationState }: TicketFormProps) {
   const [username, setUsername] = useState(defaultUsername);
   const [formState, setFormState] = useState<FormState>('default');
   const [errorMsg, setErrorMsg] = useState('');

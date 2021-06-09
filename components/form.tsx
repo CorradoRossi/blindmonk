@@ -8,14 +8,9 @@ import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/form.module.css';
 import useEmailQueryParam from '@lib/hooks/use-email-query-param';
 import { register } from '@lib/user-api';
+import { FormState, FormProps } from '@lib/types';
 
-type FormState = 'default' | 'loading' | 'error';
-
-type Props = {
-  sharePage?: boolean;
-};
-
-export default function Form({ sharePage }: Props) {
+export default function Form({ sharePage }: FormProps) {
   const [email, setEmail] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [errorTryAgain, setErrorTryAgain] = useState(false);

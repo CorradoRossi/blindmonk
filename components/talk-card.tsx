@@ -3,21 +3,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { parseISO, format, isBefore, isAfter } from 'date-fns';
-import { Talk } from '@lib/types';
+import { FormatDateProps } from '@lib/types';
 import styles from 'styles/talk-card.module.css';
-
-type Props = {
-  key: string;
-  talk: Talk;
-  showTime: boolean;
-};
 
 const formatDate = (date: string) => {
   // https://github.com/date-fns/date-fns/issues/946
   return format(parseISO(date), "h:mmaaaaa'm'");
 };
 
-export default function TalkCard({ talk: { title, speaker, start, end }, showTime }: Props) {
+export default function TalkCard({
+  talk: { title, speaker, start, end },
+  showTime
+}: FormatDateProps) {
   const [isTalkLive, setIsTalkLive] = useState(false);
   const [startAndEndTime, setStartAndEndTime] = useState('');
 

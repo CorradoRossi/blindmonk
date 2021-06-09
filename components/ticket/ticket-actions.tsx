@@ -7,12 +7,9 @@ import IconDownload from '../icons/icon-download';
 import LoadingDots from '../loading-dots';
 import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/ticket-actions.module.css';
+import { TicketActionsProps } from '@lib/types';
 
-type Props = {
-  username: string;
-};
-
-export default function TicketActions({ username }: Props) {
+export default function TicketActions({ username }: TicketActionsProps) {
   const [imgReady, setImgReady] = useState(false);
   const [loading, setLoading] = useState(false);
   const downloadLink = useRef<HTMLAnchorElement>();
