@@ -9,7 +9,7 @@ import { getAllStages } from '@lib/cms-api';
 import { ScheduleProps } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
-export default function SchedulePage({ allStages }: ScheduleProps) {
+const SchedulePage = ({ allStages }: ScheduleProps) => {
   const meta = {
     title: 'Blindmonk',
     description: META_DESCRIPTION
@@ -23,7 +23,7 @@ export default function SchedulePage({ allStages }: ScheduleProps) {
       </Layout>
     </Page>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps<ScheduleProps> = async () => {
   const allStages = await getAllStages();
@@ -35,3 +35,5 @@ export const getStaticProps: GetStaticProps<ScheduleProps> = async () => {
     revalidate: 60
   };
 };
+
+export default SchedulePage;
