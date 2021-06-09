@@ -45,7 +45,9 @@ const AssetGrid = () => {
             </div>
             <div className={styles.cardBody}>
               <div>
-                <h2 className={styles.name}>{asset?.name}</h2>
+                <div className={styles.nameWrapper}>
+                  <h2 className={styles.name}>{asset?.name}</h2>
+                </div>
                 <p className={styles.title}>
                   {`@${asset?.creator?.user?.username}`}
                   <span className={styles.company}>{''}</span>

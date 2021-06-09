@@ -67,13 +67,19 @@
   }
 }
 
+.nameWrapper {
+  max-height: 90px;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  overflow: hidden;
+}
+
 .name {
   font-weight: bold;
   color: #f1f1f1;
   font-size: 20px;
   margin: 0;
   line-height: 1.4;
-  max-height: 60px;
   text-overflow: ellipsis;
 }
 
