@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import Tilt from 'vanilla-tilt';
 import { useRef, useEffect, useState } from 'react';
-import { TicketGenerationState } from '@lib/constants';
+import { TicketGenerationState } from '@lib/types';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import { scrollTo } from '@lib/smooth-scroll';
 import styles from 'styles/ticket.module.css';
