@@ -195,6 +195,8 @@ export type SponsorSectionProps = {
 
 export type SpeakersGridProps = {
   speakers: Speaker[];
+  assets: any;
+  account: any;
 };
 
 export type SpeakerSectionProps = {

@@ -8,6 +8,7 @@ import HomeContainer from './home/home-container';
 import Hero from './home/hero';
 import Form from './form/form';
 import { useWeb3React } from '@web3-react/core';
+import { InjectedConnector } from '@web3-react/injected-connector';
 import useETHBalance from '@lib/hooks/useEthBalance';
 
 const HomeContent = ({
@@ -15,13 +16,21 @@ const HomeContent = ({
   sharePage,
   defaultPageState = 'registration'
 }: HomeProps) => {
-  const { account, library, chainId } = useWeb3React<Object>();
+  const { account, library, chainId, deactivate, connector }: any = useWeb3React<Object>();
   const { data } = useETHBalance(account);
 
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
   const [ethAccount, setEthAccount] = useState(account || '');
   const [ethData, setEthData] = useState(data || 0);
+
+  const disconnect = () => {
+    deactivate();
+    // @ts-ignore
+    if (!connector instanceof InjectedConnector) {
+      connector.close();
+    }
+  };
 
   useEffect(() => {
     // @ts-ignore
@@ -50,6 +59,9 @@ const HomeContent = ({
               <div>
                 <h1>{ethAccount ? ethAccount : ''}</h1>
                 <h1>{ethData ? ethData : ''}</h1>
+                <button onKeyDown={disconnect} onClick={disconnect}>
+                  Disconnect
+                </button>
               </div>
             </>
           ) : (

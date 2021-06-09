@@ -1,6 +1,7 @@
 import React from 'react';
 import { QrcodeIcon } from '@heroicons/react/solid';
 import { WalletProps } from '@lib/types';
+import useEagerConnect from '@lib/hooks/useEagerConnect';
 
 const Wallets = ({
   className,
@@ -9,6 +10,11 @@ const Wallets = ({
   loadWeb3Modal,
   logoutOfWeb3Modal
 }: WalletProps) => {
+  const triedEagerConnect = useEagerConnect();
+
+  if (!triedEagerConnect) {
+    return null;
+  }
   return (
     <>
       <button
