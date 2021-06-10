@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react';
 import { HomeDataContext } from '@lib/hooks/use-home-data';
 import { PageState, HomeProps, UserData } from '@lib/types';
-import Layout from './layout/layout';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { useWeb3React } from '@web3-react/core';
+import useETHBalance from '@lib/hooks/useEthBalance';
 import HomeContainer from './home/home-container';
+import Layout from './layout/layout';
 import Hero from './home/hero';
 import Form from './form/form';
-import { useWeb3React } from '@web3-react/core';
-import { InjectedConnector } from '@web3-react/injected-connector';
-import useETHBalance from '@lib/hooks/useEthBalance';
-//import Ticket from './ticket/ticket';
 
-const HomeContent = ({
-  defaultUserData,
-  sharePage,
-  defaultPageState = 'registration'
-}: HomeProps) => {
+const HomeContent = ({ defaultUserData, defaultPageState = 'registration' }: HomeProps) => {
   const { account, library, chainId, deactivate, connector }: any = useWeb3React<Object>();
   const { data } = useETHBalance(account);
 
@@ -32,13 +27,11 @@ const HomeContent = ({
   };
 
   useEffect(() => {
-    // @ts-ignore
     setEthAccount(account);
     setEthData(data);
   }, [account, data]);
 
   useEffect(() => {
-    // @ts-ignore
     setEthAccount(account);
     setEthData(data);
   }, []);
@@ -76,10 +69,3 @@ const HomeContent = ({
 };
 
 export default HomeContent;
-
-//<Ticket
-//  username={userData.username}
-//  name={userData.name}
-//  ticketNumber={userData.ticketNumber}
-//  sharePage={sharePage}
-///>
