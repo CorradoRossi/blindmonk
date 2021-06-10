@@ -1,12 +1,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import Page from '@components/layout/page';
-import StageContainer from '@components/schedule/stage-container';
 import Layout from '@components/layout/layout';
+import StageContainer from '@components/schedule/stage-container';
 
+import { META } from '@lib/constants';
 import { getAllStages } from '@lib/cms-api';
 import { Stage, StagePageProps } from '@lib/types';
-import { META } from '@lib/constants';
 
 const StagePage = ({ stage, allStages }: StagePageProps) => {
   return (
