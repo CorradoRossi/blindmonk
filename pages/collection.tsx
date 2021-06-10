@@ -1,5 +1,5 @@
 import Page from '@components/layout/page';
-import SpeakersGrid from '@components/collection/collection-grid';
+import CollectionGrid from '@components/collection/collection-grid';
 import Layout from '@components/layout/layout';
 import Header from '@components/layout/header';
 import { META } from '@lib/constants';
@@ -9,7 +9,7 @@ const Collection = () => {
     <Page meta={META}>
       <Layout>
         <Header hero="Collection" description={META.description} />
-        <SpeakersGrid />
+        <CollectionGrid />
       </Layout>
     </Page>
   );

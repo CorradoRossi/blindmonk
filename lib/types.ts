@@ -15,8 +15,8 @@ export type Collectible = {
   imageSquare: Image;
 };
 
-export type Speakers = {
-  speakers: Collectible[];
+export type Collectibles = {
+  collectibles: Collectible[];
 };
 
 export type Stage = {
@@ -32,7 +32,7 @@ export type Talk = {
   description: string;
   start: string;
   end: string;
-  speaker: Collectible[];
+  collectible: Collectible[];
 };
 
 export type Link = {
@@ -127,7 +127,7 @@ export type StagePageProps = {
 };
 
 export type CollectionPageProps = {
-  speaker: Collectible;
+  collectible: Collectible;
 };
 
 export type SponsorPageProps = {
@@ -193,14 +193,14 @@ export type SponsorSectionProps = {
   sponsor: Sponsor;
 };
 
-export type SpeakersGridProps = {
-  speakers: Collectible[];
-  assets: any;
-  account: any;
+export type CollectionGridProps = {
+  collectibles?: Collectible[];
+  assets?: any;
+  account?: any;
 };
 
 export type CollectionSectionProps = {
-  speaker: Collectible;
+  collectible: Collectible;
 };
 
 export type ScheduleSidebarProps = {

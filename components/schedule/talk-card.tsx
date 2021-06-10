@@ -11,7 +11,7 @@ const formatDate = (date: string) => {
   return format(parseISO(date), "h:mmaaaaa'm'");
 };
 
-const TalkCard = ({ talk: { title, speaker, start, end }, showTime }: FormatDateProps) => {
+const TalkCard = ({ talk: { title, collectible, start, end }, showTime }: FormatDateProps) => {
   const [isTalkLive, setIsTalkLive] = useState(false);
   const [startAndEndTime, setStartAndEndTime] = useState('');
 
@@ -21,12 +21,12 @@ const TalkCard = ({ talk: { title, speaker, start, end }, showTime }: FormatDate
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
   }, []);
 
-  const firstSpeakerLink = `/speakers/${speaker[0].slug}`;
+  const firstCollectibleLink = `/collection/${collectible[0].slug}`;
 
   return (
     <div key={title} className={styles.talk}>
       {showTime && <p className={styles.time}>{startAndEndTime || <>&nbsp;</>}</p>}
-      <Link href={firstSpeakerLink}>
+      <Link href={firstCollectibleLink}>
         <a
           className={cn(styles.card, {
             [styles['is-live']]: isTalkLive
@@ -36,9 +36,9 @@ const TalkCard = ({ talk: { title, speaker, start, end }, showTime }: FormatDate
             <h4 title={title} className={styles.title}>
               {title}
             </h4>
-            <div className={styles.speaker}>
+            <div className={styles.collectible}>
               <div className={styles['avatar-group']}>
-                {speaker.map(s => (
+                {collectible.map(s => (
                   <div key={s.name} className={styles['avatar-wrapper']}>
                     <Image
                       loading="lazy"
@@ -53,7 +53,9 @@ const TalkCard = ({ talk: { title, speaker, start, end }, showTime }: FormatDate
                 ))}
               </div>
               <h5 className={styles.name}>
-                {speaker.length === 1 ? speaker[0].name : `${speaker.length} speakers`}
+                {collectible.length === 1
+                  ? collectible[0].name
+                  : `${collectible.length} collectibles`}
               </h5>
             </div>
           </div>

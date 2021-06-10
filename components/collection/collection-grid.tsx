@@ -5,7 +5,7 @@ import styles from 'styles/collection-grid.module.css';
 import { useWeb3React } from '@web3-react/core';
 import { RSSI_WALLET } from '@lib/constants';
 
-const AssetGrid = () => {
+const CollectionGrid = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [data, setData] = useState<any>({});
   const { account } = useWeb3React();
@@ -67,4 +67,4 @@ const AssetGrid = () => {
   );
 };
 
-export default AssetGrid;
+export default CollectionGrid;

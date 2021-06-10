@@ -14,7 +14,7 @@ const TwitterIcon = () => (
   </svg>
 );
 
-const CollectionItem = ({ speaker }: CollectionSectionProps) => {
+const CollectionItem = ({ collectible }: CollectionSectionProps) => {
   return (
     <>
       <Link href="/collection">
@@ -35,32 +35,32 @@ const CollectionItem = ({ speaker }: CollectionSectionProps) => {
           Back to collection
         </a>
       </Link>
-      <div key={speaker.name} className={styles.container}>
+      <div key={collectible.name} className={styles.container}>
         <div style={{ minWidth: '300px' }}>
           <Image
-            alt={speaker.name}
-            title={speaker.name}
-            src={speaker.image.url}
+            alt={collectible.name}
+            title={collectible.name}
+            src={collectible.image.url}
             className={styles.image}
             loading="lazy"
             height={400}
             width={300}
           />
         </div>
-        <div className={styles['speaker-details']}>
+        <div className={styles['collectible-details']}>
           <div>
-            <h1 className={styles.name}>{speaker.name}</h1>
+            <h1 className={styles.name}>{collectible.name}</h1>
             <p className={styles.title}>
-              {`${speaker.title} @ `}
-              <span className={styles.company}>{speaker.company}</span>
+              {`${collectible.title} @ `}
+              <span className={styles.company}>{collectible.company}</span>
             </p>
             <h2 className={styles['bio-header']}>Bio</h2>
-            <p className={styles.bio}>{speaker.bio}</p>
+            <p className={styles.bio}>{collectible.bio}</p>
             <h3 className={styles['socials-header']}>Social Media</h3>
-            {speaker.twitter ? (
+            {collectible.twitter ? (
               <a
                 aria-label="Twitter"
-                href={speaker.twitter}
+                href={collectible.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -71,11 +71,11 @@ const CollectionItem = ({ speaker }: CollectionSectionProps) => {
                 <TwitterIcon />
               </span>
             )}
-            {speaker.github ? (
+            {collectible.github ? (
               <a
                 aria-label="GitHub"
                 className={styles.githubIcon}
-                href={speaker.github}
+                href={collectible.github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -89,10 +89,10 @@ const CollectionItem = ({ speaker }: CollectionSectionProps) => {
           </div>
         </div>
       </div>
-      {speaker.talk && (
+      {collectible.talk && (
         <div className={styles['talk-details']}>
-          <h3 className={styles['socials-header']}>{speaker.talk.title}</h3>
-          <p>{speaker.talk.description}</p>
+          <h3 className={styles['socials-header']}>{collectible.talk.title}</h3>
+          <p>{collectible.talk.description}</p>
         </div>
       )}
     </>

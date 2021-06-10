@@ -1,4 +1,4 @@
-import { Job, Sponsor, Stage, Speaker } from '@lib/types';
+import { Job, Sponsor, Stage, Collectible } from '@lib/types';
 import { API_URL, API_TOKEN } from '@lib/constants';
 
 async function fetchCmsAPI(query: string, { variables }: { variables?: Record<string, any> } = {}) {
@@ -24,7 +24,7 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
   return json.data;
 }
 
-export async function getAllSpeakers(): Promise<Speaker[]> {
+export async function getAllCollectibles(): Promise<Collectible[]> {
   const data = await fetchCmsAPI(`
     {
       allSpeakers(first: 100) {
