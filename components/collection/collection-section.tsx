@@ -1,9 +1,9 @@
+import cn from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
-import cn from 'classnames';
-import GithubIcon from '@components/icons/icon-github';
-import { SpeakerSectionProps } from '@lib/types';
 import styles from 'styles/collection-section.module.css';
+import GithubIcon from '@components/icons/icon-github';
+import { CollectionSectionProps } from '@lib/types';
 
 const TwitterIcon = () => (
   <svg width={24} viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -14,7 +14,7 @@ const TwitterIcon = () => (
   </svg>
 );
 
-const Collectible = ({ speaker }: SpeakerSectionProps) => {
+const CollectionItem = ({ speaker }: CollectionSectionProps) => {
   return (
     <>
       <Link href="/collection">
@@ -99,4 +99,4 @@ const Collectible = ({ speaker }: SpeakerSectionProps) => {
   );
 };
 
-export default Collectible;
+export default CollectionItem;

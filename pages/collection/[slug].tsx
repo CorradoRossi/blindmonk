@@ -1,27 +1,27 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import Page from '@components/layout/page';
-import SpeakerSection from '@components/collection/collection-section';
 import Layout from '@components/layout/layout';
+import CollectionItem from '@components/collection/collection-section';
 
-import { getAllSpeakers } from '@lib/cms-api';
-import { Speaker, ProfilePageProps } from '@lib/types';
 import { META } from '@lib/constants';
+import { getAllSpeakers } from '@lib/cms-api';
+import { Collectible, CollectionPageProps } from '@lib/types';
 
-const Item = ({ speaker }: ProfilePageProps) => {
+const CollectibleWrapper = ({ speaker }: CollectionPageProps) => {
   return (
     <Page meta={META}>
       <Layout>
-        <SpeakerSection speaker={speaker} />
+        <CollectionItem speaker={speaker} />
       </Layout>
     </Page>
   );
 };
 
-const getStaticProps: GetStaticProps<ProfilePageProps> = async ({ params }) => {
+const getStaticProps: GetStaticProps<CollectionPageProps> = async ({ params }) => {
   const slug = params?.slug;
   const speakers = await getAllSpeakers();
-  const currentSpeaker = speakers.find((s: Speaker) => s.slug === slug) || null;
+  const currentSpeaker = speakers.find((s: Collectible) => s.slug === slug) || null;
 
   if (!currentSpeaker) {
     return {
@@ -39,7 +39,7 @@ const getStaticProps: GetStaticProps<ProfilePageProps> = async ({ params }) => {
 
 const getStaticPaths: GetStaticPaths = async () => {
   const speakers = await getAllSpeakers();
-  const slugs = speakers.map((s: Speaker) => ({ params: { slug: s.slug } }));
+  const slugs = speakers.map((s: Collectible) => ({ params: { slug: s.slug } }));
 
   return {
     paths: slugs,
@@ -47,5 +47,5 @@ const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default Item;
+export default CollectibleWrapper;
 export { getStaticProps, getStaticPaths };

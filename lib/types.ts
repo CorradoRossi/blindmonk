@@ -2,7 +2,7 @@ export type Image = {
   url: string;
 };
 
-export type Speaker = {
+export type Collectible = {
   name: string;
   bio: string;
   title: string;
@@ -16,7 +16,7 @@ export type Speaker = {
 };
 
 export type Speakers = {
-  speakers: Speaker[];
+  speakers: Collectible[];
 };
 
 export type Stage = {
@@ -32,7 +32,7 @@ export type Talk = {
   description: string;
   start: string;
   end: string;
-  speaker: Speaker[];
+  speaker: Collectible[];
 };
 
 export type Link = {
@@ -126,8 +126,8 @@ export type StagePageProps = {
   allStages: Stage[];
 };
 
-export type ProfilePageProps = {
-  speaker: Speaker;
+export type CollectionPageProps = {
+  speaker: Collectible;
 };
 
 export type SponsorPageProps = {
@@ -194,13 +194,13 @@ export type SponsorSectionProps = {
 };
 
 export type SpeakersGridProps = {
-  speakers: Speaker[];
+  speakers: Collectible[];
   assets: any;
   account: any;
 };
 
-export type SpeakerSectionProps = {
-  speaker: Speaker;
+export type CollectionSectionProps = {
+  speaker: Collectible;
 };
 
 export type ScheduleSidebarProps = {
