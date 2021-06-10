@@ -10,8 +10,9 @@ import TicketForm from './ticket-form';
 import TicketVisual from './ticket-visual';
 import TicketActions from './ticket-actions';
 import TicketCopy from './ticket-copy';
-import { DATE, SITE_NAME } from '@lib/constants';
+import { SITE_NAME } from '@lib/constants';
 import Form from '../form/form';
+import { format } from 'date-fns';
 import { TicketProps } from '@lib/types';
 
 const Ticket = ({ username, name, ticketNumber, sharePage }: TicketProps) => {
@@ -62,7 +63,7 @@ const Ticket = ({ username, name, ticketNumber, sharePage }: TicketProps) => {
           <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>
             {sharePage ? (
               <>
-                Join {name ?? 'them'} on {DATE}.
+                Join {name ?? 'them'} on {format(new Date(), 'MMM, dd, yyyy')}.
               </>
             ) : (
               <>

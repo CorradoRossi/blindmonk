@@ -1,7 +1,8 @@
 import cn from 'classnames';
 import styleUtils from 'styles/utils.module.css';
 import styles from 'styles/hero.module.css';
-import { BRAND_NAME, DATE, SITE_DESCRIPTION } from '@lib/constants';
+import { BRAND_NAME, SITE_DESCRIPTION } from '@lib/constants';
+import { format } from 'date-fns';
 
 const Hero = () => {
   return (
@@ -33,7 +34,7 @@ const Hero = () => {
       <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.info)}>
         <p>Coming soon</p>
         <div className={styles['description-separator']} />
-        <p>{DATE}</p>
+        <p>{format(new Date(), 'MMM, dd, yyyy')}</p>
         <div className={styles['description-separator']} />
         <p>
           <strong>Online</strong>

@@ -1,4 +1,4 @@
-import { Job, Sponsor, Stage, Speaker } from '@lib/types';
+import { Job, Sponsor, Stage, Collectible } from '@lib/types';
 import { API_URL, API_TOKEN } from '@lib/constants';
 
 async function fetchCmsAPI(query: string, { variables }: { variables?: Record<string, any> } = {}) {
@@ -24,10 +24,10 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
   return json.data;
 }
 
-export async function getAllSpeakers(): Promise<Speaker[]> {
+export async function getAllCollectibles(): Promise<Collectible[]> {
   const data = await fetchCmsAPI(`
     {
-      allSpeakers(first: 100) {
+      allCollectibles(first: 100) {
         name
         bio
         title
@@ -49,7 +49,7 @@ export async function getAllSpeakers(): Promise<Speaker[]> {
     }
   `);
 
-  return data.allSpeakers;
+  return data.allCollectibles;
 }
 
 export async function getAllStages(): Promise<Stage[]> {
@@ -64,7 +64,7 @@ export async function getAllStages(): Promise<Stage[]> {
           title
           start
           end
-          speaker {
+          collectible {
             name
             slug
             image {
