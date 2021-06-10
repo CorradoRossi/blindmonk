@@ -128,6 +128,7 @@ export type StagePageProps = {
 
 export type CollectionPageProps = {
   collectible: Collectible;
+  allCollectibles?: Collectible[];
 };
 
 export type SponsorPageProps = {
@@ -194,6 +195,7 @@ export type SponsorSectionProps = {
 };
 
 export type CollectionGridProps = {
+  allCollectibles?: Collectible[];
   collectibles: Collectible[];
   assets?: any;
   account?: any;

@@ -64,7 +64,7 @@ export async function getAllStages(): Promise<Stage[]> {
           title
           start
           end
-          speaker {
+          collectible {
             name
             slug
             image {
