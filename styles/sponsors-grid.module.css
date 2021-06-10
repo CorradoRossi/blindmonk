@@ -1,4 +1,3 @@
-
 .card {
   border-radius: var(--space-2x);
   background: #111111;
@@ -15,7 +14,7 @@
 .card:focus {
   outline: none;
   background-image: linear-gradient(#111111, #111111),
-    linear-gradient(to right, var(--brand), var(--brand));
+    linear-gradient(to right, var(--gradient-four), var(--gradient-four));
 }
 
 .grid {
@@ -28,6 +27,7 @@
   .card {
     margin-bottom: 0;
   }
+
   .grid {
     display: grid;
     grid-gap: 24px;

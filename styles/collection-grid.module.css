@@ -38,7 +38,7 @@
 .card:focus {
   outline: none;
   background-image: linear-gradient(#111111, #111111),
-    linear-gradient(to right, var(--brand), var(--brand));
+    linear-gradient(to right, var(--gradient-four), var(--gradient-four));
 }
 
 .cardBody {

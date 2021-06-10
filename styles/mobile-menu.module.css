@@ -1,4 +1,3 @@
-
 .nav-overlay {
   position: fixed;
   z-index: 100;
@@ -35,7 +34,7 @@
 
 .nav-active {
   color: #fff;
-  background: linear-gradient(90deg, var(--brand), var(--brand)) left bottom transparent no-repeat;
+  background: linear-gradient(90deg, var(--gradient-four), var(--gradient-four)) left bottom transparent no-repeat;
   background-size: 100% 2px;
 }
 
