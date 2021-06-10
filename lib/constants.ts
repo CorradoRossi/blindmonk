@@ -44,7 +44,7 @@ export const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
 export const NAVIGATION = [
   {
     name: 'Profile',
-    route: '/stage/a'
+    route: '/platform/one'
   },
   {
     name: 'Collection',

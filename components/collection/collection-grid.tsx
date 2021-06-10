@@ -25,6 +25,7 @@ const CollectionGrid = () => {
       const fetcher = await window.fetch(url, options);
       const response = await fetcher.json();
       setData(response);
+      console.log(response);
       setIsLoading(false);
     }
     fetchData();

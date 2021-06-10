@@ -8,10 +8,12 @@ import HomeContainer from './home/home-container';
 import Layout from './layout/layout';
 import Hero from './home/hero';
 import Form from './form/form';
+import Profile from './collection/profile';
 
 const HomeContent = ({ defaultUserData, defaultPageState = 'registration' }: HomeProps) => {
   const { account, library, chainId, deactivate, connector }: any = useWeb3React<Object>();
   const { data } = useETHBalance(account);
+  const assetData = { assets: [] };
 
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
@@ -48,13 +50,7 @@ const HomeContent = ({ defaultUserData, defaultPageState = 'registration' }: Hom
         <HomeContainer>
           {ethAccount ? (
             <>
-              <div>
-                <h1>{ethAccount ? ethAccount : ''}</h1>
-                <h1>{ethData ? ethData : ''}</h1>
-                <button onKeyDown={disconnect} onClick={disconnect}>
-                  Disconnect
-                </button>
-              </div>
+              <Profile account={ethAccount} data={ethData} assets={assetData} />
             </>
           ) : (
             <>

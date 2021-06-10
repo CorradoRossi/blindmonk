@@ -25,7 +25,7 @@ const ScheduleSidebar = ({ allStages }: ScheduleSidebarProps) => {
         onChange={e => {
           const slug = e.target.value;
           setCurrentStageSlug(slug);
-          router.push(`/stage/${slug}`);
+          router.push(`/platform/${slug}`);
         }}
       >
         {allStages.map(stage => (
