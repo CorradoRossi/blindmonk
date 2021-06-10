@@ -1,4 +1,3 @@
-
 .card {
   border-radius: var(--space-2x);
   background: #111111;
@@ -28,6 +27,7 @@
   .card {
     margin-bottom: 0;
   }
+
   .grid {
     display: grid;
     grid-gap: 24px;

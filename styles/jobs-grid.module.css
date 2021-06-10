@@ -155,14 +155,13 @@
 
 .button:hover,
 .button:focus {
-  background: black;
-  color: var(--gradient-four);
+  background: var(--gradient-one);
   border: 1px solid var(--gradient-four);
 }
 
 .button:hover>svg,
 .button:focus>svg {
-  fill: var(--gradient-four);
+  fill: #ffffff;
 }
 
 .button>svg {

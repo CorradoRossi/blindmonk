@@ -137,7 +137,7 @@
 
 .submit.default:hover,
 .submit.default:focus {
-  background: black;
+  background: var(--gradient-one);
   color: var(--gradient-four);
 }
 
