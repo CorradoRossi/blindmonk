@@ -1,11 +1,9 @@
-
 @font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 100 900;
   font-display: optional;
-  src: url(https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2)
-    format('woff2');
+  src: url(https://assets.vercel.com/raw/upload/v1587415301/fonts/2/inter-var-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F,
     U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -41,6 +39,16 @@
   --sidebar: #0e0e10;
   --header-height: 72px;
   --brand: #845ef7;
+
+  --gradient-one: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%); /*first*/
+  --gradient-two: linear-gradient(to top, #cc208e 0%, #6713d2 100%);
+  --gradient-three: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+  --gradient-four: linear-gradient(to top, #b224ef 0%, #7579ff 100%); /*second*/
+  --gradient-five: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
+  --gradient-six: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%); /*third*/
+  --gradient-seven: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%); /*fourth*/
+
+  --filter-one: drop-shadow(0.05rem 0.05rem 0.5rem rgba(117, 121, 255, 0.7));
 }
 
 html {
@@ -49,16 +57,18 @@ html {
   height: 100%;
   box-sizing: border-box;
   touch-action: manipulation;
-  font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
+  font-feature-settings: 'case'1, 'rlig'1, 'calt'0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
+
 body {
   position: relative;
   min-height: 100%;
@@ -77,26 +87,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
+
 html,
 body {
   color: #fff;
   background-color: #111;
 }
+
 ::selection {
   background-color: #0070f3;
   color: #fff;
 }
+
 [role='grid']:focus {
   outline: none;
 }
+
 svg {
   text-rendering: optimizeLegibility;
 }
+
 h1,
 h2,
 h3 {
   margin: 0;
 }
+
 a {
   text-decoration: none;
   transition: color 0.2s ease;
@@ -125,6 +141,7 @@ svg path,
 svg circle {
   shape-rendering: geometricprecision;
 }
+
 [data-reach-skip-link] {
   border: 0;
   clip: rect(0 0 0 0);
@@ -135,6 +152,7 @@ svg circle {
   overflow: hidden;
   position: absolute;
 }
+
 [data-reach-skip-link]:focus {
   padding: 1rem;
   position: fixed;

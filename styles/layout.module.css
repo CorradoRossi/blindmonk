@@ -92,7 +92,7 @@
 
 .tab-active {
   color: #fff;
-  background: linear-gradient(90deg, var(--brand), var(--brand)) left bottom transparent no-repeat;
+  background: linear-gradient(90deg, var(--gradient-four), var(--gradient-four)) left bottom transparent no-repeat;
   background-size: 100% 1px;
 }
 
@@ -106,8 +106,8 @@
   height: 56px;
   margin-top: var(--space-4x);
   border-radius: var(--space-2x);
-  border: 1px solid var(--brand);
-  background: var(--brand);
+  border: 1px solid var(--gradient-four);
+  background: var(--gradient-four);
   cursor: pointer;
   font-family: inherit;
   font-size: var(--text-md);
@@ -138,12 +138,12 @@
 .submit.default:hover,
 .submit.default:focus {
   background: black;
-  color: var(--brand);
+  color: var(--gradient-four);
 }
 
 .submit.default.generate-with-github:hover path,
 .submit.default.generate-with-github:focus path {
-  fill: var(--brand);
+  fill: var(--gradient-four);
 }
 
 .submit.error:hover,
