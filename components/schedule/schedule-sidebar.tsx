@@ -18,7 +18,7 @@ const ScheduleSidebar = ({ allStages }: ScheduleSidebarProps) => {
   return (
     <div className={styles.schedule}>
       <h3 className={styles.header}>Upcoming drops</h3>
-      <p>{format(new Date(), 'MMM, DD, YYYY')}</p>
+      <p>{format(new Date(), 'MMM, dd, YYYY')}</p>
       <Select
         aria-label="Select a stage"
         value={currentStageSlug}

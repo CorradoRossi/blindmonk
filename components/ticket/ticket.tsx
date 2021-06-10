@@ -63,7 +63,7 @@ const Ticket = ({ username, name, ticketNumber, sharePage }: TicketProps) => {
           <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>
             {sharePage ? (
               <>
-                Join {name ?? 'them'} on {format(new Date(), 'MMM, DD, YYYY')}.
+                Join {name ?? 'them'} on {format(new Date(), 'MMM, dd, YYYY')}.
               </>
             ) : (
               <>
