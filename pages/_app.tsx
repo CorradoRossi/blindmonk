@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { SSRProvider, OverlayProvider } from 'react-aria';
 import '@styles/global.css';
 import '@styles/nprogress.css';
@@ -5,7 +6,6 @@ import '@styles/chrome-bug.css';
 import type { AppProps } from 'next/app';
 import NProgress from '@components/utils/nprogress';
 import ResizeHandler from '@components/utils/resize-handler';
-import { useEffect } from 'react';
 import { Web3Provider } from '@ethersproject/providers';
 import { Web3ReactProvider } from '@web3-react/core';
 import Web3Manager from '@components/web3/web3manager';

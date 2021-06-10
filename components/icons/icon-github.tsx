@@ -1,9 +1,6 @@
-type Props = {
-  color: string;
-  size: number;
-};
+import { IconGithubProps } from '@lib/types';
 
-export default function IconGithub({ color = '#111111', size = 22 }: Props) {
+export default function IconGithub({ color = '#111111', size = 22 }: IconGithubProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

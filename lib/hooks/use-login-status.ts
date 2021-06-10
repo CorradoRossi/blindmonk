@@ -1,6 +1,6 @@
 import useSWR, { ConfigInterface } from 'swr';
 
-export default function useLoginStatus(opts?: ConfigInterface) {
+const useLoginStatus = (opts?: ConfigInterface) => {
   const { data, error, mutate } = useSWR(
     `/api/auth`,
     async url => {
@@ -24,4 +24,6 @@ export default function useLoginStatus(opts?: ConfigInterface) {
       : ('loggedIn' as const),
     mutate
   };
-}
+};
+
+export default useLoginStatus;

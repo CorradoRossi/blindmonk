@@ -1,19 +1,17 @@
 import { useWeb3React } from '@web3-react/core';
-import useSWR from 'swr';
 import { parseBalance } from '../utils/web3';
 import useKeepSWRDataLiveAsBlocksArrive from './useKeepSwrData';
+import useSWR from 'swr';
 
-function getETHBalance(library: any) {
+const getETHBalance = (library: any) => {
   return async (address: any, _: any) => {
     return library.getBalance(address).then((balance: any) => parseBalance(balance));
   };
-}
+};
 
-export default function useETHBalance(address: any, suspense = false) {
+const useETHBalance = (address: any, suspense = false) => {
   const { library, chainId } = useWeb3React();
-
   const shouldFetch = typeof address === 'string' && !!library;
-
   const result = useSWR(
     shouldFetch ? [address, chainId, 'ETHBalance'] : null,
     getETHBalance(library),
@@ -21,6 +19,7 @@ export default function useETHBalance(address: any, suspense = false) {
   );
 
   useKeepSWRDataLiveAsBlocksArrive(result.mutate);
-
   return result;
-}
+};
+
+export default useETHBalance;
