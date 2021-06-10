@@ -27,7 +27,7 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
 export async function getAllCollectibles(): Promise<Collectible[]> {
   const data = await fetchCmsAPI(`
     {
-      allSpeakers(first: 100) {
+      allCollectibles(first: 100) {
         name
         bio
         title
@@ -49,7 +49,7 @@ export async function getAllCollectibles(): Promise<Collectible[]> {
     }
   `);
 
-  return data.allSpeakers;
+  return data.allCollectibles;
 }
 
 export async function getAllStages(): Promise<Stage[]> {

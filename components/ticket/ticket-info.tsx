@@ -1,7 +1,8 @@
 import styles from 'styles/ticket-info.module.css';
 import styleUtils from 'styles/utils.module.css';
 import Logo from '../utils/logo';
-import { DATE, SITE_URL } from '@lib/constants';
+import { SITE_URL } from '@lib/constants';
+import { format } from 'date-fns';
 import VercelLogo from '@components/icons/icon-platform';
 
 const siteUrl = new URL(SITE_URL);
@@ -22,7 +23,7 @@ export default function TicketInfo({ logoTextSecondaryColor = 'var(--accents-5)'
         <Logo textSecondaryColor={logoTextSecondaryColor} />
       </div>
       <div className={styles.date}>
-        <div>{DATE}</div>
+        <div>{format(new Date(), 'MMM, DD, YYYY')}</div>
         <div>ONLINE</div>
       </div>
       <div className={styleUtils['hide-on-mobile']}>{createdBy}</div>

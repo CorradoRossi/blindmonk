@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from 'styles/collection-grid.module.css';
 import { useWeb3React } from '@web3-react/core';
-import { RSSI_WALLET } from '@lib/constants';
+//import { RSSI_WALLET } from '@lib/constants';
 
 const CollectionGrid = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -12,7 +12,7 @@ const CollectionGrid = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const url = `https://api.opensea.io/api/v1/assets?owner=${RSSI_WALLET}&order_direction=desc&offset=0&limit=100`;
+      const url = `https://api.opensea.io/api/v1/assets?owner=${account}&order_direction=desc&offset=0&limit=100`;
       const options = { method: 'GET' };
       setIsLoading(true);
       const fetcher = await window.fetch(url, options);

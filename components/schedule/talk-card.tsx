@@ -15,6 +15,8 @@ const TalkCard = ({ talk: { title, collectible, start, end }, showTime }: Format
   const [isTalkLive, setIsTalkLive] = useState(false);
   const [startAndEndTime, setStartAndEndTime] = useState('');
 
+  console.log(title, collectible, start, end, showTime, 'Props');
+
   useEffect(() => {
     const now = Date.now();
     setIsTalkLive(isAfter(now, parseISO(start)) && isBefore(now, parseISO(end)));
@@ -38,7 +40,7 @@ const TalkCard = ({ talk: { title, collectible, start, end }, showTime }: Format
             </h4>
             <div className={styles.collectible}>
               <div className={styles['avatar-group']}>
-                {collectible.map(s => (
+                {collectible?.map(s => (
                   <div key={s.name} className={styles['avatar-wrapper']}>
                     <Image
                       loading="lazy"

@@ -4,7 +4,7 @@ import { Stage, ScheduleSidebarProps } from '@lib/types';
 import styles from 'styles/schedule-sidebar.module.css';
 import Select from '../utils/select';
 import TalkCard from './talk-card';
-import { SHORT_DATE } from '@lib/constants';
+import { format } from 'date-fns';
 
 const ScheduleSidebar = ({ allStages }: ScheduleSidebarProps) => {
   const router = useRouter();
@@ -18,7 +18,7 @@ const ScheduleSidebar = ({ allStages }: ScheduleSidebarProps) => {
   return (
     <div className={styles.schedule}>
       <h3 className={styles.header}>Upcoming drops</h3>
-      <p>{SHORT_DATE}</p>
+      <p>{format(new Date(), 'MMM, DD, YYYY')}</p>
       <Select
         aria-label="Select a stage"
         value={currentStageSlug}

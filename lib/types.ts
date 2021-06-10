@@ -194,7 +194,7 @@ export type SponsorSectionProps = {
 };
 
 export type CollectionGridProps = {
-  collectibles?: Collectible[];
+  collectibles: Collectible[];
   assets?: any;
   account?: any;
 };
