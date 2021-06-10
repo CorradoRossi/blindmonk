@@ -103,7 +103,7 @@
 
 .button {
   border-radius: var(--space-2x);
-  border: 1px solid #fff;
+  /*border: 1px solid #fff;*/
   color: #000;
   background: #fff;
   cursor: pointer;
@@ -127,6 +127,7 @@
 .button:focus {
   background: var(--gradient-one);
   color: #fff;
+  filter: drop-shadow(0rem 0rem 0.7rem rgba(117, 121, 255, 0.4));
 }
 
 .button>svg {
