@@ -63,3 +63,18 @@ export const NAVIGATION = [
     route: '/settings'
   }
 ];
+
+export const DEFAULT_INDEX = {
+  assets: [
+    {
+      name: 'Victor Apesalot',
+      image: { url: 'https://www.datocms-assets.com/49202/1623328125-boredape.png' },
+      title: 'CEO',
+      company: 'Hundred Monkey Club llc',
+      bio: "Just a small town ape, living in a lonely ape world. Let's share a banana!",
+      twitter: 'https://twitter.com/metastash',
+      github: 'https://github.com/CorradoRossi/',
+      talk: { title: 'Motivational Speaker', description: 'Ape in a place doing a thing' }
+    }
+  ]
+};
