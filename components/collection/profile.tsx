@@ -6,7 +6,7 @@ import styles from 'styles/collection-section.module.css';
 import GithubIcon from '@components/icons/icon-github';
 import TwitterIcon from '@components/icons/icon-twitterr';
 
-const CollectionItem = ({ account, data, assets }: any) => {
+const CollectionItem = ({ account, data, assets, disconnect }: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [dataArray, setDataArray] = useState<any>({
     assets: [
@@ -102,6 +102,11 @@ const CollectionItem = ({ account, data, assets }: any) => {
             <span>Balance: </span>
             {data}
           </p>
+          <div>
+            <button onKeyDown={disconnect} onClick={disconnect}>
+              Disconnect
+            </button>
+          </div>
         </div>
       )}
     </>

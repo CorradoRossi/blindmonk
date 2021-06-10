@@ -34,10 +34,10 @@ const Hero = () => {
       <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.info)}>
         <p>Coming soon</p>
         <div className={styles['description-separator']} />
-        <p>{format(new Date(), 'MMM, dd, yyyy')}</p>
+        <p>{'Aug, 2021'}</p>
         <div className={styles['description-separator']} />
         <p>
-          <strong>Online</strong>
+          <strong>A new NFT platform</strong>
         </p>
       </div>
     </div>

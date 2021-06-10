@@ -11,14 +11,22 @@ import Form from './form/form';
 import Profile from './collection/profile';
 
 const HomeContent = ({ defaultUserData, defaultPageState = 'registration' }: HomeProps) => {
-  const { account }: any = useWeb3React<Object>();
-  const { data }: any = useETHBalance(account);
+  const { account, library, chainId, deactivate, connector }: any = useWeb3React<Object>();
+  const { data } = useETHBalance(account);
   const assetData = { assets: [] };
 
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
   const [ethAccount, setEthAccount] = useState(account || '');
   const [ethData, setEthData] = useState(data || 0);
+
+  const disconnect = () => {
+    deactivate();
+    // @ts-ignore
+    if (!connector instanceof InjectedConnector) {
+      connector.close();
+    }
+  };
 
   useEffect(() => {
     setEthAccount(account);
@@ -42,7 +50,12 @@ const HomeContent = ({ defaultUserData, defaultPageState = 'registration' }: Hom
         <HomeContainer>
           {ethAccount ? (
             <>
-              <Profile account={ethAccount} data={ethData} assets={assetData} />
+              <Profile
+                account={ethAccount}
+                data={ethData}
+                assets={assetData}
+                disconnect={disconnect}
+              />
             </>
           ) : (
             <>
