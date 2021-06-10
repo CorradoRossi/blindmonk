@@ -119,6 +119,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0rem 0rem 0.7rem rgba(117, 121, 255, 0.3));
 }
 
 @media (min-width: 768px) {
@@ -139,6 +140,7 @@
 .submit.default:focus {
   background: var(--gradient-one);
   color: var(--gradient-four);
+  filter: drop-shadow(0rem 0rem 0.7rem rgba(117, 121, 255, 0.7));
 }
 
 .submit.default.generate-with-github:hover path,
