@@ -28,6 +28,14 @@ export const COPYRIGHT_HOLDER = process.env.NEXT_PUBLIC_COPYRIGHT_HOLDER;
 
 export const INFURA_ID = 'INVALID_INFURA_KEY'; //https://infura.io/register
 export const NETWORK_NAME = 'mainnet';
+
+export const OPENSEA_BASE_URL = 'https://api.opensea.io/api/v1/';
+export const OPENSEA_ASSETS = 'assets/';
+export const OPENSEA_ASSET = 'asset/'; //asset_contract_address/token_id/
+export const OPENSEA_EVENTS = 'events/';
+export const OPENSEA_CONTRACT = 'asset_contract/';
+export const OPENSEA_COLLECTIONS = 'collections/';
+
 export const API_URL = 'https://graphql.datocms.com/';
 export const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
 
