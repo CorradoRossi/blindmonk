@@ -27,35 +27,41 @@ const AssetGrid = () => {
     <div></div>
   ) : (
     <div className={styles.grid}>
-      {data?.assets?.map((asset: any) => (
-        <Link key={asset?.permalink} href={`/speakers/${asset?.id}`}>
-          <a role="button" tabIndex={0} className={styles.card}>
-            <div className={styles.imageWrapper}>
-              <Image
-                alt={asset?.name}
-                src={asset?.image_preview_url}
-                className={styles.image}
-                loading="lazy"
-                quality="50"
-                title={asset?.name}
-                width={300}
-                height={300}
-              />
-            </div>
-            <div className={styles.cardBody}>
-              <div>
-                <div className={styles.nameWrapper}>
-                  <h2 className={styles.name}>{asset?.name}</h2>
-                </div>
-                <p className={styles.title}>
-                  {`@${asset?.creator?.user?.username}`}
-                  <span className={styles.company}>{''}</span>
-                </p>
+      {data?.assets?.length < 1 ? (
+        <div>
+          <h2 className={styles.name}>There are no NFT's in your collection!</h2>
+        </div>
+      ) : (
+        data?.assets?.map((asset: any) => (
+          <Link key={asset?.permalink} href={`/speakers/${asset?.id}`}>
+            <a role="button" tabIndex={0} className={styles.card}>
+              <div className={styles.imageWrapper}>
+                <Image
+                  alt={asset?.name}
+                  src={asset?.image_preview_url}
+                  className={styles.image}
+                  loading="lazy"
+                  quality="50"
+                  title={asset?.name}
+                  width={300}
+                  height={300}
+                />
               </div>
-            </div>
-          </a>
-        </Link>
-      ))}
+              <div className={styles.cardBody}>
+                <div>
+                  <div className={styles.nameWrapper}>
+                    <h2 className={styles.name}>{asset?.name}</h2>
+                  </div>
+                  <p className={styles.title}>
+                    {`@${asset?.creator?.user?.username}`}
+                    <span className={styles.company}>{''}</span>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </Link>
+        ))
+      )}
     </div>
   );
 };
