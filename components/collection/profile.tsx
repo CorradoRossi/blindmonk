@@ -36,24 +36,6 @@ const CollectionItem = ({ account, data, assets }: any) => {
     <div></div>
   ) : (
     <>
-      <Link href="/collection">
-        <a className={styles.backlink}>
-          <svg
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            shapeRendering="geometricPrecision"
-          >
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-          Back to collection
-        </a>
-      </Link>
       <div key={dataArray.assets[0].name} className={styles.container}>
         <div style={{ minWidth: '300px' }}>
           <Image
@@ -62,14 +44,14 @@ const CollectionItem = ({ account, data, assets }: any) => {
             src={dataArray.assets[0].image.url}
             className={styles.image}
             loading="lazy"
-            height={400}
-            width={300}
+            height={320}
+            width={320}
           />
         </div>
         <div className={styles['collectible-details']}>
           <div>
             <h1 className={styles.name}>{dataArray.assets[0].name}</h1>
-            <p className={styles.title}>
+            <p className={styles.title} style={{ fontWeight: 600 }}>
               {`${dataArray.assets[0].title} @ `}
               <span className={styles.company}>{dataArray.assets[0].company}</span>
             </p>
@@ -112,8 +94,14 @@ const CollectionItem = ({ account, data, assets }: any) => {
         <div className={styles['talk-details']}>
           <h3 className={styles['socials-header']}>{dataArray.assets[0].talk.title}</h3>
           <p>{dataArray.assets[0].talk.description}</p>
-          <p>{account}</p>
-          <p>{data}</p>
+          <p style={{ fontWeight: 600 }}>
+            <span>Address: </span>
+            {account}
+          </p>
+          <p style={{ fontWeight: 600 }}>
+            <span>Balance: </span>
+            {data}
+          </p>
         </div>
       )}
     </>
