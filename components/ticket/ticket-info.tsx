@@ -23,7 +23,7 @@ export default function TicketInfo({ logoTextSecondaryColor = 'var(--accents-5)'
         <Logo textSecondaryColor={logoTextSecondaryColor} />
       </div>
       <div className={styles.date}>
-        <div>{format(new Date(), 'MMM, dd, YYYY')}</div>
+        <div>{format(new Date(), 'MMM, dd, yyyy')}</div>
         <div>ONLINE</div>
       </div>
       <div className={styleUtils['hide-on-mobile']}>{createdBy}</div>
