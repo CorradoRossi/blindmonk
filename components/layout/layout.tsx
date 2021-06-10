@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 import { NAVIGATION } from '@lib/constants';
 import styles from 'styles/layout.module.css';
-import Logo from '../icons/icon-logo';
+import Logo from '../utils/logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
 import { LayoutProps, FormState } from '@lib/types';
