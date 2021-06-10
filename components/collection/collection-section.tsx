@@ -3,7 +3,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/icon-github';
 import { SpeakerSectionProps } from '@lib/types';
-import styles from 'styles/speaker-section.module.css';
+import styles from 'styles/collection-section.module.css';
 
 const TwitterIcon = () => (
   <svg width={24} viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -14,7 +14,7 @@ const TwitterIcon = () => (
   </svg>
 );
 
-const SpeakerSection = ({ speaker }: SpeakerSectionProps) => {
+const Collectible = ({ speaker }: SpeakerSectionProps) => {
   return (
     <>
       <Link href="/collection">
@@ -99,4 +99,4 @@ const SpeakerSection = ({ speaker }: SpeakerSectionProps) => {
   );
 };
 
-export default SpeakerSection;
+export default Collectible;

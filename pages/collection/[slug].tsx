@@ -1,14 +1,14 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import Page from '@components/layout/page';
-import SpeakerSection from '@components/speakers/speaker-section';
+import SpeakerSection from '@components/collection/collection-section';
 import Layout from '@components/layout/layout';
 
 import { getAllSpeakers } from '@lib/cms-api';
 import { Speaker, ProfilePageProps } from '@lib/types';
 import { META } from '@lib/constants';
 
-const ProfilePage = ({ speaker }: ProfilePageProps) => {
+const Item = ({ speaker }: ProfilePageProps) => {
   return (
     <Page meta={META}>
       <Layout>
@@ -47,5 +47,5 @@ const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default ProfilePage;
+export default Item;
 export { getStaticProps, getStaticPaths };
