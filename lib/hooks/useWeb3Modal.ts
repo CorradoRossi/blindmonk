@@ -4,7 +4,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 import Web3Modal from 'web3modal';
 
-function useWeb3Modal(config = {}) {
+const useWeb3Modal = (config = {}) => {
   const [provider, setProvider] = useState<any>();
   const [autoLoaded, setAutoLoaded] = useState<any>(false);
   const { autoLoad = true, infuraId = INFURA_ID, NETWORK = NETWORK_NAME }: any = config;
@@ -45,6 +45,6 @@ function useWeb3Modal(config = {}) {
   }, [autoLoad, autoLoaded, loadWeb3Modal, setAutoLoaded, web3Modal.cachedProvider]);
 
   return [provider, loadWeb3Modal, logoutOfWeb3Modal];
-}
+};
 
 export default useWeb3Modal;

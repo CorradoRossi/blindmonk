@@ -1,8 +1,7 @@
 import styles from 'styles/icon-transition.module.css';
+import { IconLinkedinProps } from '@lib/types';
 
-type Props = { width: number | string };
-
-export default function IconLinkedin({ width }: Props) {
+export default function IconLinkedin({ width }: IconLinkedinProps) {
   return (
     <svg width={width} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

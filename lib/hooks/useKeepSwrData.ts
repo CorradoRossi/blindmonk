@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import useBlockNumber from './useBlockNumber';
 
-export default function useKeepSWRDataLiveAsBlocksArrive(mutate: any) {
+const useKeepSWRDataLiveAsBlocksArrive = (mutate: any) => {
   // because we don't care about the referential identity of mutate, just bind it to a ref
   const mutateRef = useRef(mutate);
 
@@ -15,4 +15,6 @@ export default function useKeepSWRDataLiveAsBlocksArrive(mutate: any) {
   useEffect(() => {
     mutateRef.current();
   }, [data]);
-}
+};
+
+export default useKeepSWRDataLiveAsBlocksArrive;

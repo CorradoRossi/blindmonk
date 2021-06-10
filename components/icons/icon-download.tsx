@@ -1,9 +1,8 @@
 import cn from 'classnames';
 import styles from 'styles/icon-transition.module.css';
+import { IconDownloadProps } from '@lib/types';
 
-type Props = { width: number | string };
-
-export default function IconDownload({ width }: Props) {
+export default function IconDownload({ width }: IconDownloadProps) {
   return (
     <svg width={width} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

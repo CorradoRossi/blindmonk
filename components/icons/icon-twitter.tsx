@@ -1,8 +1,7 @@
 import styles from 'styles/icon-transition.module.css';
+import { IconTwitterProps } from '@lib/types';
 
-type Props = { width: number | string };
-
-export default function IconTwitter({ width }: Props) {
+const IconTwitter = ({ width }: IconTwitterProps) => {
   return (
     <svg width={width} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -11,4 +10,6 @@ export default function IconTwitter({ width }: Props) {
       />
     </svg>
   );
-}
+};
+
+export default IconTwitter;

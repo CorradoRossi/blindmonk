@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { HomeDataContext } from '@lib/hooks/use-home-data';
 import { PageState, HomeProps, UserData } from '@lib/types';
-//import Ticket from './ticket/ticket';
-//import LearnMore from './learn-more';
 import Layout from './layout/layout';
 import HomeContainer from './home/home-container';
 import Hero from './home/hero';
@@ -10,6 +8,7 @@ import Form from './form/form';
 import { useWeb3React } from '@web3-react/core';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import useETHBalance from '@lib/hooks/useEthBalance';
+//import Ticket from './ticket/ticket';
 
 const HomeContent = ({
   defaultUserData,

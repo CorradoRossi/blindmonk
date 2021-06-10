@@ -1,6 +1,6 @@
-type Props = { color: string; height?: number | string };
+import { PlatformLogoProps } from '@lib/types';
 
-export default function PlatformLogo({ color, height = 20 }: Props) {
+export default function PlatformLogo({ color, height = 20 }: PlatformLogoProps) {
   return (
     <svg height={height} viewBox="0 0 283 64" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

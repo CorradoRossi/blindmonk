@@ -299,3 +299,18 @@ export type WalletProps = {
   loadWeb3Modal: any;
   logoutOfWeb3Modal: any;
 };
+
+export type IconCheckProps = {
+  color: string;
+  size: number;
+};
+
+export type IconDownloadProps = { width: number | string };
+export type IconLinkedinProps = { width: number | string };
+export type IconTwitterProps = { width: number | string };
+export type PlatformLogoProps = { color: string; height?: number | string };
+
+export type IconGithubProps = {
+  color: string;
+  size: number;
+};

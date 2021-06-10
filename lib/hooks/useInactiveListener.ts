@@ -1,6 +1,6 @@
 import { useWeb3React as useWeb3ReactCore } from '@web3-react/core';
 import { useEffect } from 'react';
-import { injected } from 'components/walletsModal/connectors';
+import { injected } from '@lib/utils/connectors';
 
 const useInactiveListener = (suppress = false) => {
   const { active, error, activate } = useWeb3ReactCore(); // specifically using useWeb3React because of what this hook does

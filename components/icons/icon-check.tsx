@@ -1,9 +1,6 @@
-type Props = {
-  color: string;
-  size: number;
-};
+import { IconCheckProps } from '@lib/types';
 
-export default function IconCheck({ color, size }: Props) {
+export default function IconCheck({ color, size }: IconCheckProps) {
   return (
     <svg viewBox="0 0 16 16" width={size} height={size}>
       <g fill={color || '#111111'}>
