@@ -293,8 +293,7 @@ export type TicketActionsProps = {
 };
 
 export type WalletProps = {
-  className: string;
-  disabled: boolean;
+  formState?: string;
   text?: string;
   modalOpen?: boolean;
   provider: any;

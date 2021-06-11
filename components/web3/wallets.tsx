@@ -1,26 +1,15 @@
 import React from 'react';
+import cn from 'classnames';
 import { QrcodeIcon } from '@heroicons/react/solid';
 import { WalletProps } from '@lib/types';
-import useEagerConnect from '@lib/hooks/useEagerConnect';
+import styles from 'styles/layout.module.css';
 
-const Wallets = ({
-  className,
-  disabled,
-  provider,
-  loadWeb3Modal,
-  logoutOfWeb3Modal
-}: WalletProps) => {
-  const triedEagerConnect = useEagerConnect();
-
-  if (!triedEagerConnect) {
-    return null;
-  }
+const Wallets = ({ provider, loadWeb3Modal, logoutOfWeb3Modal }: WalletProps) => {
   return (
     <>
       <button
         type="button"
-        disabled={disabled}
-        className={className}
+        className={cn(styles.submit, styles.register, styles.default)}
         onClick={!provider ? () => loadWeb3Modal() : () => logoutOfWeb3Modal()}
       >
         <QrcodeIcon height="20" width="20" className="mr-2" />
