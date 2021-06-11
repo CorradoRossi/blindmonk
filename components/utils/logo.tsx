@@ -1,8 +1,8 @@
-import IconLogo from '../icons/icon-logo';
+import IconLogo from '../icons/icon-logo-2';
 import styles from 'styles/logo.module.css';
 import { SITE_NAME_MULTILINE } from '@lib/constants';
 
-const Logo = ({ textSecondaryColor = 'var(--accents-5)' }) => {
+const Logo = ({ textSecondaryColor = '#ffffff' }) => {
   return (
     <div className={styles.logo}>
       <div className={styles.icon}>
