@@ -6,6 +6,7 @@ import styles from 'styles/collection-section.module.css';
 import GithubIcon from '@components/icons/icon-github';
 import TwitterIcon from '@components/icons/icon-twitterr';
 import { DEFAULT_INDEX } from '@lib/constants';
+import { truncateWithEllipses, formatAddressShort, copyToClipBoard } from '@lib/utils/utils';
 
 const CollectionItem = ({ account, data, assets }: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -80,9 +81,12 @@ const CollectionItem = ({ account, data, assets }: any) => {
         <div className={styles['talk-details']}>
           <h3 className={styles['socials-header']}>{dataArray?.assets[0].talk.title}</h3>
           <p>{dataArray?.assets[0].talk.description}</p>
-          <p style={{ fontWeight: 600 }}>
+          <p
+            onClick={() => copyToClipBoard(account)}
+            style={{ fontWeight: 600, cursor: 'pointer' }}
+          >
             <span>Address: </span>
-            {account}
+            {formatAddressShort(account)}
           </p>
           <p style={{ fontWeight: 600 }}>
             <span>Balance: </span>
