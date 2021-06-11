@@ -24,7 +24,14 @@ const Wallets = ({
         onClick={!provider ? () => loadWeb3Modal() : () => logoutOfWeb3Modal()}
       >
         <QrcodeIcon height="20" width="20" className="mr-2" />
-        <span>{!provider ? 'Connect Wallet' : 'Disconnect Wallet'}</span>
+        <span
+          style={{
+            textShadow:
+              '0 0 5px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5)'
+          }}
+        >
+          {!provider ? 'Connect Wallet' : 'Disconnect Wallet'}
+        </span>
       </button>
     </>
   );
