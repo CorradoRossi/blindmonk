@@ -31,7 +31,7 @@ export const META = {
 export const LEGAL_URL = process.env.NEXT_PUBLIC_PRIVACY_POLICY_URL;
 export const COPYRIGHT_HOLDER = process.env.NEXT_PUBLIC_COPYRIGHT_HOLDER;
 
-export const INFURA_ID = 'INVALID_INFURA_KEY'; //https://infura.io/register
+export const INFURA_ID = '72414aceffb245f7bd17f6239ce4a5d7';
 export const NETWORK_NAME = 'mainnet';
 
 export const OPENSEA_BASE_URL = 'https://api.opensea.io/api/v1/';

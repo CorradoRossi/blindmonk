@@ -19,3 +19,11 @@ export const walletLink = new WalletLinkConnector({
 export const injected = new InjectedConnector({
   supportedChainIds: process.env.NODE_ENV === 'development' ? [1, 3, 1337] : [1]
 });
+
+//const disconnect = () => {
+//  deactivate();
+//  // @ts-ignore
+//  if (!connector instanceof InjectedConnector) {
+//    connector.close();
+//  }
+//};
