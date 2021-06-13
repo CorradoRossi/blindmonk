@@ -37,7 +37,7 @@ const Hero = () => {
         <p>{format(new Date(), 'MMM, dd, yyyy')}</p>
         <div className={styles['description-separator']} />
         <p>
-          <strong>Online</strong>
+          <strong>A new NFT platform</strong>
         </p>
       </div>
     </div>
