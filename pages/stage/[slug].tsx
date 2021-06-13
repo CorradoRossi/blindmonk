@@ -2,28 +2,28 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 
 import Page from '@components/layout/page';
 import Layout from '@components/layout/layout';
-import StageContainer from '@components/schedule/stage-container';
+import PlatformContainer from '@components/schedule/platform-container';
 
 import { META } from '@lib/constants';
-import { getAllStages } from '@lib/cms-api';
-import { Stage, StagePageProps } from '@lib/types';
+import { getAllPlatforms } from '@lib/cms-api';
+import { Platform, PlatformPageProps } from '@lib/types';
 
-const StagePage = ({ stage, allStages }: StagePageProps) => {
+const PlatformPage = ({ platform, allPlatforms }: PlatformPageProps) => {
   return (
     <Page meta={META} fullViewport>
       <Layout>
-        <StageContainer stage={stage} allStages={allStages} />
+        <PlatformContainer platform={platform} allPlatforms={allPlatforms} />
       </Layout>
     </Page>
   );
 };
 
-const getStaticProps: GetStaticProps<StagePageProps> = async ({ params }) => {
+const getStaticProps: GetStaticProps<PlatformPageProps> = async ({ params }) => {
   const slug = params?.slug;
-  const stages = await getAllStages();
-  const stage = stages.find((s: Stage) => s.slug === slug) || null;
+  const platforms = await getAllPlatforms();
+  const platform = platforms.find((s: Platform) => s.slug === slug) || null;
 
-  if (!stage) {
+  if (!platform) {
     return {
       notFound: true
     };
@@ -31,16 +31,16 @@ const getStaticProps: GetStaticProps<StagePageProps> = async ({ params }) => {
 
   return {
     props: {
-      stage,
-      allStages: stages
+      platform,
+      allPlatforms: platforms
     },
     revalidate: 60
   };
 };
 
 const getStaticPaths: GetStaticPaths = async () => {
-  const stages = await getAllStages();
-  const slugs = stages.map((s: Stage) => ({ params: { slug: s.slug } }));
+  const platforms = await getAllPlatforms();
+  const slugs = platforms.map((s: Platform) => ({ params: { slug: s.slug } }));
 
   return {
     paths: slugs,
@@ -48,5 +48,5 @@ const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default StagePage;
+export default PlatformPage;
 export { getStaticProps, getStaticPaths };

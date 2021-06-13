@@ -19,7 +19,7 @@ export type Collectibles = {
   collectibles: Collectible[];
 };
 
-export type Stage = {
+export type Platform = {
   name: string;
   slug: string;
   stream: string;
@@ -103,7 +103,7 @@ export type TicketProps = {
 };
 
 export type ScheduleProps = {
-  allStages: Stage[];
+  allPlatforms: Platform[];
 };
 
 export type JobsProps = {
@@ -121,9 +121,9 @@ export type TicketShareProps = {
   ticketNumber: number | null;
 };
 
-export type StagePageProps = {
-  stage: Stage;
-  allStages: Stage[];
+export type PlatformPageProps = {
+  platform: Platform;
+  allPlatforms: Platform[];
 };
 
 export type CollectionPageProps = {
@@ -139,8 +139,8 @@ export type SponsorsGridProps = {
   sponsors: Sponsor[];
 };
 
-export type ScheduleStageProps = {
-  allStages: Stage[];
+export type SchedulePlatformProps = {
+  allPlatforms: Platform[];
 };
 
 export type ErrorResponse = {
@@ -185,9 +185,9 @@ export type FormatDateProps = {
   showTime: boolean;
 };
 
-export type StageContainerProps = {
-  stage: Stage;
-  allStages: Stage[];
+export type PlatformContainerProps = {
+  platform: Platform;
+  allPlatforms: Platform[];
 };
 
 export type SponsorSectionProps = {
@@ -206,7 +206,7 @@ export type CollectionSectionProps = {
 };
 
 export type ScheduleSidebarProps = {
-  allStages: Stage[];
+  allPlatforms: Platform[];
 };
 
 export type PageProps = {

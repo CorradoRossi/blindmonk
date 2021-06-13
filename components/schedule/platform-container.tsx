@@ -1,20 +1,21 @@
 import useSWR from 'swr';
 import cn from 'classnames';
-import { Stage, StageContainerProps } from '@lib/types';
+import { Platform, PlatformContainerProps } from '@lib/types';
 import useLoginStatus from '@lib/hooks/use-login-status';
-import styles from 'styles/stage-container.module.css';
+import styles from 'styles/platform-container.module.css';
 import styleUtils from 'styles/utils.module.css';
 import ScheduleSidebar from './schedule-sidebar';
 import HomeEntry from '../home/home-entry';
 
-const StageContainer = ({ stage, allStages }: StageContainerProps) => {
-  const response = useSWR('/api/stages', {
-    initialData: allStages,
+const PlatformContainer = ({ platform, allPlatforms }: PlatformContainerProps) => {
+  const response = useSWR('/api/platforms', {
+    initialData: allPlatforms,
     refreshInterval: 5000
   });
 
-  const updatedStages = response.data || [];
-  const updatedStage = updatedStages.find((s: Stage) => s.slug === stage.slug) || stage;
+  const updatedPlatforms = response.data || [];
+  const updatedPlatform =
+    updatedPlatforms.find((s: Platform) => s.slug === platform.slug) || platform;
   const { loginStatus, mutate } = useLoginStatus();
 
   return (
@@ -26,16 +27,16 @@ const StageContainer = ({ stage, allStages }: StageContainerProps) => {
               allow="autoplay; picture-in-picture"
               allowFullScreen
               frameBorder="0"
-              src={`${updatedStage.stream}?autoplay=1&mute=1`}
-              title={updatedStage.name}
+              src={`${updatedPlatform.stream}?autoplay=1&mute=1`}
+              title={updatedPlatform.name}
               width="100%"
             />
             <div className={cn(styles.bottom, styleUtils.appear, styleUtils['appear-second'])}>
               <div className={styles.messageContainer}>
-                <h2 className={styles.stageName}>{stage.name}</h2>
+                <h2 className={styles.platformName}>{platform.name}</h2>
               </div>
               <a
-                href={updatedStage.discord}
+                href={updatedPlatform.discord}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.button}
@@ -63,9 +64,9 @@ const StageContainer = ({ stage, allStages }: StageContainerProps) => {
           <HomeEntry onRegister={() => mutate()} />
         )}
       </div>
-      <ScheduleSidebar allStages={updatedStages} />
+      <ScheduleSidebar allPlatforms={updatedPlatforms} />
     </div>
   );
 };
 
-export default StageContainer;
+export default PlatformContainer;

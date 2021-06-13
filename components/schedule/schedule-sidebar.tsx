@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Stage, ScheduleSidebarProps } from '@lib/types';
+import { Platform, ScheduleSidebarProps } from '@lib/types';
 import styles from 'styles/schedule-sidebar.module.css';
 import Select from '../utils/select';
 import TalkCard from './talk-card';
 import { format } from 'date-fns';
 
-const ScheduleSidebar = ({ allStages }: ScheduleSidebarProps) => {
+const ScheduleSidebar = ({ allPlatforms }: ScheduleSidebarProps) => {
   const router = useRouter();
-  const [currentStageSlug, setCurrentStageSlug] = useState(router.query.slug);
-  const currentStage = allStages.find((s: Stage) => s.slug === currentStageSlug);
+  const [currentPlatformSlug, setCurrentPlatformSlug] = useState(router.query.slug);
+  const currentPlatform = allPlatforms.find((s: Platform) => s.slug === currentPlatformSlug);
 
   useEffect(() => {
-    setCurrentStageSlug(router.query.slug);
+    setCurrentPlatformSlug(router.query.slug);
   }, [router.query.slug]);
 
   return (
@@ -20,22 +20,22 @@ const ScheduleSidebar = ({ allStages }: ScheduleSidebarProps) => {
       <h3 className={styles.header}>Upcoming drops</h3>
       <p>{format(new Date(), 'MMM, dd, yyyy')}</p>
       <Select
-        aria-label="Select a stage"
-        value={currentStageSlug}
+        aria-label="Select a platform"
+        value={currentPlatformSlug}
         onChange={e => {
           const slug = e.target.value;
-          setCurrentStageSlug(slug);
+          setCurrentPlatformSlug(slug);
           router.push(`/platform/${slug}`);
         }}
       >
-        {allStages.map(stage => (
-          <option key={stage.slug} value={stage.slug}>
-            {stage.name}
+        {allPlatforms.map(platform => (
+          <option key={platform.slug} value={platform.slug}>
+            {platform.name}
           </option>
         ))}
       </Select>
       <div className={styles.talks}>
-        {currentStage?.schedule.map(talk => (
+        {currentPlatform?.schedule.map(talk => (
           <TalkCard key={talk.title} talk={talk} showTime />
         ))}
       </div>

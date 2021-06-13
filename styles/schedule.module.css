@@ -21,7 +21,7 @@
   width: 100%;
 }
 
-.stage-name {
+.platform-name {
   font-size: 22px;
   color: #fff;
   line-height: 1.15;
@@ -62,7 +62,7 @@
     margin-top: 0;
   }
 
-  .stage-name {
+  .platform-name {
     font-size: var(--space-8x);
     position: sticky;
     left: 0;
