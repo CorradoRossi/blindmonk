@@ -8,7 +8,7 @@ let cmsApi: {
   getAllJobs: () => Promise<Job[]>;
 };
 
-if (process.env.DATOCMS_READ_ONLY_API_TOKEN) {
+if (process.env.DATOCMS_FULL_API_TOKEN) {
   cmsApi = datoCmsApi;
 } else {
   cmsApi = {
