@@ -1,4 +1,4 @@
-import { Job, Sponsor, Stage, Collectible } from '@lib/types';
+import { Job, Sponsor, Platform, Collectible } from '@lib/types';
 import { API_URL, API_TOKEN } from '@lib/constants';
 
 async function fetchCmsAPI(query: string, { variables }: { variables?: Record<string, any> } = {}) {
@@ -52,10 +52,10 @@ export async function getAllCollectibles(): Promise<Collectible[]> {
   return data.allCollectibles;
 }
 
-export async function getAllStages(): Promise<Stage[]> {
+export async function getAllPlatforms(): Promise<Platform[]> {
   const data = await fetchCmsAPI(`
     {
-      allStages(first: 100, orderBy: order_ASC) {
+      allPlatforms(first: 100, orderBy: order_ASC) {
         name
         slug
         stream
@@ -76,7 +76,7 @@ export async function getAllStages(): Promise<Stage[]> {
     }
   `);
 
-  return data.allStages;
+  return data.allPlatforms;
 }
 
 export async function getLogoImg(): Promise<any> {

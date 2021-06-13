@@ -1,19 +1,19 @@
-import { Job, Sponsor, Stage, Collectible } from '@lib/types';
+import { Job, Sponsor, Platform, Collectible } from '@lib/types';
 import * as datoCmsApi from './dato/dato';
 
 let cmsApi: {
   getAllCollectibles: () => Promise<Collectible[]>;
-  getAllStages: () => Promise<Stage[]>;
+  getAllPlatforms: () => Promise<Platform[]>;
   getAllSponsors: () => Promise<Sponsor[]>;
   getAllJobs: () => Promise<Job[]>;
 };
 
-if (process.env.DATOCMS_READ_ONLY_API_TOKEN) {
+if (process.env.DATOCMS_FULL_API_TOKEN) {
   cmsApi = datoCmsApi;
 } else {
   cmsApi = {
     getAllCollectibles: async () => [],
-    getAllStages: async () => [],
+    getAllPlatforms: async () => [],
     getAllSponsors: async () => [],
     getAllJobs: async () => []
   };
@@ -23,8 +23,8 @@ export async function getAllCollectibles(): Promise<Collectible[]> {
   return cmsApi.getAllCollectibles();
 }
 
-export async function getAllStages(): Promise<Stage[]> {
-  return cmsApi.getAllStages();
+export async function getAllPlatforms(): Promise<Platform[]> {
+  return cmsApi.getAllPlatforms();
 }
 
 export async function getAllSponsors(): Promise<Sponsor[]> {

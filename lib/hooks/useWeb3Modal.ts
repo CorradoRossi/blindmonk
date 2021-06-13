@@ -5,8 +5,8 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 import Web3Modal from 'web3modal';
 
 const useWeb3Modal = (config = {}) => {
-  const [provider, setProvider] = useState<any>();
-  const [autoLoaded, setAutoLoaded] = useState<any>(false);
+  const [provider, setProvider]: any = useState();
+  const [autoLoaded, setAutoLoaded] = useState(false);
   const { autoLoad = true, infuraId = INFURA_ID, NETWORK = NETWORK_NAME }: any = config;
 
   // Web3Modal also supports many other wallets.

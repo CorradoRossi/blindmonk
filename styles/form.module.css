@@ -1,4 +1,3 @@
-
 .form {
   display: flex;
   justify-content: center;
@@ -87,10 +86,13 @@
   outline: none;
   font-weight: 500;
   color: white;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 25px rgba(117, 121, 255, 0.7),
+    0 0 30px rgba(178, 36, 239, 0.7);
 }
 
 .submit.generate-with-github {
@@ -117,8 +119,8 @@
 
 .submit.default:hover,
 .submit.default:focus {
-  background: black;
-  color: var(--gradient-four);
+  background: var(--gradient-one);
+  color: #ffffff;
 }
 
 .submit.default.generate-with-github:hover path,

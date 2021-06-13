@@ -1,4 +1,3 @@
-
 .container {
   display: flex;
   flex-direction: column;
@@ -148,7 +147,7 @@
 }
 
 .submit.default:hover {
-  background: black;
+  background: var(--gradient-one);
   color: #fff;
 }
 

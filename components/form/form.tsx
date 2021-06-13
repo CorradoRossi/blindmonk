@@ -121,7 +121,7 @@ const Form = ({ sharePage }: FormProps) => {
             onChange={e => setEmail(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            placeholder="Enter email to register free"
+            placeholder="Enter email to join beta waitlist"
             aria-label="Your email address"
             required
           />
@@ -131,7 +131,7 @@ const Form = ({ sharePage }: FormProps) => {
           className={cn(styles.submit, styles.register, styles[formState])}
           disabled={formState === 'loading'}
         >
-          {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
+          {formState === 'loading' ? <LoadingDots size={4} /> : <>Enter</>}
         </button>
       </div>
     </form>

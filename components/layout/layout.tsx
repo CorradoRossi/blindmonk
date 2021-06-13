@@ -14,7 +14,6 @@ import useWeb3Modal from '@lib/hooks/useWeb3Modal';
 
 const Layout = ({ children, className, hideNav, layoutStyles }: LayoutProps) => {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
-  const [formState, setFormState] = useState<FormState>('default');
   const router = useRouter();
   const activeRoute = router.asPath;
 
@@ -45,8 +44,6 @@ const Layout = ({ children, className, hideNav, layoutStyles }: LayoutProps) => 
             </div>
             <div className={cn(styles['header-right'])}>
               <Wallets
-                className={cn(styles.submit, styles.register, styles[formState])}
-                disabled={formState === 'loading'}
                 modalOpen={false}
                 provider={provider}
                 loadWeb3Modal={loadWeb3Modal}

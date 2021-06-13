@@ -40,13 +40,15 @@
   --header-height: 72px;
   --brand: #845ef7;
 
-  --gradient-one: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%); /*first*/
+  --gradient-one: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
   --gradient-two: linear-gradient(to top, #cc208e 0%, #6713d2 100%);
   --gradient-three: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
-  --gradient-four: linear-gradient(to top, #b224ef 0%, #7579ff 100%); /*second*/
+  --gradient-four: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
   --gradient-five: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
-  --gradient-six: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%); /*third*/
-  --gradient-seven: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%); /*fourth*/
+  --gradient-six: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+  --gradient-seven: linear-gradient(-225deg, #FF057C 0%, #8D0B93 50%, #321575 100%);
+
+  --gradient-eight: linear-gradient(to bottom, #0e0e10 0%, #111 100%);
 
   --filter-one: drop-shadow(0.05rem 0.05rem 0.5rem rgba(117, 121, 255, 0.7));
 }

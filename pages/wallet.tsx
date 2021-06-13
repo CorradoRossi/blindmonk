@@ -5,27 +5,27 @@ import Schedule from '@components/schedule/schedule';
 import Layout from '@components/layout/layout';
 import Header from '@components/layout/header';
 
-import { getAllStages } from '@lib/cms-api';
+import { getAllPlatforms } from '@lib/cms-api';
 import { ScheduleProps } from '@lib/types';
 import { META } from '@lib/constants';
 
-const SchedulePage = ({ allStages }: ScheduleProps) => {
+const SchedulePage = ({ allPlatforms }: ScheduleProps) => {
   return (
     <Page meta={META}>
       <Layout>
         <Header hero="Wallet" description={META.description} />
-        <Schedule allStages={allStages} />
+        <Schedule allPlatforms={allPlatforms} />
       </Layout>
     </Page>
   );
 };
 
 export const getStaticProps: GetStaticProps<ScheduleProps> = async () => {
-  const allStages = await getAllStages();
+  const allPlatforms = await getAllPlatforms();
 
   return {
     props: {
-      allStages
+      allPlatforms
     },
     revalidate: 60
   };

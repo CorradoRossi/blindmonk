@@ -36,7 +36,7 @@
   height: 215px;
 }
 
-.stageName {
+.platformName {
   display: flex;
   font-size: 24px;
   color: #fff;
@@ -108,7 +108,7 @@
     align-items: center;
   }
 
-  .stageName {
+  .platformName {
     font-size: var(--space-8x);
     margin-bottom: 0;
   }

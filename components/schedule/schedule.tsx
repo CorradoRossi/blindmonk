@@ -1,21 +1,21 @@
 import cn from 'classnames';
-import { Stage, Talk, ScheduleStageProps } from '@lib/types';
+import { Platform, Talk, SchedulePlatformProps } from '@lib/types';
 import styles from 'styles/schedule.module.css';
 import TalkCard from './talk-card';
 
-function StageRow({ stage }: { stage: Stage }) {
+function PlatformRow({ platform }: { platform: Platform }) {
   // Group talks by the time block
-  const timeBlocks = stage.schedule.reduce((allBlocks: any, talk) => {
+  const timeBlocks = platform.schedule.reduce((allBlocks: any, talk) => {
     allBlocks[talk.start] = [...(allBlocks[talk.start] || []), talk];
     return allBlocks;
   }, {});
 
   return (
-    <div key={stage.name} className={styles.row}>
-      <h3 className={cn(styles['stage-name'], styles[stage.slug])}>
-        <span>{stage.name}</span>
+    <div key={platform.name} className={styles.row}>
+      <h3 className={cn(styles['platform-name'], styles[platform.slug])}>
+        <span>{platform.name}</span>
       </h3>
-      <div className={cn(styles.talks, styles[stage.slug])}>
+      <div className={cn(styles.talks, styles[platform.slug])}>
         {Object.keys(timeBlocks).map((startTime: string) => (
           <div key={startTime}>
             {timeBlocks[startTime].map((talk: Talk, index: number) => (
@@ -28,12 +28,12 @@ function StageRow({ stage }: { stage: Stage }) {
   );
 }
 
-const Schedule = ({ allStages }: ScheduleStageProps) => {
+const Schedule = ({ allPlatforms }: SchedulePlatformProps) => {
   return (
     <div className={styles.container}>
       <div className={styles['row-wrapper']}>
-        {allStages.map(stage => (
-          <StageRow key={stage.slug} stage={stage} />
+        {allPlatforms.map(platform => (
+          <PlatformRow key={platform.slug} platform={platform} />
         ))}
       </div>
     </div>
