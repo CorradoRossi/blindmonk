@@ -39,10 +39,16 @@ module.exports = {
   },
   env: {
     RPC_URL_1: 'https://mainnet.infura.io/v3/72414aceffb245f7bd17f6239ce4a5d7',
-    RPC_WSS_1: 'wss://mainnet.infura.io/ws/v3/72414aceffb245f7bd17f6239ce4a5d7',
     RPC_URL_4: 'https://rinkeby.infura.io/v3/72414aceffb245f7bd17f6239ce4a5d7',
     FORTMATIC_API_KEY: 'pk_test_A6260FCBAA2EBDFB',
     MAGIC_API_KEY: 'pk_test_398B82F5F0E88874',
-    PORTIS_DAPP_ID: 'e9be171c-2b7f-4ff0-8db9-327707511ee2'
+    PORTIS_DAPP_ID: 'e9be171c-2b7f-4ff0-8db9-327707511ee2',
+    DATOCMS_READ_ONLY_API_TOKEN: '6e37e962aaf5d60e9e1b3ce1dac08d',
+    DATOCMS_FULL_API_TOKEN: '9a86934493e273cb21af51fb40aa2f',
+    NEXT_PUBLIC_PRIVACY_POLICY_URL: 'https://metastash.xyz',
+    NEXT_PUBLIC_COPYRIGHT_HOLDER: 'https://metastash.xyz',
+    SENTRY_DSN: 'https://6296b94f1426454f82a492d2a56b82dd@o804754.ingest.sentry.io/5803099',
+    NEXT_PUBLIC_SENTRY_DSN:
+      'https://6296b94f1426454f82a492d2a56b82dd@o804754.ingest.sentry.io/5803099'
   }
 };
