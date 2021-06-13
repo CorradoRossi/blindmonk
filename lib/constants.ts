@@ -1,6 +1,6 @@
 export const SITE_URL = 'https://blindmonk.club';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
-export const TWITTER_USER_NAME = 'metastash';
+export const TWITTER_USER_NAME = '@metastash';
 export const TITLE = 'Blindmonk';
 export const SITE_NAME = 'Blindmonk';
 export const BRAND_NAME = 'Blindmonk';
